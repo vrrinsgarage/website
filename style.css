@@ -35,6 +35,8 @@ body {
 }
 .logo img {
     height: 50px;
+    width: auto;
+    display: block;
 }
 .nav-links {
     display: flex;
@@ -66,7 +68,7 @@ body {
 
 /* HERO SECTION */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('hero-bg.jpg') no-repeat center center/cover;
     padding: 180px 0 100px 0;
     position: relative;
 }
@@ -219,7 +221,7 @@ body {
     font-size: 12px;
 }
 
-/* Warna Aksen Dinamis sesuai Gambar */
+/* Aksen Warna Kartu */
 .card-red .card-header i, .card-red .card-features li i { color: #ff0000; }
 .card-red { border-top: 3px solid #ff0000; }
 
@@ -328,7 +330,7 @@ body {
     color: #aaa;
 }
 
-/* INFO SECTION (AREA & GALERI) */
+/* INFO SECTION */
 .info-section {
     padding: 80px 0;
 }
@@ -494,7 +496,7 @@ footer li a:hover {
     color: #666;
 }
 
-/* RESPONSIVE RESPONSIVENESS (Untuk HP) */
+/* RESPONSIVENESS */
 @media (max-width: 768px) {
     .nav-links, .btn-wa-nav { display: none; }
     .hero-content h1 { font-size: 28px; }
