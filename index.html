@@ -3,292 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vrrins Garage - Bengkel Mobil Panggilan Palembang</title>
-    <!-- FontAwesome Icons -->
-    <link class="sub-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #e61e25;
-            --primary-hover: #c9171d;
-            --bg-dark: #0b0c10;
-            --bg-card: #14161d;
-            --text-light: #ffffff;
-            --text-gray: #aaaaaa;
-            --accent-gold: #ffb703;
-            --border-color: #222530;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Top Bar */
-        .top-features {
-            background-color: #050608;
-            border-bottom: 1px solid var(--border-color);
-            padding: 8px 4%;
-            display: flex;
-            justify-content: flex-end;
-            gap: 20px;
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        .top-features span i { color: var(--primary); margin-right: 5px; }
-
-        /* Navbar */
-        nav {
-            background-color: rgba(11, 12, 16, 0.95);
-            padding: 15px 4%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-icon { font-size: 2rem; color: var(--primary); }
-        .logo-text h1 { font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
-        .logo-text p { font-size: 0.7rem; color: var(--text-gray); }
-
-        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-
-        .btn-booking {
-            background-color: var(--primary);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 80px 4%;
-            background: linear-gradient(135deg, rgba(11,12,16,0.95) 50%, rgba(230,30,37,0.1) 100%);
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content { max-width: 650px; }
-        .hero h2 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
-        .hero h2 span { color: var(--primary); }
-        .hero p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 30px; }
-
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Services */
-        section { padding: 60px 4%; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h3 { font-size: 2rem; text-transform: uppercase; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        .service-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .service-title-area { margin-bottom: 15px; }
-        .service-title-area i { color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 5px; }
-        .service-title-area h4 { font-size: 1.2rem; text-transform: uppercase; }
-        .service-desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 15px; padding-left: 5px; }
-        .service-desc li { margin-bottom: 4px; list-style-position: inside; }
-        .service-duration { font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; }
-        .service-price { font-size: 1.3rem; font-weight: 800; margin-top: 5px; }
-
-        /* Footer */
-        footer { background-color: #050608; padding: 40px 4% 20px 4%; border-top: 1px solid var(--border-color); text-align: center; }
-        footer p { color: var(--text-gray); font-size: 0.9rem; }
-
-        /* Floating WA */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            z-index: 9999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        /* Responsive Mobile Layout */
-        @media (max-width: 768px) {
-            .top-features {
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
-                font-size: 0.75rem;
-                padding: 10px;
-            }
-            .nav-links { display: none; }
-            .hero h2 { font-size: 2rem; }
-            .logo-text h1 { font-size: 1.1rem; }
-            .logo-text p { font-size: 0.6rem; }
-        }
-    </style>
+    <title>VRRINS GARAGE - Bengkel Mobil Rumahan & Panggilan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <a href="https://wa.me/62895622499262" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <div class="top-features">
-        <span><i class="fas fa-home"></i> RUMAHAN & PANGGILAN</span>
-        <span><i class="fas fa-user-check"></i> PROFESIONAL</span>
-        <span><i class="fas fa-clock"></i> TEPAT WAKTU</span>
-    </div>
-
-    <nav>
-        <div class="logo-container">
-            <div class="logo-icon"><i class="fas fa-wrench"></i></div>
-            <div class="logo-text">
-                <h1>VRRINS GARAGE</h1>
-                <p>BENGKEL MOBIL RUMAHAN & PANGGILAN</p>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="VRRINS GARAGE LOGO">
             </div>
+            <ul class="nav-links">
+                <li><a href="#beranda" class="active">BERANDA</a></li>
+                <li><a href="#layanan">LAYANAN</a></li>
+                <li><a href="#area">AREA LAYANAN</a></li>
+                <li><a href="#galeri">GALERI</a></li>
+                <li><a href="#tentang">TENTANG KAMI</a></li>
+                <li><a href="#kontak">KONTAK</a></li>
+            </ul>
+            <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-nav">
+                <i class="fab fa-whatsapp"></i> BOOKING WHATSAPP
+            </a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#layanan">LAYANAN</a></li>
-            <li><a href="https://wa.me/62895622499262" class="btn-booking" target="_blank"><i class="fab fa-whatsapp"></i> BOOKING</a></li>
-        </ul>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>SERVICE MOBIL<br><span>JADI LEBIH MUDAH!</span></h2>
-            <p>Mekanik profesional dengan peralatan lengkap di Palembang. Kami datang langsung ke rumah Anda tanpa perlu antre.</p>
-            <a href="https://wa.me/62895622499262" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> HUBUNGI KAMI (WA)</a>
+    <!-- HERO SECTION -->
+    <section id="beranda" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>REPOT KE BENGKEL?</h1>
+                <h2 class="highlight">KAMI DATANG<br>KE LOKASI ANDA.</h2>
+                <p>Bengkel mobil rumahan & panggilan di Palembang. Diagnosa kendaraan menggunakan scanner dan peralatan sesuai kebutuhan servis.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-hero">
+                        <i class="fab fa-whatsapp"></i> BOOKING WHATSAPP
+                    </a>
+                    <a href="#layanan" class="btn-outline">LIHAT LAYANAN <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="hero-badge">
+                <p>BENGKEL MOBIL RUMAHAN & PANGGILAN</p>
+                <h3><i class="fas fa-map-marker-alt"></i> DI PALEMBANG</h3>
+            </div>
         </div>
     </section>
 
-    <section id="layanan">
-        <div class="section-header">
-            <h3>Paket Service Terbaik</h3>
-        </div>
-
-        <div class="services-grid">
-            <!-- 1. VG CHECK -->
-            <div class="service-card">
-                <div class="service-title-area">
-                    <i class="fas fa-heartbeat"></i>
-                    <h4>VG CHECK</h4>
-                </div>
-                <ul class="service-desc">
-                    <li>Pemeriksaan Menyeluruh Mesin</li>
-                    <li>Pengecekan Brake System & Rem</li>
-                    <li>Inspeksi Understeel & Kaki-kaki</li>
-                    <li>Sistem Kemudi & Steering</li>
-                    <li>Output: Hasil Scan ECU & DTC</li>
-                </ul>
+    <!-- FEATURES BAR -->
+    <section class="features-bar">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <i class="fas fa-user-cog"></i>
                 <div>
-                    <div class="service-duration">±30 - 90 Menit</div>
-                    <div class="service-price">Rp100K - Rp150K</div>
+                    <h4>MEKANIK BERPENGALAMAN</h4>
+                    <p>Pengerjaan rapi dan berpengalaman</p>
                 </div>
             </div>
-
-            <!-- 2. VG BRAKE SERVICE -->
-            <div class="service-card">
-                <div class="service-title-area">
-                    <i class="fas fa-disc-brake"></i>
-                    <h4>VG BRAKE SERVICE</h4>
-                </div>
-                <ul class="service-desc">
-                    <li>Pembersihan Rem 4 Roda & Kampas</li>
-                    <li>Pembersihan & Pelumasan Kaliper</li>
-                    <li>Kuras Minyak Rem Lama</li>
-                    <li>Bleeding Seluruh Sistem Rem</li>
-                    <li>Uji Tekanan Pedal & Road Test</li>
-                </ul>
+            <div class="feature-item">
+                <i class="fas fa-laptop-diagnostic"></i>
                 <div>
-                    <div class="service-duration">±60 - 120 Menit</div>
-                    <div class="service-price">Rp270K</div>
+                    <h4>SCANNER DIAGNOSTIK</h4>
+                    <p>Diagnosa akurat menggunakan scanner</p>
                 </div>
             </div>
-
-            <!-- 3. VG TUNE - BENSIN -->
-            <div class="service-card">
-                <div class="service-title-area">
-                    <i class="fas fa-gas-pump"></i>
-                    <h4>VG TUNE (BENSIN)</h4>
-                </div>
-                <ul class="service-desc">
-                    <li>Scan ECU & Analisis Live Data</li>
-                    <li>Pembersihan Throttle Body & Filter</li>
-                    <li>Pengecekan Busi & Koil Pengapian</li>
-                    <li>Cek Drive Belt & Selang Vakum</li>
-                    <li>Reset ECU & Penjelasan Hasil</li>
-                </ul>
+            <div class="feature-item">
+                <i class="fas fa-home"></i>
                 <div>
-                    <div class="service-duration">±60 - 180 Menit</div>
-                    <div class="service-price">Rp250K - Rp400K</div>
+                    <h4>DATANG KE LOKASI</h4>
+                    <p>Kami datang langsung ke rumah Anda</p>
                 </div>
             </div>
-
-            <!-- 4. VG TUNE - DIESEL -->
-            <div class="service-card">
-                <div class="service-title-area">
-                    <i class="fas fa-oil-can"></i>
-                    <h4>VG TUNE (DIESEL)</h4>
-                </div>
-                <ul class="service-desc">
-                    <li>Pembersihan Throttle Body / Intake</li>
-                    <li>Cek Filter Udara & Bahan Bakar</li>
-                    <li>Pemeriksaan Kondisi Glow Plug</li>
-                    <li>Cek Selang Turbo & Turbocharger</li>
-                    <li>Final Scan ECU & Hapus DTC</li>
-                </ul>
+            <div class="feature-item">
+                <i class="fab fa-whatsapp"></i>
                 <div>
-                    <div class="service-duration">±60 - 180 Menit</div>
-                    <div class="service-price">Rp250K - Rp400K</div>
+                    <h4>BOOKING MUDAH</h4>
+                    <p>Respon cepat dan mudah dihubungi</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <div>
+                    <h4>RESPON CEPAT</h4>
+                    <p>Estimasi kedatangan 15 - 20 menit*</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <div>
+                    <h4>AREA PALEMBANG</h4>
+                    <p>Layanan di Palembang dan sekitarnya</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- PAKET LAYANAN -->
+    <section id="layanan" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>PAKET <span>LAYANAN KAMI</span></h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- CARD 1: VG CHECK -->
+                <div class="service-card card-red">
+                    <div class="card-header">
+                        <i class="fas fa-stethoscopes"></i>
+                        <div>
+                            <h3>VG CHECK</h3>
+                            <p>Pemeriksaan kendaraan & diagnosa scanner.</p>
+                        </div>
+                    </div>
+                    <div class="card-img">
+                        <img src="img-scan.jpg" alt="VG Check">
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Scan ECU & analisa DTC</li>
+                        <li><i class="fas fa-check-circle"></i> Pemeriksaan 20+ komponen</li>
+                        <li><i class="fas fa-check-circle"></i> Laporan kondisi kendaraan</li>
+                        <li><i class="fas fa-check-circle"></i> Rekomendasi perbaikan</li>
+                    </ul>
+                    <div class="card-meta">
+                        <div class="price">Rp100K - Rp150K</div>
+                        <div class="duration">30 - 90<br><span>MENIT</span></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="#" class="btn-detail">DETAIL</a>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING WA</a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: VG BRAKE SERVICE -->
+                <div class="service-card card-red">
+                    <div class="card-header">
+                        <i class="fas fa-disc-drive"></i>
+                        <div>
+                            <h3>VG BRAKE SERVICE</h3>
+                            <p>Pemeriksaan dan servis sistem rem.</p>
+                        </div>
+                    </div>
+                    <div class="card-img">
+                        <img src="img-brake.jpg" alt="VG Brake Service">
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Pemeriksaan sistem rem</li>
+                        <li><i class="fas fa-check-circle"></i> Pembersihan & perawatan</li>
+                        <li><i class="fas fa-check-circle"></i> Penyetelan & pengecekan</li>
+                        <li><i class="fas fa-check-circle"></i> Rekomendasi perbaikan</li>
+                    </ul>
+                    <div class="card-meta">
+                        <div class="price">Rp100K - Rp150K</div>
+                        <div class="duration">30 - 90<br><span>MENIT</span></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="#" class="btn-detail">DETAIL</a>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING WA</a>
+                    </div>
+                </div>
+
+                <!-- CARD 3: VG TUNE BENSIN -->
+                <div class="service-card card-blue">
+                    <div class="card-header">
+                        <i class="fas fa-engine"></i>
+                        <div>
+                            <h3>VG TUNE (BENSIN)</h3>
+                            <p>Servis berkala kendaraan bensin.</p>
+                        </div>
+                    </div>
+                    <div class="card-img">
+                        <img src="img-tune-bensin.jpg" alt="VG Tune Bensin">
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Tune Up komplit</li>
+                        <li><i class="fas fa-check-circle"></i> Pembersihan Throttle Body & ISC</li>
+                        <li><i class="fas fa-check-circle"></i> Pembersihan Intake Manifold</li>
+                        <li><i class="fas fa-check-circle"></i> Penggantian busi & filter</li>
+                        <li><i class="fas fa-check-circle"></i> Scan ECU & reset jika diperlukan</li>
+                    </ul>
+                    <div class="card-meta">
+                        <div class="price">Rp250K - Rp400K</div>
+                        <div class="duration">120 - 180<br><span>MENIT</span></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="#" class="btn-detail">DETAIL</a>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING WA</a>
+                    </div>
+                </div>
+
+                <!-- CARD 4: VG TUNE DIESEL -->
+                <div class="service-card card-orange">
+                    <div class="card-header">
+                        <i class="fas fa-oil-can"></i>
+                        <div>
+                            <h3>VG TUNE (DIESEL)</h3>
+                            <p>Servis berkala kendaraan diesel.</p>
+                        </div>
+                    </div>
+                    <div class="card-img">
+                        <img src="img-tune-diesel.jpg" alt="VG Tune Diesel">
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Tune Up komplit</li>
+                        <li><i class="fas fa-check-circle"></i> Pembersihan Throttle Body</li>
+                        <li><i class="fas fa-check-circle"></i> Cek EGR Valve & Cooler</li>
+                        <li><i class="fas fa-check-circle"></i> Pembersihan Intake & Injector</li>
+                        <li><i class="fas fa-check-circle"></i> Scan ECU & reset jika diperlukan</li>
+                    </ul>
+                    <div class="card-meta">
+                        <div class="price">Rp250K - Rp400K</div>
+                        <div class="duration">120 - 180<br><span>MENIT</span></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="#" class="btn-detail">DETAIL</a>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING WA</a>
+                    </div>
+                </div>
+            </div>
+            <p class="service-note"><i class="fas fa-info-circle"></i> Harga belum termasuk biaya panggilan & sparepart (jika diperlukan)</p>
+        </div>
+    </section>
+
+    <!-- CARA KERJA -->
+    <section class="workflow-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>CARA <span>KERJA KAMI</span></h2>
+            </div>
+            <div class="workflow-grid">
+                <div class="step-item">
+                    <div class="icon-box"><i class="fab fa-whatsapp"></i><span class="step-num">1</span></div>
+                    <h4>HUBUNGI KAMI</h4>
+                    <p>Hubungi kami melalui WhatsApp untuk booking.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon-box"><i class="fas fa-car-crush"></i><span class="step-num">2</span></div>
+                    <h4>CERITAKAN KELUHAN</h4>
+                    <p>Sampaikan keluhan mobil Anda kepada kami.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon-box"><i class="fas fa-map-marker-alt"></i><span class="step-num">3</span></div>
+                    <h4>SHARE LOKASI</h4>
+                    <p>Kirim lokasi Anda, kami siap menuju lokasi.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon-box"><i class="fas fa-laptop-diagnostic"></i><span class="step-num">4</span></div>
+                    <h4>PEMERIKSAAN</h4>
+                    <p>Kami lakukan pemeriksaan & diagnosa kendaraan.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon-box"><i class="fas fa-tools"></i><span class="step-num">5</span></div>
+                    <h4>PENGERJAAN</h4>
+                    <p>Pengerjaan dilakukan dengan teliti dan profesional.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon-box"><i class="fas fa-check-double"></i><span class="step-num">6</span></div>
+                    <h4>SELESAI</h4>
+                    <p>Mobil siap digunakan, Anda puas, kami senang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AREA & GALERI -->
+    <section class="info-section">
+        <div class="container info-grid">
+            <!-- Area Layanan -->
+            <div id="area" class="area-box">
+                <h3>AREA LAYANAN</h3>
+                <div class="radar-container">
+                    <!-- Simulasi Lingkaran Radar Target Gambar -->
+                    <div class="radar-circle circle-1"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-circle circle-3"></div>
+                    <i class="fas fa-map-marker-alt radar-pin"></i>
+                </div>
+                <ul class="area-list">
+                    <li><span class="dot green"></span> <strong>ZONA 1 (RESPON CEPAT)</strong><br>Radius ≤ 8 KM (15 - 20 menit)</li>
+                    <li><span class="dot yellow"></span> <strong>ZONA 2</strong><br>Radius 8 - 15 KM (20 - 40 menit + Konfirmasi biaya)</li>
+                    <li><span class="dot red"></span> <strong>ZONA 3</strong><br>Di luar 15 KM (Hubungi untuk penjadwalan)</li>
+                </ul>
+            </div>
+
+            <!-- Galeri Pekerjaan -->
+            <div id="galeri" class="gallery-box">
+                <div class="gallery-header">
+                    <h3>GALERI PEKERJAAN</h3>
+                    <a href="#" class="btn-gallery-all">LIHAT SEMUA GALERI</a>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="gal1.jpg" alt="Scan ECU"><span>SCAN ECU</span></div>
+                    <div class="gallery-item"><img src="gal2.jpg" alt="Servis Rem"><span>SERVIS REM</span></div>
+                    <div class="gallery-item"><img src="gal3.jpg" alt="Tune Up"><span>TUNE UP</span></div>
+                    <div class="gallery-item"><img src="gal4.jpg" alt="Ganti Oli"><span>GANTI OLI</span></div>
+                    <div class="gallery-item"><img src="gal5.jpg" alt="Cek Kaki"><span>CEK KAKI-KAKI</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container cta-container">
+            <div class="cta-text">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                    <h3>BUTUH SERVIS MOBIL?</h3>
+                    <p>Booking sekarang, kami datang ke lokasi Anda!</p>
+                </div>
+            </div>
+            <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-large">
+                <i class="fab fa-whatsapp"></i> BOOKING WHATSAPP SEKARANG
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 VRRINS GARAGE. Palembang, Indonesia.</p>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="logo.png" alt="Logo" class="footer-logo">
+                <h4>VRRINS GARAGE</h4>
+                <p>BENGKEL MOBIL RUMAHAN & PANGGILAN</p>
+                <p class="desc">Melayani servis, perawatan dan perbaikan mobil dengan sistem panggilan di Palembang dan sekitarnya.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>HUBUNGI KAMI</h4>
+                <p><i class="fab fa-whatsapp"></i> +62 895-6224-99262</p>
+                <p><i class="far fa-clock"></i> 08.00 - 20.00 WIB</p>
+                <p><i class="fas fa-map-marker-alt"></i> Palembang, Sumatera Selatan</p>
+            </div>
+            <div class="footer-social">
+                <h4>IKUTI KAMI</h4>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+            <div class="footer-links">
+                <h4>INFORMASI</h4>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#area">Area Layanan</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>&copy; 2026 VRRINS GARAGE. All Rights Reserved.</p>
+                <div class="policy-links">
+                    <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
-</html>
+                                                                                      </html>
+                                                                                      
