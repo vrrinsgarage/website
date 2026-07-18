@@ -110,7 +110,7 @@
         section { padding: 60px 4%; }
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header h3 { font-size: 2rem; text-transform: uppercase; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .service-card {
             background-color: var(--bg-card);
@@ -125,7 +125,8 @@
         .service-title-area { margin-bottom: 15px; }
         .service-title-area i { color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 5px; }
         .service-title-area h4 { font-size: 1.2rem; text-transform: uppercase; }
-        .service-desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 15px; }
+        .service-desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 15px; padding-left: 5px; }
+        .service-desc li { margin-bottom: 4px; list-style-position: inside; }
         .service-duration { font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; }
         .service-price { font-size: 1.3rem; font-weight: 800; margin-top: 5px; }
 
@@ -207,51 +208,79 @@
         </div>
 
         <div class="services-grid">
+            <!-- 1. VG CHECK -->
             <div class="service-card">
                 <div class="service-title-area">
-                    <i class="fas fa-shield-virus"></i>
+                    <i class="fas fa-heartbeat"></i>
                     <h4>VG CHECK</h4>
                 </div>
-                <p class="service-desc">Pemeriksaan menyeluruh kondisi mobil Anda menggunakan scanner.</p>
+                <ul class="service-desc">
+                    <li>Pemeriksaan Menyeluruh Mesin</li>
+                    <li>Pengecekan Brake System & Rem</li>
+                    <li>Inspeksi Understeel & Kaki-kaki</li>
+                    <li>Sistem Kemudi & Steering</li>
+                    <li>Output: Hasil Scan ECU & DTC</li>
+                </ul>
                 <div>
                     <div class="service-duration">±30 - 90 Menit</div>
                     <div class="service-price">Rp100K - Rp150K</div>
                 </div>
             </div>
 
+            <!-- 2. VG BRAKE SERVICE -->
             <div class="service-card">
                 <div class="service-title-area">
-                    <i class="fas fa-cogs"></i>
-                    <h4>VG TUNE</h4>
+                    <i class="fas fa-disc-brake"></i>
+                    <h4>VG BRAKE SERVICE</h4>
                 </div>
-                <p class="service-desc">Tune up mesin agar lebih optimal, irit bahan bakar, & bertenaga.</p>
+                <ul class="service-desc">
+                    <li>Pembersihan Rem 4 Roda & Kampas</li>
+                    <li>Pembersihan & Pelumasan Kaliper</li>
+                    <li>Kuras Minyak Rem Lama</li>
+                    <li>Bleeding Seluruh Sistem Rem</li>
+                    <li>Uji Tekanan Pedal & Road Test</li>
+                </ul>
                 <div>
-                    <div class="service-duration">±2 - 3 Jam</div>
-                    <div class="service-price">Rp400K - Rp600K</div>
+                    <div class="service-duration">±60 - 120 Menit</div>
+                    <div class="service-price">Rp270K</div>
                 </div>
             </div>
 
+            <!-- 3. VG TUNE - BENSIN -->
+            <div class="service-card">
+                <div class="service-title-area">
+                    <i class="fas fa-gas-pump"></i>
+                    <h4>VG TUNE (BENSIN)</h4>
+                </div>
+                <ul class="service-desc">
+                    <li>Scan ECU & Analisis Live Data</li>
+                    <li>Pembersihan Throttle Body & Filter</li>
+                    <li>Pengecekan Busi & Koil Pengapian</li>
+                    <li>Cek Drive Belt & Selang Vakum</li>
+                    <li>Reset ECU & Penjelasan Hasil</li>
+                </ul>
+                <div>
+                    <div class="service-duration">±60 - 180 Menit</div>
+                    <div class="service-price">Rp250K - Rp400K</div>
+                </div>
+            </div>
+
+            <!-- 4. VG TUNE - DIESEL -->
             <div class="service-card">
                 <div class="service-title-area">
                     <i class="fas fa-oil-can"></i>
-                    <h4>VG PERFORMANCE</h4>
+                    <h4>VG TUNE (DIESEL)</h4>
                 </div>
-                <p class="service-desc">Servis berkala lengkap untuk menjaga performa mesin tetap awet.</p>
+                <ul class="service-desc">
+                    <li>Pembersihan Throttle Body / Intake</li>
+                    <li>Cek Filter Udara & Bahan Bakar</li>
+                    <li>Pemeriksaan Kondisi Glow Plug</li>
+                    <li>Cek Selang Turbo & Turbocharger</li>
+                    <li>Final Scan ECU & Hapus DTC</li>
+                </ul>
                 <div>
-                    <div class="service-duration">±3 - 4 Jam</div>
-                    <div class="service-price">Rp700K - Rp1.000K</div>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-title-area">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h4>VG ULTIMATE</h4>
-                </div>
-                <p class="service-desc">Pemeriksaan paling lengkap untuk seluruh komponen sistem mobil.</p>
-                <div>
-                    <div class="service-duration">±4 - 6 Jam</div>
-                    <div class="service-price">Rp1.200K - Rp1.800K</div>
+                    <div class="service-duration">±60 - 180 Menit</div>
+                    <div class="service-price">Rp250K - Rp400K</div>
                 </div>
             </div>
         </div>
