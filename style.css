@@ -70,7 +70,7 @@ body {
 
 /* HERO SECTION */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('hero-bg.png') no-repeat center center/cover;
     padding: 180px 0 100px 0;
     position: relative;
 }
@@ -506,4 +506,5 @@ footer li a:hover {
     .info-grid { grid-template-columns: 1fr; }
     .cta-container { flex-direction: column; text-align: center; }
     .cta-text { flex-direction: column; }
-    }
+        }
+    
