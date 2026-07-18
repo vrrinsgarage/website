@@ -3,82 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VRRINS GARAGE</title>
+    <title>Vrrins Garage - Bengkel Mobil Rumahan & Panggilan Palembang</title>
+    <!-- FontAwesome for professional modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e61e25;
+            --primary-hover: #c9171d;
+            --bg-dark: #0b0c10;
+            --bg-card: #14161d;
+            --text-light: #ffffff;
+            --text-gray: #aaaaaa;
+            --accent-gold: #ffb703;
+            --border-color: #222530;
+        }
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-<section class="hero">
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
 
-    <div class="hero-content">
+        /* Top Bar Features */
+        .top-features {
+            background-color: #050608;
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 4%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
 
-        <img src="logo.png" alt="Vrrins Garage" class="logo">
+        .top-features span i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
 
-        <h1>VRRINS GARAGE</h1>
+        /* Navbar */
+        nav {
+            background-color: rgba(11, 12, 16, 0.95);
+            padding: 15px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
 
-        <h2>BENGKEL MOBIL RUMAHAN &amp; PANGGILAN</h2>
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        <a href="https://wa.me/62895622499262" class="btn">
-            Booking via WhatsApp
-        </a>
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
 
-    </div>
+        .logo-text h1 {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-</section>
+        .logo-text p {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            letter-spacing: 0.5px;
+        }
 
-<section class="services">
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
 
-    <h2>Layanan Kami</h2>
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-    <div class="service-box">
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
 
-        <div class="card">
-            <h3>Scan ECU</h3>
-        </div>
+        .btn-booking {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
 
-        <div class="card">
-            <h3>Servis Berkala</h3>
-        </div>
+        .btn-booking:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
 
-        <div class="card">
-            <h3>Tune Up</h3>
-        </div>
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 4% 80px 4%;
+            background: linear-gradient(135deg, rgba(11,12,16,0.95) 40%, rgba(230,30,37,0.15) 100%), 
+                        url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
 
-        <div class="card">
-            <h3>Rem</h3>
-        </div>
+        .hero-content {
+            max-width: 650px;
+        }
 
-        <div class="card">
-            <h3>Suspensi</h3>
-        </div>
+        .hero-tag {
+            background-color: rgba(230, 30, 37, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
 
-    </div>
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-</section>
+        .hero h2 span {
+            color: var(--primary);
+        }
 
-<section class="about">
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
 
-    <h2>Tentang Vrrins Garage</h2>
+        .hero-badges {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+        }
 
-    <p>
-        Vrrins Garage adalah bengkel mobil rumahan dan panggilan
-        yang melayani wilayah Palembang dan sekitarnya.
-    </p>
+        .badge-item {
+            background: rgba(25, 28, 38, 0.8);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-</section>
+        .badge-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
 
-<section class="cta">
+        .badge-item div h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
 
-    <h2>Hubungi Kami</h2>
+        .badge-item div p {
+            font-size: 0.75rem;
+            margin: 0;
+            color: var(--text-gray);
+        }
 
-    <p>Klik tombol di bawah untuk booking melalui WhatsApp.</p>
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
 
-    <a href="https://wa.me/62895622499262" class="btn">
-        Chat WhatsApp
-    </a>
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+        }
 
-</section>
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
 
-</body>
-</html>
+        .btn-outline {
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        /* Trust Badge Floating */
+        .trust-badge-floating {
+            position: absolute;
+            right: 8%;
+            top: 25%;
+            background: rgba(20, 22, 29, 0.9);
+            border: 2px solid var(--accent-gold);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 180px;
+        }
+
+        .trust-badge-floating .stars {
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .trust-badge-floating h3 {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        .trust-badge-floating p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Value Proposition Quick Bar */
+        .quick-bar {
+            background-color: var(--bg-card);
+            padding: 30px 4%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quick-item {
+            text-align: center;
+        }
+
+        .quick-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .quick-item h4 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .quick-item p {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* Section Global Styles */
+        section {
+            padding: 80px 4%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header p.subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .section-header h3 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .service-img-placeholder {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .service-title-area i {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+
+        .service-title-area h4 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .service-title-area p {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-meta {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: auto;
+        }
+
+        .service-duration {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-light);
+        }
+
+        .btn-card-detail {
+            margin-top: 15px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-card-detail:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .note-price {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        /* How It Works (Cara Kerja) */
+        .workflow {
+            background-color: #0d0f15;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            position: relative;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon-wrap {
+            width: 60px;
+            height: 60px;
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            position: relative;
+        }
+
+        .step-item:hover .step-icon-wrap {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .step-icon-wrap i {
+            font-size: 1.5rem;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--primary);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-item h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .step-item p {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* Grid Layout for Area & Testimonial */
+        .grid-split {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+        }
+
+        .area-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .area-box h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background: #1c1f2b url('https://api.placeholder.com/400/200') no-repeat center;
+            background-size: cover;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary);
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+
+        .zone-info h5 {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .zone-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .zone-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .zone-list li i {
+            color: #25d366;
+            margin-right: 5px;
+        }
+
+        /* Testimonials Slider Area */
+        .testimonial-box h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-box h4 i {
+            color: var(--primary);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .testi-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .stars-review {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .testi-text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #2c3040;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .user-details h5 {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        .user-details p {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* Galeri Pengerjaan */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-item {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .gallery-action {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        /* Footer CTA Bar */
+        .footer-cta-bar {
+            background: linear-gradient(90deg, #14161d 0%, #a81318 100%);
+            padding: 30px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid var(--primary);
+        }
+
+        .cta-left h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .cta-left p {
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+
+        .cta-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-phone {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer Main */
+        footer {
+            background-color: #050608;
+            padding: 60px 4% 20px 4%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transfor
