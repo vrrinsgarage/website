@@ -40,7 +40,6 @@
             text-align: center;
             border-bottom: 3px solid transparent;
         }
-        /* Style saat tab aktif */
         .workflow-tab-btn.active, .workflow-tab-btn.vrrins-active {
             color: #ff0000 !important;
             background: #1a1a1a !important;
@@ -68,7 +67,6 @@
             width: 100%;
             height: 100%;
         }
-        /* Style saat gambar tampil */
         .workflow-slide.active, .workflow-slide.vrrins-show {
             display: block !important;
         }
@@ -85,6 +83,139 @@
             .workflow-content-wrapper { height: 380px; }
             .workflow-tab-btn { font-size: 12px; padding: 12px 5px; }
             .workflow-tab-btn span { display: none; }
+        }
+
+        /* ========================================================
+           STYLE POP-UP DETAIL LAYANAN (MODAL) - PREMIUM DESIGN
+           ======================================================== */
+        .vrrins-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 99999; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(5px);
+        }
+        .vrrins-modal-content {
+            background-color: #161616;
+            margin: 20px auto;
+            padding: 25px;
+            border: 1px solid #333;
+            border-top: 4px solid #ff0000;
+            width: 90%;
+            max-width: 550px;
+            border-radius: 8px;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            animation: modalFadeIn 0.3s ease;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .vrrins-modal-close {
+            color: #aaa;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .vrrins-modal-close:hover {
+            color: #ff0000;
+        }
+        .vrrins-modal h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .vrrins-modal h3 span {
+            color: #ff0000;
+        }
+        .vrrins-modal p.subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+        .vrrins-modal-body h4 {
+            color: #ff0000;
+            margin: 15px 0 8px 0;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .vrrins-modal-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .vrrins-modal-body ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 14px;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+        .vrrins-modal-body ul li i {
+            color: #ff0000;
+            margin-top: 4px;
+            font-size: 12px;
+        }
+        .vrrins-modal-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+        }
+        .vrrins-btn-close-modal {
+            flex: 1;
+            background: #222;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        .vrrins-btn-close-modal:hover { background: #333; }
+        .vrrins-btn-wa-modal {
+            flex: 1.5;
+            background: #25d366;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .vrrins-btn-wa-modal:hover { background: #20ba59; }
+        
+        /* Memastikan tombol detail bawaan kursornya pointer */
+        .btn-detail {
+            cursor: pointer !important;
         }
     </style>
 </head>
@@ -209,7 +340,7 @@
                         <span class="duration">30 - 60<br>MENIT</span>
                     </div>
                     <div class="card-buttons">
-                        <a href="#kontak" class="btn-detail">DETAIL</a>
+                        <button type="button" class="btn-detail open-vrrins-modal" data-target="modal-check">DETAIL</button>
                         <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-card">BOOKING WA</a>
                     </div>
                 </div>
@@ -237,7 +368,7 @@
                         <span class="duration">30 - 90<br>MENIT</span>
                     </div>
                     <div class="card-buttons">
-                        <a href="#kontak" class="btn-detail">DETAIL</a>
+                        <button type="button" class="btn-detail open-vrrins-modal" data-target="modal-brake">DETAIL</button>
                         <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-card">BOOKING WA</a>
                     </div>
                 </div>
@@ -266,7 +397,7 @@
                         <span class="duration">120 - 180<br>MENIT</span>
                     </div>
                     <div class="card-buttons">
-                        <a href="#kontak" class="btn-detail">DETAIL</a>
+                        <button type="button" class="btn-detail open-vrrins-modal" data-target="modal-bensin">DETAIL</button>
                         <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-card">BOOKING WA</a>
                     </div>
                 </div>
@@ -295,7 +426,7 @@
                         <span class="duration">120 - 180<br>MENIT</span>
                     </div>
                     <div class="card-buttons">
-                        <a href="#kontak" class="btn-detail">DETAIL</a>
+                        <button type="button" class="btn-detail open-vrrins-modal" data-target="modal-diesel">DETAIL</button>
                         <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-card">BOOKING WA</a>
                     </div>
                 </div>
@@ -305,6 +436,97 @@
         </div>
     </section>
 
+    <!-- POP-UP MODALS DATA DETAIL -->
+    <!-- Modal 1: VG Check -->
+    <div id="modal-check" class="vrrins-modal">
+        <div class="vrrins-modal-content">
+            <span class="vrrins-modal-close">&times;</span>
+            <h3><i class="fas fa-search"></i> VG <span>CHECK</span></h3>
+            <p class="subtitle">Detail Pemeriksaan & Diagnosa Scanner Komprehensif</p>
+            <div class="vrrins-modal-body">
+                <h4>Apa saja yang dikerjakan?</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Koneksi OBD-II Scanner:</strong> Membaca kode kerusakan (DTC) langsung dari ECU mobil secara akurat.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Cek Sensor Mesin:</strong> Pemeriksaan menyeluruh pada komponen kelistrikan vital dan sistem sensor.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Inspeksi Fisik 20+ Poin:</strong> Pengecekan menyeluruh kebocoran oli, air radiator, aki, hingga fan belt.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Hapus Riwayat Error:</strong> Membantu mereset indikator "check engine" akibat galat riwayat lama.</li>
+                </ul>
+                <p style="font-size: 13px; color: #aaa; margin-top: 10px;"><i class="fas fa-info-circle" style="color:#ff0000;"></i> Sangat direkomendasikan jika lampu indikator dasbor menyala tiba-tiba atau sebelum menempuh perjalanan luar kota.</p>
+            </div>
+            <div class="vrrins-modal-footer">
+                <button type="button" class="vrrins-btn-close-modal">TUTUP</button>
+                <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Check" target="_blank" class="vrrins-btn-wa-modal"><i class="fab fa-whatsapp"></i> HUBUNGI SEKARANG</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: VG Brake Service -->
+    <div id="modal-brake" class="vrrins-modal">
+        <div class="vrrins-modal-content">
+            <span class="vrrins-modal-close">&times;</span>
+            <h3><i class="fas fa-car-crash"></i> VG <span>BRAKE SERVICE</span></h3>
+            <p class="subtitle">Perawatan Komponen Keselamatan & Sistem Pengereman</p>
+            <div class="vrrins-modal-body">
+                <h4>Apa saja yang dikerjakan?</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Bongkar & Bersihkan Kampas:</strong> Menghilangkan penumpukan residu debu keras di rem depan/belakang.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Lubrication / Pelumasan Kaliper:</strong> Memberikan grease khusus pin kaliper rem agar tidak macet.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Pengecekan Minyak Rem:</strong> Mengukur kualitas kelembapan air serta volume cadangan minyak rem.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Penyetelan Rem Tangan:</strong> Mengkalibrasi ulang kerapatan tuas rem parkir agar pakem maksimal.</li>
+                </ul>
+            </div>
+            <div class="vrrins-modal-footer">
+                <button type="button" class="vrrins-btn-close-modal">TUTUP</button>
+                <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Brake%20Service" target="_blank" class="vrrins-btn-wa-modal"><i class="fab fa-whatsapp"></i> HUBUNGI SEKARANG</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: VG Tune Bensin -->
+    <div id="modal-bensin" class="vrrins-modal">
+        <div class="vrrins-modal-content">
+            <span class="vrrins-modal-close">&times;</span>
+            <h3><i class="fas fa-tachometer-alt"></i> VG TUNE <span>(BENSIN)</span></h3>
+            <p class="subtitle">Optimalisasi Performa Mesin Bensin Konvensional & Injeksi</p>
+            <div class="vrrins-modal-body">
+                <h4>Apa saja yang dikerjakan?</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Pembersihan Throttle Body & ISC:</strong> Menghilangkan kerak karbon penumpukan udara agar stasioner stabil.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Intake Manifold Cleaning:</strong> Sterilisasi kerak pada jalur pasokan udara masuk menggunakan cairan khusus.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Pengecekan Busi & Koil:</strong> Pengukuran celah pembakaran serta pembersihan tumpukan sisa api elektroda.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Cek Filter Udara & BBM:</strong> Memastikan pasokan bahan bakar mengalir lancar bebas sumbatan kotoran.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Reset Engine Adaption:</strong> Kalibrasi ulang sensor pasokan udara via sistem komputer pasca-servis.</li>
+                </ul>
+            </div>
+            <div class="vrrins-modal-footer">
+                <button type="button" class="vrrins-btn-close-modal">TUTUP</button>
+                <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Tune%20Bensin" target="_blank" class="vrrins-btn-wa-modal"><i class="fab fa-whatsapp"></i> HUBUNGI SEKARANG</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: VG Tune Diesel -->
+    <div id="modal-diesel" class="vrrins-modal">
+        <div class="vrrins-modal-content">
+            <span class="vrrins-modal-close">&times;</span>
+            <h3><i class="fas fa-oil-can"></i> VG TUNE <span>(DIESEL)</span></h3>
+            <p class="subtitle">Revitalisasi Tenaga Mesin Diesel Common Rail / Konvensional</p>
+            <div class="vrrins-modal-body">
+                <h4>Apa saja yang dikerjakan?</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Pembersihan Throttle & Intake:</strong> Membersihkan jelaga hitam pekat sisa pembakaran solar tinggi.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Inspeksi Sistem Katup EGR:</strong> Melancarkan saluran EGR dari tumpukan karbon agar napas mobil tidak loyo.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Purging / Injector Cleaning (Kondisional):</strong> Pembersihan tumpukan residu deposit bbm langsung di ruang injektor.</li>
+                    <li><i class="fas fa-chevron-right"></i> <strong>Drain / Cek Filter Solar:</strong> Memastikan kadar pemisahan air pada filter solar berfungsi normal.</li>
+                </ul>
+            </div>
+            <div class="vrrins-modal-footer">
+                <button type="button" class="vrrins-btn-close-modal">TUTUP</button>
+                <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Tune%20Diesel" target="_blank" class="vrrins-btn-wa-modal"><i class="fab fa-whatsapp"></i> HUBUNGI SEKARANG</a>
+            </div>
+        </div>
+    </div>
+
     <!-- WORKFLOW SECTION -->
     <section class="workflow-section">
         <div class="container">
@@ -313,7 +535,6 @@
             </div>
             
             <div class="workflow-slider-container">
-                <!-- Memakai kelas khusus 'vrrins-btn' agar tidak tabrakan dengan script luar -->
                 <div class="workflow-tabs">
                     <button class="workflow-tab-btn vrrins-btn vrrins-active" data-slide="0">1 <span>Hubungi</span></button>
                     <button class="workflow-tab-btn vrrins-btn" data-slide="1">2 <span>Kirim Lokasi</span></button>
@@ -353,7 +574,7 @@
                 <ul class="area-list">
                     <li><span class="dot green"></span><strong>ZONA 1 (RESPON UTAMA)</strong><br>Radius &le; 8 KM dari basis</li>
                     <li><span class="dot yellow"></span><strong>ZONA 2</strong><br>Radius 8 - 15 KM (Konfirmasi jadwal & biaya)</li>
-                    <li><span class="dot red"></span><strong>ZONA 3</strong><br>Di luar 15 KM (Hubungi untuk penjadwalan khusus)</li>
+                    <li><span class="dot red"></span>"></span><strong>ZONA 3</strong><br>Di luar 15 KM (Hubungi untuk penjadwalan khusus)</li>
                 </ul>
             </div>
 
@@ -422,47 +643,74 @@
     </footer>
 
     <!-- ========================================================
-       LOGIKA JAVASCRIPT MANDIRI & ANTI-BENTROK 
+       SISTEM JAVASCRIPT: SLIDER & MODAL POP-UP ANTI BENTROK
        ======================================================== -->
     <script>
         (function() {
+            // 1. LOGIKA SLIDER ALUR PELAYANAN
             var vrrinsIdx = 0;
             var vrrinsBtns = document.querySelectorAll('.vrrins-btn');
             var vrrinsSlides = document.querySelectorAll('.vrrins-slide');
             
-            if (vrrinsBtns.length === 0 || vrrinsSlides.length === 0) return;
+            if (vrrinsBtns.length > 0 && vrrinsSlides.length > 0) {
+                function runVrrinsSlider(targetIdx) {
+                    vrrinsBtns[vrrinsIdx].classList.remove('vrrins-active', 'active');
+                    vrrinsSlides[vrrinsIdx].classList.remove('vrrins-show', 'active');
+                    vrrinsIdx = parseInt(targetIdx);
+                    vrrinsBtns[vrrinsIdx].classList.add('vrrins-active', 'active');
+                    vrrinsSlides[vrrinsIdx].classList.add('vrrins-show', 'active');
+                }
 
-            function runVrrinsSlider(targetIdx) {
-                // Hapus kelas aktif dari tombol & slide saat ini
-                vrrinsBtns[vrrinsIdx].classList.remove('vrrins-active', 'active');
-                vrrinsSlides[vrrinsIdx].classList.remove('vrrins-show', 'active');
-                
-                // Pindah ke target baru
-                vrrinsIdx = parseInt(targetIdx);
-                
-                // Tampilkan slide & tombol baru
-                vrrinsBtns[vrrinsIdx].classList.add('vrrins-active', 'active');
-                vrrinsSlides[vrrinsIdx].classList.add('vrrins-show', 'active');
+                vrrinsBtns.forEach(function(btn) {
+                    btn.onclick = function(e) {
+                        e.preventDefault();
+                        clearInterval(vrrinsTimer);
+                        var nextIdx = this.getAttribute('data-slide');
+                        runVrrinsSlider(nextIdx);
+                        vrrinsTimer = setInterval(autoVrrins, 5000);
+                    };
+                });
+
+                function autoVrrins() {
+                    var next = (vrrinsIdx + 1) % vrrinsSlides.length;
+                    runVrrinsSlider(next);
+                }
+                var vrrinsTimer = setInterval(autoVrrins, 5000);
             }
 
-            // Pasang event click ke setiap tombol secara manual tanpa terpengaruh file luar
-            vrrinsBtns.forEach(function(btn) {
-                btn.onclick = function(e) {
+            // 2. LOGIKA POP-UP DETAIL LAYANAN (MODAL INTERACTIVE)
+            var modalBtns = document.querySelectorAll('.open-vrrins-modal');
+            
+            modalBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    clearInterval(vrrinsTimer);
-                    var nextIdx = this.getAttribute('data-slide');
-                    runVrrinsSlider(nextIdx);
-                    vrrinsTimer = setInterval(autoVrrins, 5000);
-                };
+                    var targetId = this.getAttribute('data-target');
+                    var targetModal = document.getElementById(targetId);
+                    if(targetModal) {
+                        targetModal.style.display = "block";
+                        document.body.style.overflow = "hidden"; // Kunci scroll layar utama
+                    }
+                });
             });
 
-            function autoVrrins() {
-                var next = (vrrinsIdx + 1) % vrrinsSlides.length;
-                runVrrinsSlider(next);
-            }
-
-            // Jalankan perpindahan otomatis tiap 5 detik
-            var vrrinsTimer = setInterval(autoVrrins, 5000);
+            // Delegasi Event untuk Menutup Modal (Lebih Stabil di HP Android)
+            document.addEventListener('click', function(e) {
+                // Jika klik tombol silang (X)
+                if (e.target.classList.contains('vrrins-modal-close')) {
+                    e.target.closest('.vrrins-modal').style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+                // Jika klik tombol "TUTUP" di bagian bawah modal
+                if (e.target.classList.contains('vrrins-btn-close-modal')) {
+                    e.target.closest('.vrrins-modal').style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+                // Jika klik area transparan di luar kotak modal
+                if (e.target.classList.contains('vrrins-modal')) {
+                    e.target.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            });
         })();
     </script>
 
