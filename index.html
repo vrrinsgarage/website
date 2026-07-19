@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRRINS GARAGE - Bengkel Mobil Panggilan Palembang</title>
     
-    <!-- Google Fonts & Font Awesome -->
+    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -34,7 +34,7 @@
         }
 
         /* ========================================================
-           2. HEADER & NAVBAR RESPONSIF
+           2. HEADER & NAVBAR (MODE MOBILE-FIRST)
            ======================================================== */
         .navbar {
             background-color: #000000;
@@ -71,7 +71,7 @@
         }
 
         /* ========================================================
-           3. HERO SECTION (STYLING DESKTOP DIBAWA KE MOBILE)
+           3. HERO SECTION (BANNER UTAMA)
            ======================================================== */
         .hero-section {
             padding: 50px 0;
@@ -158,7 +158,7 @@
         }
 
         /* ========================================================
-           4. FEATURES BADGES GRID (2 KOLOM DI MOBILE)
+           4. FEATURES GRID (6 KEUNGGULAN UTAMA)
            ======================================================== */
         .features-bar {
             background-color: #060606;
@@ -200,7 +200,7 @@
         }
 
         /* ========================================================
-           5. LAYANAN SECTION
+           5. LAYANAN SECTION (ETALASE 4 PAKET UTAMA)
            ======================================================== */
         .services-section {
             padding: 50px 0;
@@ -268,6 +268,9 @@
         .card-body {
             padding: 15px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-features {
@@ -309,40 +312,24 @@
             color: #888888;
         }
 
-        .card-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-detail, .btn-wa-card {
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 700;
-            font-size: 12px;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-detail {
-            background-color: #222222;
-            color: #fff;
-            border: 1px solid #333333;
-            flex: 1;
-        }
-
         .btn-wa-card {
-            background-color: #25d366;
-            color: #fff;
-            flex: 1.5;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
+            background-color: #25d366;
+            color: #fff;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 13px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
         }
 
         /* ========================================================
-           6. CARA KERJA SECTION (MENGGUNAKAN GAMBAR ASLI ANDA)
+           6. CARA KERJA SECTION (ALUR PROSES 1 - 5)
            ======================================================== */
         .workflow-section {
             padding: 50px 0;
@@ -403,6 +390,7 @@
             margin-bottom: 15px;
             border-left: 4px solid #ff0000;
             padding-left: 10px;
+            text-transform: uppercase;
         }
 
         .area-list {
@@ -467,7 +455,8 @@
 
         .footer-logo {
             width: 130px;
-            margin-0 auto 15px;
+            margin: 0 auto 15px;
+            display: block;
         }
 
         footer p {
@@ -476,7 +465,7 @@
         }
 
         /* ========================================================
-           9. MEDIA QUERIES (OTOMATIS BERUBAH KE DESKTOP JIKA DI LAPTOP)
+           9. MEDIA QUERIES (OTOMATIS BERUBAH KE DESKTOP JIKA DI LAPTOP/PC)
            ======================================================== */
         @media screen and (min-width: 768px) {
             .container { width: 85%; max-width: 1200px; }
@@ -529,7 +518,7 @@
         </div>
     </header>
 
-    <!-- FEATURES BAR -->
+    <!-- FEATURES BAR (6 GRID KEUNGGULAN) -->
     <section class="features-bar">
         <div class="container features-grid">
             <div class="feature-item"><i class="fas fa-user-gear"></i><div><h4>MEKANIK AHLI</h4><p>Profesional</p></div></div>
@@ -549,63 +538,59 @@
             </div>
             <div class="services-grid">
                 
-                <!-- PACK 1 -->
+                <!-- PACK 1: VG CHECK -->
                 <div class="service-card">
                     <div class="card-header"><i class="fas fa-search"></i><div><h3>VG CHECK</h3><p>Scan & Cek Fisik</p></div></div>
                     <div class="card-img"><img src="img-scan.jpg" alt="VG Check"></div>
                     <div class="card-body">
                         <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Scan ECU Komputer Sistem</li>
-                            <li><i class="fas fa-check"></i> Deteksi Kode Error DTC</li>
-                            <li><i class="fas fa-check"></i> Hapus Error / Reset Data</li>
+                            <li><i class="fas fa-check-circle"></i> Scan ECU Komputer Sistem</li>
+                            <li><i class="fas fa-check-circle"></i> Deteksi Kode Error DTC</li>
+                            <li><i class="fas fa-check-circle"></i> Hapus Error / Reset Data</li>
                         </ul>
                         <div class="card-meta"><span class="price">Rp100K - Rp150K</span><span class="duration">30-60 Mnt</span></div>
-                        <div class="card-buttons">
-                            <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Check" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
-                        </div>
+                        <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Check" target="_blank" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
                     </div>
                 </div>
 
-                <!-- PACK 2 -->
+                <!-- PACK 2: VG BRAKE -->
                 <div class="service-card">
                     <div class="card-header"><i class="fas fa-car-burst"></i><div><h3>VG BRAKE</h3><p>Servis Sistem Rem</p></div></div>
                     <div class="card-img"><img src="img-brake.jpg" alt="VG Brake"></div>
                     <div class="card-body">
                         <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Pembersihan Kampas Rem</li>
-                            <li><i class="fas fa-check"></i> Pelumasan Pin Kaliper Rem</li>
-                            <li><i class="fas fa-check"></i> Cek Kebocoran Minyak Rem</li>
+                            <li><i class="fas fa-check-circle"></i> Pembersihan Kampas Rem</li>
+                            <li><i class="fas fa-check-circle"></i> Pelumasan Pin Kaliper Rem</li>
+                            <li><i class="fas fa-check-circle"></i> Cek Kebocoran Minyak Rem</li>
                         </ul>
                         <div class="card-meta"><span class="price">Rp100K - Rp150K</span><span class="duration">30-90 Mnt</span></div>
-                        <div class="card-buttons">
-                            <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Brake" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
-                        </div>
+                        <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Brake" target="_blank" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
                     </div>
                 </div>
 
-                <!-- PACK 3 -->
+                <!-- PACK 3: VG TUNE BENSIN -->
                 <div class="service-card">
                     <div class="card-header"><i class="fas fa-gauge"></i><div><h3>VG TUNE BENSIN</h3><p>Tune Up Mesin Bensin</p></div></div>
                     <div class="card-img"><img src="img-tune-bensin.jpg" alt="Tune Bensin"></div>
                     <div class="card-body">
                         <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Pembersihan Throttle Body</li>
-                            <li><i class="fas fa-check"></i> Pembersihan Kerak Karbon</li>
-                            <li><i class="fas fa-check"></i> Cek & Bersihkan Busi</li>
+                            <li><i class="fas fa-check-circle"></i> Pembersihan Throttle Body</li>
+                            <li><i class="fas fa-check-circle"></i> Pembersihan Kerak Karbon</li>
+                            <li><i class="fas fa-check-circle"></i> Cek & Bersihkan Busi</li>
                         </ul>
                         <div class="card-meta"><span class="price">Rp250K - Rp400K</span><span class="duration">120 Mnt</span></div>
-                        <div class="card-buttons">
-                            <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Tune%20Bensin" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
-                        </div>
+                        <a href="https://wa.me/62895622499262?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20paket%20VG%20Tune%20Bensin" target="_blank" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
                     </div>
                 </div>
 
-                <!-- PACK 4 -->
+                <!-- PACK 4: VG TUNE DIESEL -->
                 <div class="service-card">
                     <div class="card-header"><i class="fas fa-oil-can"></i><div><h3>VG TUNE DIESEL</h3><p>Tune Up Mesin Diesel</p></div></div>
                     <div class="card-img"><img src="img-tune-diesel.jpg" alt="Tune Diesel"></div>
                     <div class="card-body">
                         <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Purging Injector Solar</li>
-                            <li><i class="fas fa-check"></i> Pembersihan Kerak EGR</li>
-                            <li><i class="fas fa-check"></i> Cek Filter Udara & Solar</li
+                            <li><i class="fas fa-check-circle"></i> Purging Injector Solar</li>
+                            <li><i class="fas fa-check-circle"></i> Pembersihan Kerak EGR</li>
+                            <li><i class="fas fa-check-circle"></i> Cek Filter Udara & Solar</li>
+                        </ul>
+                        <div class="card-meta"><span class="price">Rp250K - Rp400K</span><span class="duration">120 Mnt</s
