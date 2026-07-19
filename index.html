@@ -9,7 +9,9 @@
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja - VERSI TERAMAN & STABIL 100% */
+        /* ========================================================
+           KUNCI FIX SLIDER ALUR PELAYANAN - ANTI BENTROK & MACET 
+           ======================================================== */
         .workflow-slider-container {
             max-width: 900px;
             margin: 40px auto 0;
@@ -38,10 +40,11 @@
             text-align: center;
             border-bottom: 3px solid transparent;
         }
-        .workflow-tab-btn.active {
-            color: #ff0000;
-            background: #1a1a1a;
-            border-bottom-color: #ff0000;
+        /* Style saat tab aktif */
+        .workflow-tab-btn.active, .workflow-tab-btn.vrrins-active {
+            color: #ff0000 !important;
+            background: #1a1a1a !important;
+            border-bottom-color: #ff0000 !important;
         }
         .workflow-tab-btn span {
             display: block;
@@ -50,13 +53,13 @@
             margin-top: 2px;
             text-transform: uppercase;
         }
-        .workflow-tab-btn.active span {
-            color: #aaa;
+        .workflow-tab-btn.active span, .workflow-tab-btn.vrrins-active span {
+            color: #aaa !important;
         }
         .workflow-content-wrapper {
             position: relative;
             width: 100%;
-            height: 480px; /* Tinggi absolut di HP biar tidak naik turun */
+            height: 480px;
             background: #000;
             overflow: hidden;
         }
@@ -65,24 +68,21 @@
             width: 100%;
             height: 100%;
         }
-        .workflow-slide.active {
-            display: block;
+        /* Style saat gambar tampil */
+        .workflow-slide.active, .workflow-slide.vrrins-show {
+            display: block !important;
         }
         .workflow-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Gambar presisi pas ditengah wadah */
+            object-fit: contain;
             display: block;
         }
         @media (min-width: 768px) {
-            .workflow-content-wrapper {
-                height: 650px; /* Tinggi di PC / Laptop */
-            }
+            .workflow-content-wrapper { height: 650px; }
         }
         @media (max-width: 480px) {
-            .workflow-content-wrapper {
-                height: 380px; /* Tinggi di HP Layar Kecil */
-            }
+            .workflow-content-wrapper { height: 380px; }
             .workflow-tab-btn { font-size: 12px; padding: 12px 5px; }
             .workflow-tab-btn span { display: none; }
         }
@@ -305,36 +305,36 @@
         </div>
     </section>
 
-    <!-- WORKFLOW SECTION (INTERACTIVE SLIDER) -->
+    <!-- WORKFLOW SECTION -->
     <section class="workflow-section">
         <div class="container">
             <div class="section-title">
                 <h2>ALUR <span>PELAYANAN KAMI</span></h2>
             </div>
             
-            <!-- Wadah Slider Gambar Interaktif -->
             <div class="workflow-slider-container">
+                <!-- Memakai kelas khusus 'vrrins-btn' agar tidak tabrakan dengan script luar -->
                 <div class="workflow-tabs">
-                    <button class="workflow-tab-btn active" data-index="0">1 <span>Hubungi</span></button>
-                    <button class="workflow-tab-btn" data-index="1">2 <span>Kirim Lokasi</span></button>
-                    <button class="workflow-tab-btn" data-index="2">3 <span>Pemeriksaan</span></button>
-                    <button class="workflow-tab-btn" data-index="3">4 <span>Pengerjaan</span></button>
-                    <button class="workflow-tab-btn" data-index="4">5 <span>Selesai</span></button>
+                    <button class="workflow-tab-btn vrrins-btn vrrins-active" data-slide="0">1 <span>Hubungi</span></button>
+                    <button class="workflow-tab-btn vrrins-btn" data-slide="1">2 <span>Kirim Lokasi</span></button>
+                    <button class="workflow-tab-btn vrrins-btn" data-slide="2">3 <span>Pemeriksaan</span></button>
+                    <button class="workflow-tab-btn vrrins-btn" data-slide="3">4 <span>Pengerjaan</span></button>
+                    <button class="workflow-tab-btn vrrins-btn" data-slide="4">5 <span>Selesai</span></button>
                 </div>
                 <div class="workflow-content-wrapper">
-                    <div class="workflow-slide active">
+                    <div class="workflow-slide vrrins-slide vrrins-show">
                         <img src="step1.jpg" alt="Langkah 1: Hubungi Kami">
                     </div>
-                    <div class="workflow-slide">
+                    <div class="workflow-slide vrrins-slide">
                         <img src="step2.jpg" alt="Langkah 2: Kirim Alamat Rumah">
                     </div>
-                    <div class="workflow-slide">
+                    <div class="workflow-slide vrrins-slide">
                         <img src="step3.jpg" alt="Langkah 3: Pemeriksaan">
                     </div>
-                    <div class="workflow-slide">
+                    <div class="workflow-slide vrrins-slide">
                         <img src="step4.jpg" alt="Langkah 4: Pengerjaan">
                     </div>
-                    <div class="workflow-slide">
+                    <div class="workflow-slide vrrins-slide">
                         <img src="step5.jpg" alt="Langkah 5: Selesai">
                     </div>
                 </div>
@@ -345,7 +345,6 @@
     <!-- AREA & GALERI -->
     <section id="area" class="info-section">
         <div class="container info-grid">
-            <!-- Area Layanan -->
             <div class="area-box">
                 <h3>JANGKAUAN LAYANAN</h3>
                 <div class="radar-container" style="border: none; height: auto;">
@@ -358,7 +357,6 @@
                 </ul>
             </div>
 
-            <!-- Galeri Pekerjaan -->
             <div id="galeri" class="gallery-box">
                 <div class="gallery-header">
                     <h3>GALERI PEKERJAAN</h3>
@@ -423,29 +421,50 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT SISTEM KUNCI AMAN MODERN -->
+    <!-- ========================================================
+       LOGIKA JAVASCRIPT MANDIRI & ANTI-BENTROK 
+       ======================================================== -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.workflow-slide');
-            const tabs = document.querySelectorAll('.workflow-tab-btn');
+        (function() {
+            var vrrinsIdx = 0;
+            var vrrinsBtns = document.querySelectorAll('.vrrins-btn');
+            var vrrinsSlides = document.querySelectorAll('.vrrins-slide');
             
-            function changeSlide(index) {
-                // Sembunyikan slide & tab aktif saat ini
-                slides[currentSlide].classList.remove('active');
-                tabs[currentSlide].classList.remove('active');
+            if (vrrinsBtns.length === 0 || vrrinsSlides.length === 0) return;
+
+            function runVrrinsSlider(targetIdx) {
+                // Hapus kelas aktif dari tombol & slide saat ini
+                vrrinsBtns[vrrinsIdx].classList.remove('vrrins-active', 'active');
+                vrrinsSlides[vrrinsIdx].classList.remove('vrrins-show', 'active');
                 
-                // Ubah index ke slide baru
-                currentSlide = parseInt(index);
+                // Pindah ke target baru
+                vrrinsIdx = parseInt(targetIdx);
                 
-                // Aktifkan slide & tab baru
-                slides[currentSlide].classList.add('active');
-                tabs[currentSlide].classList.add('active');
+                // Tampilkan slide & tombol baru
+                vrrinsBtns[vrrinsIdx].classList.add('vrrins-active', 'active');
+                vrrinsSlides[vrrinsIdx].classList.add('vrrins-show', 'active');
             }
-            
-            // Pasang fungsi klik aman langsung ke semua tombol tab
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    clearInterval(slideInterval); // Stop auto-slide kalau diklik manual
-                    const targetIndex = this.getAttribute('data-index');
-                  
+
+            // Pasang event click ke setiap tombol secara manual tanpa terpengaruh file luar
+            vrrinsBtns.forEach(function(btn) {
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    clearInterval(vrrinsTimer);
+                    var nextIdx = this.getAttribute('data-slide');
+                    runVrrinsSlider(nextIdx);
+                    vrrinsTimer = setInterval(autoVrrins, 5000);
+                };
+            });
+
+            function autoVrrins() {
+                var next = (vrrinsIdx + 1) % vrrinsSlides.length;
+                runVrrinsSlider(next);
+            }
+
+            // Jalankan perpindahan otomatis tiap 5 detik
+            var vrrinsTimer = setInterval(autoVrrins, 5000);
+        })();
+    </script>
+
+</body>
+</html>
