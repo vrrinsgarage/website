@@ -9,7 +9,7 @@
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja - FIX KEDUA (BERGERAK & TINGGI STABIL) */
+        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja - VERSI TERAMAN & STABIL 100% */
         .workflow-slider-container {
             max-width: 900px;
             margin: 40px auto 0;
@@ -56,7 +56,7 @@
         .workflow-content-wrapper {
             position: relative;
             width: 100%;
-            height: 480px; /* Mengunci tinggi wadah di HP agar stabil & tidak berubah ukuran */
+            height: 480px; /* Tinggi absolut di HP biar tidak naik turun */
             background: #000;
             overflow: hidden;
         }
@@ -67,29 +67,24 @@
         }
         .workflow-slide.active {
             display: block;
-            animation: fadeIn 0.4s ease forwards;
         }
         .workflow-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Gambar pas di tengah tanpa terpotong atau gepeng */
+            object-fit: contain; /* Gambar presisi pas ditengah wadah */
             display: block;
         }
         @media (min-width: 768px) {
             .workflow-content-wrapper {
-                height: 650px; /* Menyesuaikan tinggi untuk layar Laptop / PC */
+                height: 650px; /* Tinggi di PC / Laptop */
             }
         }
         @media (max-width: 480px) {
             .workflow-content-wrapper {
-                height: 380px; /* Menyesuaikan tinggi untuk HP berlayar lebih kecil */
+                height: 380px; /* Tinggi di HP Layar Kecil */
             }
             .workflow-tab-btn { font-size: 12px; padding: 12px 5px; }
             .workflow-tab-btn span { display: none; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
     </style>
 </head>
@@ -320,11 +315,11 @@
             <!-- Wadah Slider Gambar Interaktif -->
             <div class="workflow-slider-container">
                 <div class="workflow-tabs">
-                    <button class="workflow-tab-btn active" onclick="showSlide(0)">1 <span>Hubungi</span></button>
-                    <button class="workflow-tab-btn" onclick="showSlide(1)">2 <span>Kirim Lokasi</span></button>
-                    <button class="workflow-tab-btn" onclick="showSlide(2)">3 <span>Pemeriksaan</span></button>
-                    <button class="workflow-tab-btn" onclick="showSlide(3)">4 <span>Pengerjaan</span></button>
-                    <button class="workflow-tab-btn" onclick="showSlide(4)">5 <span>Selesai</span></button>
+                    <button class="workflow-tab-btn active" data-index="0">1 <span>Hubungi</span></button>
+                    <button class="workflow-tab-btn" data-index="1">2 <span>Kirim Lokasi</span></button>
+                    <button class="workflow-tab-btn" data-index="2">3 <span>Pemeriksaan</span></button>
+                    <button class="workflow-tab-btn" data-index="3">4 <span>Pengerjaan</span></button>
+                    <button class="workflow-tab-btn" data-index="4">5 <span>Selesai</span></button>
                 </div>
                 <div class="workflow-content-wrapper">
                     <div class="workflow-slide active">
@@ -428,27 +423,29 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT UNTUK SLIDER OTOMATIS & KLIK -->
+    <!-- JAVASCRIPT SISTEM KUNCI AMAN MODERN -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.workflow-slide');
-        const tabs = document.querySelectorAll('.workflow-tab-btn');
-        let slideInterval = setInterval(nextSlide, 5000); // Ganti gambar otomatis tiap 5 detik
-
-        function showSlide(index) {
-            // Reset timer biar ga tabrakan saat diklik manual
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-
-            // Hilangkan status aktif lama
-            slides[currentSlide].classList.remove('active');
-            tabs[currentSlide].classList.remove('active');
-
-            // Set slide baru jadi aktif
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            tabs[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-  
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.workflow-slide');
+            const tabs = document.querySelectorAll('.workflow-tab-btn');
+            
+            function changeSlide(index) {
+                // Sembunyikan slide & tab aktif saat ini
+                slides[currentSlide].classList.remove('active');
+                tabs[currentSlide].classList.remove('active');
+                
+                // Ubah index ke slide baru
+                currentSlide = parseInt(index);
+                
+                // Aktifkan slide & tab baru
+                slides[currentSlide].classList.add('active');
+                tabs[currentSlide].classList.add('active');
+            }
+            
+            // Pasang fungsi klik aman langsung ke semua tombol tab
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    clearInterval(slideInterval); // Stop auto-slide kalau diklik manual
+                    const targetIndex = this.getAttribute('data-index');
+                  
