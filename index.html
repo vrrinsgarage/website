@@ -34,7 +34,7 @@
         }
 
         /* ========================================================
-           2. HEADER & NAVBAR (MODE MOBILE-FIRST)
+           2. HEADER & NAVBAR
            ======================================================== */
         .navbar {
             background-color: #000000;
@@ -175,16 +175,16 @@
 
         .feature-item {
             background-color: #111111;
-            padding: 12px;
+            padding: 15px;
             border-radius: 6px;
             border: 1px solid #222222;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .feature-item i {
-            font-size: 20px;
+            font-size: 24px;
             color: #ff0000;
         }
 
@@ -212,8 +212,9 @@
         }
 
         .section-title h2 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
+            text-transform: uppercase;
         }
 
         .section-title h2 span {
@@ -223,7 +224,7 @@
         .services-grid {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
         .service-card {
@@ -250,65 +251,63 @@
         }
 
         .card-header h3 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
         }
 
         .card-header p {
             font-size: 11px;
-            color: #666666;
+            color: #888888;
         }
 
         .card-img img {
             width: 100%;
-            height: 180px;
+            height: auto;
+            max-height: 220px;
             object-fit: cover;
+            display: block;
         }
 
         .card-body {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 20px;
         }
 
         .card-features {
             list-style: none;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .card-features li {
-            font-size: 12px;
+            font-size: 13px;
             color: #cccccc;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .card-features li i {
             color: #25d366;
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 12px;
+            padding-top: 15px;
             border-top: 1px solid #222222;
             margin-bottom: 15px;
         }
 
         .price {
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 800;
             color: #ffffff;
         }
 
         .duration {
-            font-size: 11px;
+            font-size: 12px;
             color: #888888;
         }
 
@@ -316,13 +315,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 8px;
             background-color: #25d366;
             color: #fff;
-            padding: 12px;
-            border-radius: 5px;
+            padding: 14px;
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             text-align: center;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
@@ -339,7 +338,7 @@
         .workflow-container {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
         .workflow-step {
@@ -353,9 +352,11 @@
 
         .workflow-step img {
             width: 100%;
-            height: 200px;
+            height: auto;
+            max-height: 200px;
             object-fit: cover;
             margin-bottom: 15px;
+            display: block;
         }
 
         .workflow-step h3 {
@@ -399,15 +400,15 @@
 
         .area-list li {
             font-size: 13px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             display: inline-block;
         }
@@ -420,18 +421,18 @@
            ======================================================== */
         .cta-banner {
             background-color: #ff0000;
-            padding: 35px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
         .cta-banner h2 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             margin-bottom: 10px;
         }
 
         .cta-banner p {
-            font-size: 12px;
+            font-size: 13px;
             margin-bottom: 20px;
         }
 
@@ -439,11 +440,13 @@
             display: block;
             background-color: #ffffff;
             color: #000000;
-            padding: 12px;
+            padding: 14px;
             border-radius: 6px;
             font-weight: 800;
             font-size: 14px;
             text-decoration: none;
+            max-width: 320px;
+            margin: 0 auto;
         }
 
         footer {
@@ -465,7 +468,7 @@
         }
 
         /* ========================================================
-           9. MEDIA QUERIES (OTOMATIS BERUBAH KE DESKTOP JIKA DI LAPTOP/PC)
+           9. MEDIA QUERIES (OTOMATIS MODUL KE LAPTOP)
            ======================================================== */
         @media screen and (min-width: 768px) {
             .container { width: 85%; max-width: 1200px; }
@@ -475,15 +478,15 @@
             .btn-wa-hero, .btn-outline { width: 220px; }
             .features-grid { grid-template-columns: repeat(3, 1fr); }
             .services-grid { flex-direction: row; flex-wrap: wrap; }
-            .service-card { width: calc(50% - 13px); }
+            .service-card { width: calc(50% - 15px); }
             .workflow-container { flex-direction: row; flex-wrap: wrap; }
-            .workflow-step { width: calc(33.333% - 20px); }
+            .workflow-step { width: calc(33.333% - 17px); }
         }
 
         @media screen and (min-width: 1024px) {
             .features-grid { grid-template-columns: repeat(6, 1fr); }
-            .service-card { width: calc(25% - 19px); }
-            .workflow-step { width: calc(20% - 24px); }
+            .service-card { width: calc(25% - 22px); }
+            .workflow-step { width: calc(20% - 20px); }
         }
     </style>
 </head>
@@ -593,4 +596,4 @@
                             <li><i class="fas fa-check-circle"></i> Pembersihan Kerak EGR</li>
                             <li><i class="fas fa-check-circle"></i> Cek Filter Udara & Solar</li>
                         </ul>
-                        <div class="card-meta"><span class="price">Rp250K - Rp400K</span><span class="duration">120 Mnt</s
+                        <div class="card-meta"><span class="price">Rp250K - Rp4
