@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VRRINS GARAGE - Spesialis Servis Mobil di Rumah Anda</title>
-    <!-- Link CSS -->
+    <title>VRRINS GARAGE - Bengkel Mobil Rumahan & Panggilan Palembang</title>
+    <!-- Link CSS Extern -->
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,9 +14,9 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="VRRINS GARAGE LOGO">
-            </div>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="VRRINS GARAGE Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#" class="active">BERANDA</a></li>
                 <li><a href="#layanan">LAYANAN</a></li>
@@ -32,7 +32,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero-section">
+    <header class="hero-section">
         <div class="container hero-content">
             <h1>REPOT ANTRI DI BENGKEL?</h1>
             <div class="highlight">SANTAI DI RUMAH,<br>KAMI YANG DATANG.</div>
@@ -41,23 +41,24 @@
                 <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-hero">
                     <i class="fab fa-whatsapp"></i> BOOKING WHATSAPP
                 </a>
-                <a href="#layanan" class="btn-outline">LIHAT LAYANAN <i class="fas fa-arrow-right"></i></a>
+                <a href="#layanan" class="btn-outline">LIHAT LAYANAN &rarr;</a>
             </div>
             <div class="hero-badge">
-                <p>SPESIALIS HOME SERVICE</p>
-                <h3><i class="fas fa-map-marker-alt"></i> DI PALEMBANG</h3>
+                <small>SPESIALIS HOME SERVICE</small>
+                <br>
+                <strong><i class="fas fa-map-marker-alt"></i> DI PALEMBANG</strong>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- FEATURES BAR -->
     <section class="features-bar">
         <div class="container features-grid">
             <div class="feature-item">
-                <i class="fas fa-user-cog"></i>
+                <i class="fas fa-user-mechanic"></i>
                 <div>
                     <h4>MEKANIK BERPENGALAMAN</h4>
-                    <p>Pengerjaan rapi dan profesional</p>
+                    <p>Pengecekan rapi dan profesional</p>
                 </div>
             </div>
             <div class="feature-item">
@@ -75,7 +76,7 @@
                 </div>
             </div>
             <div class="feature-item">
-                <i class="fab fa-whatsapp"></i>
+                <i class="fas fa-calendar-check"></i>
                 <div>
                     <h4>BOOKING MUDAH</h4>
                     <p>Respon cepat dan mudah dihubungi</p>
@@ -98,21 +99,21 @@
         </div>
     </section>
 
-    <!-- PAKET LAYANAN -->
+    <!-- SERVICES SECTION -->
     <section id="layanan" class="services-section">
         <div class="container">
             <div class="section-title">
                 <h2>PAKET <span>LAYANAN KAMI</span></h2>
             </div>
-
+            
             <div class="services-grid">
                 <!-- CARD 1: VG CHECK -->
                 <div class="service-card card-red">
                     <div class="card-header">
-                        <i class="fas fa-stethoscope"></i>
+                        <i class="fas fa-search"></i>
                         <div>
                             <h3>VG CHECK</h3>
-                            <p>Pemeriksaan kendaraan & diagnosa scanner.</p>
+                            <p>Pemeriksaan kendaraan & diagnosa scanner</p>
                         </div>
                     </div>
                     <div class="card-img">
@@ -137,10 +138,10 @@
                 <!-- CARD 2: VG BRAKE SERVICE -->
                 <div class="service-card card-red">
                     <div class="card-header">
-                        <i class="fas fa-disc-brake"></i>
+                        <i class="fas fa-car-crash"></i>
                         <div>
                             <h3>VG BRAKE SERVICE</h3>
-                            <p>Pemeriksaan dan servis sistem rem.</p>
+                            <p>Pemeriksaan dan servis sistem rem</p>
                         </div>
                     </div>
                     <div class="card-img">
@@ -165,10 +166,10 @@
                 <!-- CARD 3: VG TUNE BENSIN -->
                 <div class="service-card card-blue">
                     <div class="card-header">
-                        <i class="fas fa-engine"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                         <div>
                             <h3>VG TUNE (BENSIN)</h3>
-                            <p>Servis berkala kendaraan bensin.</p>
+                            <p>Servis berkala kendaraan bensin</p>
                         </div>
                     </div>
                     <div class="card-img">
@@ -197,7 +198,7 @@
                         <i class="fas fa-oil-can"></i>
                         <div>
                             <h3>VG TUNE (DIESEL)</h3>
-                            <p>Servis berkala kendaraan diesel.</p>
+                            <p>Servis berkala kendaraan diesel</p>
                         </div>
                     </div>
                     <div class="card-img">
@@ -220,11 +221,12 @@
                     </div>
                 </div>
             </div>
+            
             <p class="service-note">* Harga belum termasuk biaya panggilan & sparepart (jika diperlukan)</p>
         </div>
     </section>
 
-    <!-- CARA KERJA KAMI -->
+    <!-- WORKFLOW SECTION -->
     <section class="workflow-section">
         <div class="container">
             <div class="section-title">
@@ -264,14 +266,15 @@
     <section id="area" class="info-section">
         <div class="container info-grid">
             <!-- Area Layanan -->
-            <div class="radar-container" style="border: none; height: auto;">
-    <img src="img-radar.jpg" alt="Peta Jangkauan VRRINS GARAGE" style="width: 100%; border-radius: 8px; border: 1px solid #333;">
-            </div>
-            
+            <div class="area-box">
+                <h3>JANGKAUAN LAYANAN</h3>
+                <div class="radar-container" style="border: none; height: auto;">
+                    <img src="img-radar.jpg" alt="Peta Jangkauan VRRINS GARAGE" style="width: 100%; border-radius: 8px; border: 1px solid #333;">
+                </div>
                 <ul class="area-list">
-                    <li><span class="dot green"></span> <strong>ZONA 1 (RESPON UTAMA)</strong><br>Radius ≤ 8 KM dari basis kami</li>
-                    <li><span class="dot yellow"></span> <strong>ZONA 2</strong><br>Radius 8 - 15 KM (Konfirmasi jadwal & biaya panggilan)</li>
-                    <li><span class="dot red"></span> <strong>ZONA 3</strong><br>Di luar 15 KM (Hubungi untuk penjadwalan khusus)</li>
+                    <li><span class="dot green"></span><strong>ZONA 1 (RESPON UTAMA)</strong><br>Radius &le; 8 KM dari basis</li>
+                    <li><span class="dot yellow"></span><strong>ZONA 2</strong><br>Radius 8 - 15 KM (Konfirmasi jadwal & biaya)</li>
+                    <li><span class="dot red"></span><strong>ZONA 3</strong><br>Di luar 15 KM (Hubungi untuk penjadwalan khusus)</li>
                 </ul>
             </div>
 
@@ -302,39 +305,44 @@
                     <p>Konsultasikan sekarang secara GRATIS. Cukup santai di rumah, mekanik kami yang meluncur.</p>
                 </div>
             </div>
-            <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-large">HUBUNGI SEKARANG</a>
+            <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-large">TANYA MEKANIK SEKARANG</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container footer-grid">
-            <div id="tentang">
-                <h4>VRRINS GARAGE</h4>
-                <p>Layanan bengkel mobil rumahan dan panggilan (Home Service) spesialis area Palembang. Praktis, terpercaya, dan profesional langsung di rumah Anda.</p>
+            <div>
+                <img src="logo.png" alt="VRRINS GARAGE Logo" class="footer-logo">
+                <p>Solusi servis mobil modern, praktis, dan terpercaya langsung di rumah Anda area Palembang dan sekitarnya.</p>
             </div>
             <div>
-                <h4>LAYANAN KAMI</h4>
+                <h4>JAM OPERASIONAL</h4>
+                <p>Senin - Sabtu: 08.00 - 17.00 WIB<br>Minggu: Dengan Perjanjian</p>
+            </div>
+            <div>
+                <h4>LAYANAN UTAMA</h4>
                 <ul>
-                    <li><a href="#layanan">VG Check & Scanner</a></li>
-                    <li><a href="#layanan">VG Brake Service</a></li>
-                    <li><a href="#layanan">VG Tune Up Bensin</a></li>
-                    <li><a href="#layanan">VG Tune Up Diesel</a></li>
+                    <li><a href="#layanan">Diagnostic Scan</a></li>
+                    <li><a href="#layanan">Servis Rem</a></li>
+                    <li><a href="#layanan">Tune Up Mesin</a></li>
+                    <li><a href="#layanan">Perbaikan Ringan</a></li>
                 </ul>
             </div>
             <div>
-                <h4>LOKASI LAYANAN</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Berbasis di Palembang<br>Khusus melayani panggilan servis langsung ke rumah pelanggan di seluruh area Kota Palembang.</p>
+                <h4>KONTAK KAMI</h4>
+                <p><i class="fab fa-whatsapp"></i> +62 895-6224-99262</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bukit Baru, Ilir Barat I, Palembang</p>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="container bottom-container">
-                <p>&copy; 2026 VRRINS GARAGE. All Rights Reserved.</p>
+                <p>&copy; 2026 VRRINS GARAGE. Hak Cipta Dilindungi.</p>
                 <p>Designed for Home Service</p>
             </div>
         </div>
     </footer>
 
 </body>
-    </html>
+                                </html>
     
