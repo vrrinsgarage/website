@@ -9,7 +9,7 @@
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja - FIX TINGGI KONSISTEN */
+        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja - FIX KEDUA (BERGERAK & TINGGI STABIL) */
         .workflow-slider-container {
             max-width: 900px;
             margin: 40px auto 0;
@@ -56,39 +56,40 @@
         .workflow-content-wrapper {
             position: relative;
             width: 100%;
-            /* Mengunci rasio tinggi agar konsisten mengikuti aspek rasio gambar utama */
-            aspect-ratio: 4 / 5; 
+            height: 480px; /* Mengunci tinggi wadah di HP agar stabil & tidak berubah ukuran */
             background: #000;
             overflow: hidden;
         }
         .workflow-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: none;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         .workflow-slide.active {
-            opacity: 1;
-            visibility: visible;
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
         }
         .workflow-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Gambar akan menyesuaikan area tanpa terpotong atau gepeng */
+            object-fit: contain; /* Gambar pas di tengah tanpa terpotong atau gepeng */
             display: block;
         }
         @media (min-width: 768px) {
             .workflow-content-wrapper {
-                aspect-ratio: 16 / 13; /* Rasio lebih melebar untuk tampilan layar PC/Laptop */
+                height: 650px; /* Menyesuaikan tinggi untuk layar Laptop / PC */
             }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
+            .workflow-content-wrapper {
+                height: 380px; /* Menyesuaikan tinggi untuk HP berlayar lebih kecil */
+            }
             .workflow-tab-btn { font-size: 12px; padding: 12px 5px; }
             .workflow-tab-btn span { display: none; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -432,12 +433,12 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.workflow-slide');
         const tabs = document.querySelectorAll('.workflow-tab-btn');
-        let slideInterval = setInterval(nextSlide, 6000); // Ganti gambar otomatis tiap 6 detik
+        let slideInterval = setInterval(nextSlide, 5000); // Ganti gambar otomatis tiap 5 detik
 
         function showSlide(index) {
             // Reset timer biar ga tabrakan saat diklik manual
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 6000);
+            slideInterval = setInterval(nextSlide, 5000);
 
             // Hilangkan status aktif lama
             slides[currentSlide].classList.remove('active');
@@ -450,5 +451,4 @@
         }
 
         function nextSlide() {
-            let next = (currentSlide + 1) % slides.length;
-    
+  
