@@ -2,36 +2,33 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VRRINS GARAGE - Bengkel Mobil Rumahan & Panggilan Palembang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRRINS GARAGE - Bengkel Mobil Panggilan Palembang</title>
     
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* ========================================================
-           1. RESET & ANTI-DESKTOP STYLES
+           1. RESET BASE STYLES
            ======================================================== */
         * { 
-            box-sizing: border-box !important; 
+            box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
         }
         html, body { 
-            width: 100% !important; 
-            max-width: 100% !important;
-            overflow-x: hidden !important;
+            width: 100%; 
+            overflow-x: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: #000; 
             color: #fff; 
             line-height: 1.6; 
-            -webkit-text-size-adjust: 100%;
         }
         
         .container { 
-            width: 100% !important;
-            max-width: 100% !important;
-            padding: 0 20px !important;
+            width: 100%;
+            padding: 0 20px;
             margin: 0 auto;
         }
         img {
@@ -44,7 +41,7 @@
         }
 
         /* ========================================================
-           2. NAVBAR MOBILE (FIX LOGO)
+           2. NAVBAR MOBILE 
            ======================================================== */
         .navbar { 
             padding: 12px 0; 
@@ -55,13 +52,9 @@
             z-index: 9999;
         }
         .nav-container { 
-            display: flex !important; 
-            justify-content: space-between !important; 
-            align-items: center !important; 
-        }
-        .logo {
-            display: flex;
-            align-items: center;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
         }
         .logo img { 
             height: 38px; 
@@ -69,7 +62,7 @@
             object-fit: contain;
         }
         .nav-links { 
-            display: none !important; 
+            display: none; 
         } 
         .btn-wa-nav { 
             background: #25d366; 
@@ -89,7 +82,6 @@
         .hero-section { 
             padding: 50px 0; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95));
         }
         .hero-section h1 { 
             font-size: 20px; 
@@ -137,7 +129,6 @@
             display: inline-block;
             border: 1px solid #222;
         }
-        .hero-badge small { color: #888; }
         .hero-badge strong { color: #ff0000; }
 
         /* ========================================================
@@ -150,8 +141,8 @@
             border-bottom: 1px solid #151515;
         }
         .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
         .feature-item {
@@ -167,17 +158,11 @@
             font-size: 20px;
             color: #ff0000;
         }
-        .feature-item h4 {
-            font-size: 13px;
-            color: #fff;
-        }
-        .feature-item p {
-            font-size: 11px;
-            color: #888;
-        }
+        .feature-item h4 { font-size: 13px; }
+        .feature-item p { font-size: 11px; color: #888; }
 
         /* ========================================================
-           5. SERVICES SECTION
+           5. SERVICES SECTION (DIPERBAIKI AGAR JALAN DI HP)
            ======================================================== */
         .services-section {
             padding: 40px 0;
@@ -193,17 +178,18 @@
             color: #ff0000;
         }
         .services-grid { 
-            display: grid; 
-            grid-template-columns: 1fr !important; 
+            display: flex;
+            flex-direction: column; /* Memaksa kartu berbaris ke bawah di HP */
             gap: 25px; 
         }
         .service-card { 
             background: #111; 
             border-radius: 12px; 
-            padding: 15px; 
+            padding: 20px; 
             border: 1px solid #222; 
             display: flex;
             flex-direction: column;
+            height: auto; /* Mencegah kartu terpotong */
         }
         .card-header {
             display: flex;
@@ -221,18 +207,18 @@
         .card-img img { 
             width: 100%; 
             border-radius: 8px; 
-            height: 170px; 
+            max-height: 200px; 
             object-fit: cover; 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .card-features {
             list-style: none;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .card-features li {
             font-size: 12px;
             color: #ccc;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -243,84 +229,46 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            margin-bottom: 12px;
-            padding: 8px 0;
+            margin-bottom: 15px;
+            padding: 10px 0;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
         }
         .price { color: #fff; font-size: 15px; font-weight: bold; }
-        .duration { font-size: 11px; color: #888; text-align: right; }
+        .duration { font-size: 11px; color: #888; }
         
-        .card-buttons { display: flex; gap: 8px; }
+        .card-buttons { 
+            display: flex; 
+            gap: 10px; 
+            margin-top: auto; 
+        }
         .btn-detail, .btn-wa-card { 
             flex: 1; 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: bold; 
             font-size: 13px;
-            border: none; 
         }
-        .btn-detail { background: #222; color: #fff; border: 1px solid #333; cursor: pointer;}
-        .btn-wa-card { background: #25d366; color: #fff; }
+        .btn-detail { background: #222; color: #fff; border: 1px solid #333; cursor: pointer; }
+        .btn-wa-card { background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; gap: 5px; }
         .service-note { text-align: center; font-size: 11px; color: #555; margin-top: 15px; }
 
         /* ========================================================
-           6. WORKFLOW SLIDER
+           6. WORKFLOW, INFO, & FOOTER
            ======================================================== */
-        .workflow-slider-container {
-            margin: 20px auto 0;
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .workflow-tabs {
-            display: flex;
-            background: #161616;
-            border-bottom: 1px solid #222;
-        }
-        .workflow-tab-btn {
-            flex: 1;
-            padding: 10px 2px;
-            background: none;
-            border: none;
-            color: #666;
-            font-weight: bold;
-            font-size: 11px;
-            cursor: pointer;
-            text-align: center;
-            border-bottom: 3px solid transparent;
-        }
-        .workflow-tab-btn.vrrins-active {
-            color: #ff0000 !important;
-            background: #1a1a1a !important;
-            border-bottom-color: #ff0000 !important;
-        }
-        .workflow-tab-btn span { display: none; }
-        
-        .workflow-content-wrapper {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            background: #000;
-        }
-        .workflow-slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-        }
-        .workflow-slide.vrrins-show { display: block !important; }
+        .workflow-slider-container { margin: 20px auto 0; background: #111; border: 1px solid #222; border-radius: 12px; overflow: hidden; }
+        .workflow-tabs { display: flex; background: #161616; border-bottom: 1px solid #222; }
+        .workflow-tab-btn { flex: 1; padding: 12px 2px; background: none; border: none; color: #666; font-weight: bold; font-size: 12px; cursor: pointer; text-align: center; }
+        .workflow-tab-btn.vrrins-active { color: #ff0000; background: #1a1a1a; border-bottom: 3px solid #ff0000; }
+        .workflow-content-wrapper { position: relative; width: 100%; height: 220px; background: #000; }
+        .workflow-slide { display: none; width: 100%; height: 100%; }
+        .workflow-slide.vrrins-show { display: block; }
         .workflow-slide img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* ========================================================
-           7. INFO SECTION & GALERI
-           ======================================================== */
         .info-section { padding: 40px 0; background: #050505; }
-        .info-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        .area-box h3, .gallery-box h3 {
-            font-size: 16px; margin-bottom: 15px; border-left: 3px solid #ff0000; padding-left: 10px;
-        }
+        .info-grid { display: flex; flex-direction: column; gap: 30px; }
+        .area-box h3, .gallery-box h3 { font-size: 16px; margin-bottom: 15px; border-left: 3px solid #ff0000; padding-left: 10px; }
         .area-list { list-style: none; margin-top: 15px; }
         .area-list li { font-size: 12px; margin-bottom: 10px; color: #ccc; }
         .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
@@ -329,97 +277,72 @@
         .dot.red { background: #dc3545; }
         
         .gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .gallery-header h3 { margin-bottom: 0; }
         .btn-gallery-all { font-size: 11px; color: #ff0000; font-weight: bold; }
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
         .gallery-item { position: relative; border-radius: 6px; overflow: hidden; height: 100px; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
         .gallery-item span { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); font-size: 10px; padding: 3px; text-align: center; }
 
-        /* ========================================================
-           8. CTA BANNER 
-           ======================================================== */
         .cta-banner { background: #ff0000; padding: 30px 0; text-align: center; }
-        .cta-text { margin-bottom: 15px; }
-        .cta-text i { font-size: 28px; margin-bottom: 8px; }
         .cta-text h2 { font-size: 18px; font-weight: 900; }
-        .cta-text p { font-size: 12px; opacity: 0.9; }
+        .cta-text p { font-size: 12px; margin-bottom: 15px; }
         .btn-wa-large { display: block; background: #fff; color: #000; padding: 12px; border-radius: 6px; font-weight: bold; font-size: 14px; }
 
-        /* ========================================================
-           9. FOOTER
-           ======================================================== */
-        footer { background: #000; padding: 35px 0 20px; border-top: 1px solid #111; }
-        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 25px; text-align: center; }
+        footer { background: #000; padding: 35px 0 20px; border-top: 1px solid #111; text-align: center; }
         .footer-logo { width: 130px; margin: 0 auto 10px; }
         footer p { font-size: 12px; color: #888; }
-        footer h4 { font-size: 14px; color: #fff; margin-bottom: 10px; }
+        footer h4 { font-size: 14px; color: #fff; margin: 15px 0 5px; }
         footer ul { list-style: none; }
-        footer ul li { margin-bottom: 6px; }
         footer ul li a { color: #888; font-size: 12px; }
         .footer-bottom { margin-top: 25px; padding-top: 15px; border-top: 1px solid #111; }
-        .bottom-container { display: flex; flex-direction: column; gap: 8px; text-align: center; }
 
         /* ========================================================
-           10. POP-UP MODAL STYLE
-           ======================================================= */
-        .vrrins-modal {
-            display: none; position: fixed; z-index: 99999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(4px);
-        }
-        .vrrins-modal-content {
-            background-color: #111; margin: 0 auto; padding: 20px; border: 1px solid #222; border-top: 4px solid #ff0000; width: 90%; max-width: 450px; border-radius: 8px; position: relative;
-        }
+           7. MODAL SYSTEM
+           ======================================================== */
+        .vrrins-modal { display: none; position: fixed; z-index: 99999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); }
+        .vrrins-modal-content { background-color: #111; margin: 0 auto; padding: 20px; border: 1px solid #222; border-top: 4px solid #ff0000; width: 90%; max-width: 450px; border-radius: 8px; position: relative; }
         .vrrins-modal-close { color: #fff; position: absolute; right: 15px; top: 10px; font-size: 24px; cursor: pointer; }
-        .vrrins-modal h3 { font-size: 16px; }
-        .vrrins-modal h3 span { color: #ff0000; }
-        .vrrins-modal p.subtitle { font-size: 11px; color: #666; margin-bottom: 12px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        .vrrins-modal-body h4 { color: #ff0000; font-size: 12px; margin-bottom: 8px; }
-        .vrrins-modal-body ul { list-style: none; }
-        .vrrins-modal-body ul li { font-size: 12px; color: #ccc; padding: 5px 0; border-bottom: 1px solid #161616; }
+        .vrrins-modal-body ul { list-style: none; margin-top: 10px; }
+        .vrrins-modal-body ul li { font-size: 12px; color: #ccc; padding: 6px 0; border-bottom: 1px solid #161616; }
         .vrrins-modal-footer { display: flex; gap: 10px; margin-top: 15px; }
-        .vrrins-btn-close-modal { flex: 1; background: #222; color: #fff; border: 1px solid #333; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .vrrins-btn-close-modal { flex: 1; background: #222; color: #fff; border: 1px solid #333; padding: 10px; border-radius: 6px; font-weight: bold; }
         .vrrins-btn-wa-modal { flex: 1.5; background: #25d366; color: #fff; padding: 10px; border-radius: 6px; font-weight: bold; text-align: center; }
 
         /* ========================================================
-           11. LAYOUT UNTUK LAPTOP / SCREEN LEBAR
+           8. RESPONSIVE UNTUK LAYAR BESAR / LAPTOP
            ======================================================== */
         @media (min-width: 768px) {
-            .container { width: 85% !important; max-width: 1200px !important; padding: 0 !important; }
-            .nav-links { display: flex !important; gap: 20px; list-style: none; }
+            .container { width: 85%; max-width: 1200px; padding: 0; }
+            .nav-links { display: flex; gap: 20px; list-style: none; }
             .nav-links a { color: #fff; font-size: 13px; font-weight: bold; }
-            .nav-links a:hover { color: #ff0000; }
             .btn-wa-nav { font-size: 12px; padding: 10px 16px; }
             
             .hero-section { padding: 80px 0; }
             .hero-section h1 { font-size: 30px; }
             .highlight { font-size: 45px; }
-            .hero-section p { font-size: 15px; max-width: 650px; margin: 0 auto 25px; }
             .hero-buttons { flex-direction: row; justify-content: center; gap: 15px; }
             
-            .features-grid { grid-template-columns: repeat(3, 1fr); }
-            .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .features-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .features-item { flex: 1; min-width: 150px; }
             
-            .workflow-tab-btn span { display: block; font-size: 10px; color: #555; margin-top: 2px; }
-            .workflow-content-wrapper { height: 420px; }
+            .services-grid { flex-direction: row; flex-wrap: wrap; }
+            .service-card { width: calc(50% - 13px); }
             
-            .info-grid { grid-template-columns: 1fr 1fr; }
+            .info-grid { flex-direction: row; }
+            .info-grid > div { flex: 1; }
             .gallery-grid { grid-template-columns: repeat(4, 1fr); }
             
             .cta-banner { text-align: left; padding: 45px 0; }
             .cta-container { display: flex; justify-content: space-between; align-items: center; }
-            .cta-text { margin-bottom: 0; display: flex; align-items: center; gap: 15px; }
-            .cta-text i { margin-bottom: 0; font-size: 36px; }
             .btn-wa-large { display: inline-block; padding: 12px 25px; }
             
-            .footer-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+            footer { text-align: left; }
+            .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .footer-logo { margin: 0 0 10px 0; }
-            .bottom-container { flex-direction: row; justify-content: space-between; }
         }
 
         @media (min-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(4, 1fr) !important; }
-            .features-grid { grid-template-columns: repeat(6, 1fr); }
-            .workflow-content-wrapper { height: 500px; }
+            .service-card { width: calc(25% - 19px); }
         }
     </style>
 </head>
@@ -428,9 +351,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="VRRINS GARAGE">
-            </a>
+            <a href="#" class="logo"><img src="logo.png" alt="VRRINS GARAGE"></a>
             <ul class="nav-links">
                 <li><a href="#">BERANDA</a></li>
                 <li><a href="#layanan">LAYANAN</a></li>
@@ -491,4 +412,42 @@
                         <li><i class="fas fa-check-circle"></i> Cek Komponen Vital</li>
                     </ul>
                     <div class="card-meta"><span class="price">Rp100K - Rp150K</span><span class="duration">30-60 Mnt</span></div>
-                    <div class="card
+                    <div class="card-buttons">
+                        <button class="btn-detail open-vrrins-modal" data-target="modal-check">DETAIL</button>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
+                    </div>
+                </div>
+                <!-- CARD 2 -->
+                <div class="service-card">
+                    <div class="card-header"><i class="fas fa-car-burst"></i><div><h3>VG BRAKE</h3><p>Servis Sistem Rem</p></div></div>
+                    <div class="card-img"><img src="img-brake.jpg" alt="VG Brake"></div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Bersihkan Kampas Rem</li>
+                        <li><i class="fas fa-check-circle"></i> Pelumasan Pin Kaliper</li>
+                    </ul>
+                    <div class="card-meta"><span class="price">Rp100K - Rp150K</span><span class="duration">30-90 Mnt</span></div>
+                    <div class="card-buttons">
+                        <button class="btn-detail open-vrrins-modal" data-target="modal-brake">DETAIL</button>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
+                    </div>
+                </div>
+                <!-- CARD 3 -->
+                <div class="service-card">
+                    <div class="card-header"><i class="fas fa-gauge"></i><div><h3>VG TUNE BENSIN</h3><p>Tune Up Mesin Bensin</p></div></div>
+                    <div class="card-img"><img src="img-tune-bensin.jpg" alt="Tune Bensin"></div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Bersihkan Throttle Body</li>
+                        <li><i class="fas fa-check-circle"></i> Gurah Karbon Jalur Intake</li>
+                    </ul>
+                    <div class="card-meta"><span class="price">Rp250K - Rp400K</span><span class="duration">120 Mnt</span></div>
+                    <div class="card-buttons">
+                        <button class="btn-detail open-vrrins-modal" data-target="modal-bensin">DETAIL</button>
+                        <a href="https://wa.me/62895622499262" class="btn-wa-card"><i class="fab fa-whatsapp"></i> BOOKING</a>
+                    </div>
+                </div>
+                <!-- CARD 4 -->
+                <div class="service-card">
+                    <div class="card-header"><i class="fas fa-oil-can"></i><div><h3>VG TUNE DIESEL</h3><p>Tune Up Mesin Diesel</p></div></div>
+                    <div class="card-img"><img src="img-tune-diesel.jpg" alt="Tune Diesel"></div>
+                    <ul class="card-features">
+    
