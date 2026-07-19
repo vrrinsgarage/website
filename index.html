@@ -10,7 +10,7 @@
     
     <style>
         /* ========================================================
-           1. RESET & BACKGROUND UTAMA
+           1. RESET & BACKGROUND UTAMA (MEMPERTAHANKAN BG LAMA)
            ======================================================== */
         * { 
             box-sizing: border-box; 
@@ -21,19 +21,14 @@
             width: 100%; 
             overflow-x: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0d0d0d;
-            /* Efek background pattern karbon/bengkel gelap yang macho */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=1200&auto=format&fit=crop');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+            background-color: #0a0a0a;
             color: #fff; 
             line-height: 1.6; 
         }
         
         .container { 
             width: 100%;
-            padding: 0 20px;
+            padding: 0 16px;
             margin: 0 auto;
         }
         img {
@@ -46,12 +41,12 @@
         }
 
         /* ========================================================
-           2. NAVBAR MOBILE
+           2. NAVBAR MOBILE (SESUAI SCREENSHOT)
            ======================================================== */
         .navbar { 
-            padding: 12px 0; 
-            border-bottom: 2px solid #ff0000; 
-            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 0; 
+            border-bottom: 2px solid #ff0000; /* Garis merah tegas di bawah navbar sesuai screenshot */
+            background-color: #000;
             position: sticky;
             top: 0;
             z-index: 9999;
@@ -73,130 +68,142 @@
             background: #25d366; 
             color: #fff; 
             padding: 8px 14px; 
-            border-radius: 5px; 
+            border-radius: 6px; 
             font-size: 12px; 
             font-weight: bold; 
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         /* ========================================================
-           3. HERO SECTION
+           3. HERO SECTION (DENGAN GAMBAR BACKGROUND SEPERTI SEMULA)
            ======================================================== */
         .hero-section { 
-            padding: 40px 0; 
-            text-align: center; 
+            padding: 40px 0 60px; 
+            text-align: center;
+            /* Menggabungkan gradasi gelap dengan gambar background bawaan agar teks terbaca jelas */
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.95) 100%), url('bg-hero.jpg') no-repeat center center;
+            background-size: cover;
         }
         .hero-section h1 { 
-            font-size: 20px; 
+            font-size: 22px; 
             color: #fff; 
             letter-spacing: 1px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
         .highlight { 
-            font-size: 26px; 
+            font-size: 32px; 
             font-weight: 900; 
             color: #ff0000;
-            margin: 10px 0; 
+            margin: 12px 0; 
             line-height: 1.2; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
         .hero-section p {
             font-size: 13px;
-            color: #ccc;
-            margin-bottom: 25px;
+            color: #b3b3b3;
+            margin-bottom: 30px;
+            padding: 0 10px;
         }
         .hero-buttons { 
             display: flex; 
             flex-direction: column; 
             gap: 12px; 
+            max-width: 340px;
+            margin: 0 auto;
         }
         .btn-wa-hero { 
             background: #25d366; 
             color: #fff; 
             padding: 14px; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             font-weight: bold; 
             font-size: 14px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
         .btn-outline { 
             border: 1px solid #fff; 
             padding: 14px; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             color: #fff; 
             font-weight: bold;
             font-size: 14px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.2);
         }
         .hero-badge {
-            margin-top: 25px;
-            background: rgba(17, 17, 17, 0.9);
-            padding: 10px 20px;
+            margin-top: 35px;
+            background: rgba(17, 17, 17, 0.85);
+            padding: 12px 25px;
             border-radius: 6px;
             display: inline-block;
-            border: 1px solid #ff0000;
+            border: 1px solid #ff0000; /* Border merah tipis elegan */
         }
-        .hero-badge strong { color: #ff0000; }
+        .hero-badge small { color: #aaa; letter-spacing: 1px; }
+        .hero-badge strong { color: #ff0000; display: block; font-size: 15px; margin-top: 4px; }
 
         /* ========================================================
-           4. FEATURES BAR
+           4. FEATURES BAR (GRID 2 KOLOM RAPI DI HP)
            ======================================================== */
         .features-bar {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 20px 0;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
+            background: #050505;
+            padding: 30px 0;
+            border-top: 1px solid #151515;
+            border-bottom: 1px solid #151515;
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr); /* Dipaksa jadi 2 kolom sejajar pas di HP */
+            gap: 12px;
         }
         .feature-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(25, 25, 25, 0.8);
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #333;
+            background: #111;
+            padding: 12px 10px;
+            border-radius: 8px;
+            border: 1px solid #222;
         }
         .feature-item i {
             font-size: 18px;
             color: #ff0000;
+            flex-shrink: 0;
         }
-        .feature-item h4 { font-size: 11px; font-weight: bold; }
-        .feature-item p { font-size: 9px; color: #aaa; }
+        .feature-item h4 { font-size: 11px; font-weight: bold; color: #fff; }
+        .feature-item p { font-size: 10px; color: #777; }
 
         /* ========================================================
-           5. SERVICES SECTION (DIPERBAIKI SECARA TOTAL)
+           5. SERVICES SECTION 
            ======================================================== */
         .services-section {
-            padding: 40px 0;
+            padding: 50px 0 30px;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         .section-title h2 {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 900;
             letter-spacing: 1px;
         }
         .section-title h2 span {
             color: #ff0000;
         }
         .services-grid { 
-            display: block; /* Menghilangkan konflik Flexbox/Grid bawaan browser */
+            display: block; 
         }
         .service-card { 
-            background: rgba(20, 20, 20, 0.9); 
+            background: #111; 
             border-radius: 12px; 
-            padding: 15px; 
-            border: 1px solid #333; 
-            margin-bottom: 20px; /* Jarak aman antar kartu ke bawah */
-            overflow: hidden;
+            padding: 20px; 
+            border: 1px solid #222; 
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px; 
         }
         .card-header {
             display: flex;
@@ -208,24 +215,24 @@
             font-size: 20px;
             color: #ff0000;
         }
-        .card-header h3 { font-size: 16px; font-weight: bold; }
-        .card-header p { font-size: 11px; color: #aaa; }
+        .card-header h3 { font-size: 16px; }
+        .card-header p { font-size: 11px; color: #777; }
         
         .card-img img { 
             width: 100%; 
             border-radius: 8px; 
-            height: 180px; 
+            max-height: 200px; 
             object-fit: cover; 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .card-features {
             list-style: none;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .card-features li {
             font-size: 12px;
-            color: #ddd;
-            margin-bottom: 6px;
+            color: #ccc;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -236,70 +243,69 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            margin-bottom: 12px;
-            padding: 8px 0;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
-        .price { color: #fff; font-size: 14px; font-weight: bold; }
-        .duration { font-size: 11px; color: #aaa; }
+        .price { color: #fff; font-size: 15px; font-weight: bold; }
+        .duration { font-size: 11px; color: #888; }
         
         .card-buttons { 
             display: flex; 
-            gap: 8px; 
+            gap: 10px; 
+            margin-top: auto; 
         }
         .btn-detail, .btn-wa-card { 
             flex: 1; 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: bold; 
-            font-size: 12px;
+            font-size: 13px;
         }
-        .btn-detail { background: #222; color: #fff; border: 1px solid #444; }
+        .btn-detail { background: #222; color: #fff; border: 1px solid #333; cursor: pointer; }
         .btn-wa-card { background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .service-note { text-align: center; font-size: 11px; color: #777; margin-top: 10px; }
+        .service-note { text-align: center; font-size: 11px; color: #555; margin-top: 15px; }
 
         /* ========================================================
            6. CARA KERJA / ALUR PELAYANAN
            ======================================================== */
         .workflow-section {
-            padding: 30px 0;
-            background: rgba(10,10,10,0.85);
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
+            padding: 40px 0;
         }
         .workflow-slider-container { 
-            margin-top: 15px; 
+            margin: 20px auto 0; 
             background: #111; 
-            border: 1px solid #ff0000; 
-            border-radius: 10px; 
+            border: 1px solid #222; 
+            border-radius: 12px; 
             overflow: hidden; 
         }
         .workflow-tabs { 
             display: flex; 
-            background: #1a1a1a; 
-            border-bottom: 1px solid #333; 
+            background: #161616; 
+            border-bottom: 1px solid #222; 
         }
         .workflow-tab-btn { 
             flex: 1; 
-            padding: 10px 2px; 
+            padding: 12px 2px; 
             background: none; 
             border: none; 
-            color: #777; 
+            color: #666; 
             font-weight: bold; 
-            font-size: 11px; 
+            font-size: 12px; 
+            cursor: pointer; 
             text-align: center; 
         }
         .workflow-tab-btn.vrrins-active { 
             color: #ff0000; 
-            background: #000; 
+            background: #1a1a1a; 
             border-bottom: 3px solid #ff0000; 
         }
         .workflow-content-wrapper { 
             position: relative; 
             width: 100%; 
-            height: 200px; 
+            height: 220px; 
             background: #000; 
         }
         .workflow-slide { 
@@ -317,33 +323,24 @@
         }
 
         /* ========================================================
-           7. JANGKAUAN & GALERI PEKERJAAN
+           7. JANGKAUAN AREA & GALERI PEKERJAAN
            ======================================================== */
         .info-section { 
             padding: 40px 0; 
+            background: #050505; 
         }
         .info-grid { 
-            display: block; /* Mencegah layout tabrakan di mobile */
+            display: block; 
         }
         .area-box {
-            background: rgba(20,20,20,0.9);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            margin-bottom: 25px;
-        }
-        .gallery-box {
-            background: rgba(20,20,20,0.9);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
+            margin-bottom: 35px;
         }
         .area-box h3, .gallery-box h3 { 
             font-size: 16px; 
             margin-bottom: 15px; 
-            border-left: 4px solid #ff0000; 
+            border-left: 3px solid #ff0000; 
             padding-left: 10px; 
-            font-weight: bold;
+            text-transform: uppercase;
         }
         .area-list { 
             list-style: none; 
@@ -352,12 +349,12 @@
         .area-list li { 
             font-size: 12px; 
             margin-bottom: 10px; 
-            color: #ddd; 
+            color: #ccc; 
         }
         .dot { 
             display: inline-block; 
-            width: 10px; 
-            height: 10px; 
+            width: 8px; 
+            height: 8px; 
             border-radius: 50%; 
             margin-right: 8px; 
         }
@@ -379,14 +376,13 @@
         .gallery-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
-            gap: 10px; 
+            gap: 8px; 
         }
         .gallery-item { 
             position: relative; 
             border-radius: 6px; 
             overflow: hidden; 
-            height: 110px; 
-            border: 1px solid #333;
+            height: 100px; 
         }
         .gallery-item img { 
             width: 100%; 
@@ -398,11 +394,10 @@
             bottom: 0; 
             left: 0; 
             right: 0; 
-            background: rgba(0,0,0,0.75); 
+            background: rgba(0,0,0,0.7); 
             font-size: 10px; 
-            padding: 4px; 
+            padding: 3px; 
             text-align: center; 
-            font-weight: bold;
         }
 
         /* ========================================================
@@ -429,34 +424,32 @@
             border-radius: 6px; 
             font-weight: bold; 
             font-size: 14px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         footer { 
             background: #000; 
             padding: 35px 0 20px; 
-            border-top: 2px solid #ff0000; 
+            border-top: 1px solid #111; 
             text-align: center; 
         }
         .footer-logo { 
-            width: 120px; 
+            width: 130px; 
             margin: 0 auto 10px; 
         }
         footer p { 
             font-size: 12px; 
-            color: #aaa; 
+            color: #888; 
         }
         footer h4 { 
             font-size: 14px; 
             color: #fff; 
             margin: 15px 0 5px; 
-            font-weight: bold;
         }
         footer ul { 
             list-style: none; 
         }
         footer ul li a { 
-            color: #aaa; 
+            color: #888; 
             font-size: 12px; 
         }
         .footer-bottom { 
@@ -466,28 +459,28 @@
         }
 
         /* ========================================================
-           9. MODAL POPUP DETAIL (POPUP LAYANAN)
+           9. SYSTEM POPUP DETAIL
            ======================================================== */
         .vrrins-modal { 
             display: none; 
             position: fixed; 
             z-index: 99999; 
-            padding-top: 100px; 
+            padding-top: 60px; 
             left: 0; 
             top: 0; 
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgba(0,0,0,0.9); 
+            background-color: rgba(0,0,0,0.85); 
         }
         .vrrins-modal-content { 
-            background-color: #1a1a1a; 
+            background-color: #111; 
             margin: 0 auto; 
             padding: 20px; 
-            border: 1px solid #333; 
+            border: 1px solid #222; 
             border-top: 4px solid #ff0000; 
-            width: 85%; 
-            max-width: 400px; 
+            width: 90%; 
+            max-width: 450px; 
             border-radius: 8px; 
             position: relative; 
         }
@@ -497,27 +490,28 @@
             right: 15px; 
             top: 10px; 
             font-size: 24px; 
+            cursor: pointer; 
         }
         .vrrins-modal-body ul { 
             list-style: none; 
-            margin-top: 15px; 
+            margin-top: 10px; 
         }
         .vrrins-modal-body ul li { 
-            font-size: 13px; 
+            font-size: 12px; 
             color: #ccc; 
-            padding: 8px 0; 
-            border-bottom: 1px solid #222; 
+            padding: 6px 0; 
+            border-bottom: 1px solid #161616; 
         }
         .vrrins-modal-footer { 
             display: flex; 
             gap: 10px; 
-            margin-top: 20px; 
+            margin-top: 15px; 
         }
         .vrrins-btn-close-modal { 
             flex: 1; 
-            background: #333; 
+            background: #222; 
             color: #fff; 
-            border: none; 
+            border: 1px solid #333; 
             padding: 10px; 
             border-radius: 6px; 
             font-weight: bold; 
@@ -533,26 +527,40 @@
         }
 
         /* ========================================================
-           10. RESPONSIVE UTAK TAMPILAN MONITOR LAPTOP
+           10. LAYOUT KHUSUS DESTOP / MONITOR LAPTOP
            ======================================================== */
         @media (min-width: 768px) {
-            .container { width: 85%; max-width: 1100px; padding: 0; }
-            .nav-links { display: flex; gap: 25px; list-style: none; }
+            .container { width: 85%; max-width: 1200px; padding: 0; }
+            .nav-links { display: flex; gap: 20px; list-style: none; }
             .nav-links a { color: #fff; font-size: 13px; font-weight: bold; }
-            .features-grid { grid-template-columns: repeat(6, 1fr); }
-            .services-grid { display: flex; flex-wrap: wrap; gap: 20px; }
-            .service-card { width: calc(50% - 10px); margin-bottom: 0; }
+            .btn-wa-nav { font-size: 12px; padding: 10px 16px; }
+            
+            .hero-section { padding: 80px 0; }
+            .hero-section h1 { font-size: 30px; }
+            .highlight { font-size: 45px; }
+            .hero-buttons { flex-direction: row; justify-content: center; gap: 15px; }
+            
+            .features-grid { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .feature-item { flex: 1; min-width: 150px; }
+            
+            .services-grid { display: flex; flex-direction: row; flex-wrap: wrap; gap: 25px; }
+            .service-card { width: calc(50% - 13px); margin-bottom: 0; }
+            
             .info-grid { display: flex; gap: 25px; }
             .info-grid > div { flex: 1; margin-bottom: 0; }
             .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+            
+            .cta-banner { text-align: left; padding: 45px 0; }
             .cta-container { display: flex; justify-content: space-between; align-items: center; }
-            .btn-wa-large { display: inline-block; padding: 12px 30px; }
+            .btn-wa-large { display: inline-block; padding: 12px 25px; }
+            
             footer { text-align: left; }
-            .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .footer-logo { margin: 0 0 10px 0; }
         }
 
         @media (min-width: 1024px) {
-            .service-card { width: calc(25% - 15px); }
+            .service-card { width: calc(25% - 19px); }
         }
     </style>
 </head>
@@ -565,7 +573,7 @@
             <ul class="nav-links">
                 <li><a href="#">BERANDA</a></li>
                 <li><a href="#layanan">LAYANAN</a></li>
-                <li><a href="#alur">CARA KERJA</a></li>
+                <li><a href="#cara-kerja">CARA KERJA</a></li>
                 <li><a href="#area">AREA</a></li>
                 <li><a href="#kontak">KONTAK</a></li>
             </ul>
@@ -588,29 +596,17 @@
                 <a href="#layanan" class="btn-outline">LIHAT LAYANAN &rarr;</a>
             </div>
             <div class="hero-badge">
-                <small>SPESIALIS HOME SERVICE</small><br>
+                <small>SPESIALIS HOME SERVICE</small>
                 <strong><i class="fas fa-map-marker-alt"></i> PALEMBANG</strong>
             </div>
         </div>
     </header>
 
-    <!-- FEATURES -->
+    <!-- FEATURES BAR (DIPAKSA 2 KOLOM RAPI SPERTI DI HP ANDA) -->
     <section class="features-bar">
         <div class="container features-grid">
             <div class="feature-item"><i class="fas fa-user-gear"></i><div><h4>MEKANIK AHLI</h4><p>Profesional</p></div></div>
             <div class="feature-item"><i class="fas fa-laptop-diagnostic"></i><div><h4>SCANNER ECU</h4><p>Akurat</p></div></div>
             <div class="feature-item"><i class="fas fa-house-chimney"></i><div><h4>DI GARASI ANDA</h4><p>Praktis</p></div></div>
             <div class="feature-item"><i class="fas fa-calendar-check"></i><div><h4>FAST RESPOND</h4><p>Cepat</p></div></div>
-            <div class="feature-item"><i class="fas fa-tags"></i><div><h4>HARGA FIX</h4><p>Estimasi</p></div></div>
-            <div class="feature-item"><i class="fas fa-map-marked-alt"></i><div><h4>AREA PLG</h4><p>Siap Lokasi</p></div></div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="layanan" class="services-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>PAKET <span>LAYANAN KAMI</span></h2>
-            </div>
-            <div class="services-grid">
-           
+            <div class="feature-i
