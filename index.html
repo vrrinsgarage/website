@@ -8,6 +8,77 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Gaya Tambahan untuk Fitur Slider Interaktif Cara Kerja */
+        .workflow-slider-container {
+            max-width: 900px;
+            margin: 40px auto 0;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .workflow-tabs {
+            display: flex;
+            background: #161616;
+            border-bottom: 1px solid #222;
+            justify-content: space-between;
+        }
+        .workflow-tab-btn {
+            flex: 1;
+            padding: 15px 10px;
+            background: none;
+            border: none;
+            color: #888;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+        }
+        .workflow-tab-btn.active {
+            color: #ff0000;
+            background: #1a1a1a;
+            border-bottom-color: #ff0000;
+        }
+        .workflow-tab-btn span {
+            display: block;
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+        .workflow-tab-btn.active span {
+            color: #aaa;
+        }
+        .workflow-content-wrapper {
+            position: relative;
+            min-height: 450px;
+        }
+        .workflow-slide {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .workflow-slide.active {
+            display: block;
+        }
+        .workflow-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            .workflow-tab-btn { font-size: 12px; padding: 10px 5px; }
+            .workflow-tab-btn span { display: none; }
+            .workflow-content-wrapper { min-height: 250px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -226,37 +297,38 @@
         </div>
     </section>
 
-    <!-- WORKFLOW SECTION -->
+    <!-- WORKFLOW SECTION (INTERACTIVE SLIDER) -->
     <section class="workflow-section">
         <div class="container">
             <div class="section-title">
-                <h2>CARA <span>KERJA KAMI</span></h2>
+                <h2>ALUR <span>PELAYANAN KAMI</span></h2>
             </div>
-            <div class="workflow-grid">
-                <div class="step-item">
-                    <div class="icon-box"><i class="fas fa-phone-alt"></i><span class="step-num">1</span></div>
-                    <h4>HUBUNGI KAMI</h4>
-                    <p>Konsultasikan keluhan mobil Anda via WhatsApp.</p>
+            
+            <!-- Wadah Slider Gambar Interaktif -->
+            <div class="workflow-slider-container">
+                <div class="workflow-tabs">
+                    <button class="workflow-tab-btn active" onclick="showSlide(0)">1 <span>Hubungi</span></button>
+                    <button class="workflow-tab-btn" onclick="showSlide(1)">2 <span>Kirim Lokasi</span></button>
+                    <button class="workflow-tab-btn" onclick="showSlide(2)">3 <span>Pemeriksaan</span></button>
+                    <button class="workflow-tab-btn" onclick="showSlide(3)">4 <span>Pengerjaan</span></button>
+                    <button class="workflow-tab-btn" onclick="showSlide(4)">5 <span>Selesai</span></button>
                 </div>
-                <div class="step-item">
-                    <div class="icon-box"><i class="fas fa-map-marker-alt"></i><span class="step-num">2</span></div>
-                    <h4>KIRIM ALAMAT RUMAH</h4>
-                    <p>Kirim lokasi rumah Anda dan tentukan jadwal servis.</p>
-                </div>
-                <div class="step-item">
-                    <div class="icon-box"><i class="fas fa-laptop-diagnostic"></i><span class="step-num">3</span></div>
-                    <h4>PEMERIKSAAN</h4>
-                    <p>Kami datang langsung untuk memeriksa & diagnosa kendaraan.</p>
-                </div>
-                <div class="step-item">
-                    <div class="icon-box"><i class="fas fa-tools"></i><span class="step-num">4</span></div>
-                    <h4>PENGERJAAN</h4>
-                    <p>Pengerjaan dilakukan secara teliti di garasi rumah Anda.</p>
-                </div>
-                <div class="step-item">
-                    <div class="icon-box"><i class="fas fa-check-double"></i><span class="step-num">5</span></div>
-                    <h4>SELESAI</h4>
-                    <p>Mobil siap digunakan kembali, Anda puas kami senang.</p>
+                <div class="workflow-content-wrapper">
+                    <div class="workflow-slide active">
+                        <img src="step1.jpg" alt="Langkah 1: Hubungi Kami">
+                    </div>
+                    <div class="workflow-slide">
+                        <img src="step2.jpg" alt="Langkah 2: Kirim Alamat Rumah">
+                    </div>
+                    <div class="workflow-slide">
+                        <img src="step3.jpg" alt="Langkah 3: Pemeriksaan">
+                    </div>
+                    <div class="workflow-slide">
+                        <img src="step4.jpg" alt="Langkah 4: Pengerjaan">
+                    </div>
+                    <div class="workflow-slide">
+                        <img src="step5.jpg" alt="Langkah 5: Selesai">
+                    </div>
                 </div>
             </div>
         </div>
@@ -343,6 +415,34 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT UNTUK SLIDER OTOMATIS & KLIK -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.workflow-slide');
+        const tabs = document.querySelectorAll('.workflow-tab-btn');
+        let slideInterval = setInterval(nextSlide, 6000); // Ganti gambar otomatis tiap 6 detik
+
+        function showSlide(index) {
+            // Reset timer biar ga tabrakan saat diklik manual
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 6000);
+
+            // Hilangkan status aktif lama
+            slides[currentSlide].classList.remove('active');
+            tabs[currentSlide].classList.remove('active');
+
+            // Set slide baru jadi aktif
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            tabs[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+    </script>
+
 </body>
-                                </html>
-    
+    </html>
+                    
