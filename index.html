@@ -318,7 +318,7 @@
         </div>
     </div>
 
-    <!-- MODAL: VG TUNE BENSIN -->
+        <!-- MODAL: VG TUNE BENSIN -->
     <div id="modal-tune-bensin" class="custom-modal">
         <div class="modal-dialog">
             <div class="modal-header">
@@ -328,49 +328,133 @@
             </div>
             <div class="modal-body">
                 <img src="img-tune-bensin.jpg" alt="Tune Up Bensin" class="modal-banner-img">
-                <p class="modal-subtitle">Tune up mesin bensin menyeluruh untuk membersihkan kerak karbon dan mengembalikan tenaga mesin.</p>
+                <p class="modal-subtitle" style="margin-bottom: 15px; font-weight: bold; color: #333; text-align: center;">PILIH PAKET YANG SESUAI KEBUTUHAN ANDA</p>
                 
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'tb-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tb-include')">TERMASUK</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tb-exclude')">TIDAK TERMASUK</button>
+                <!-- Tab Navigasi Paket (Susunan 2x2 Rapi di HP) -->
+                <div class="modal-tabs" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-bottom: 15px;">
+                    <button class="tab-btn active" onclick="switchTab(this, 'tune-basic')">VG TUNE BASIC</button>
+                    <button class="tab-btn" onclick="switchTab(this, 'tune-plus')">VG TUNE PLUS</button>
+                    <button class="tab-btn" onclick="switchTab(this, 'tune-pro')">VG TUNE PRO</button>
+                    <button class="tab-btn" onclick="switchTab(this, 'tune-addon')">VG ADD-ON</button>
                 </div>
 
-                <div id="tb-info" class="tab-content active">
+                <!-- Konten Paket: VG TUNE BASIC -->
+                <div id="tune-basic" class="tab-content active">
                     <div class="info-block">
-                        <h4><i class="fas fa-car"></i> UNTUK SIAPA?</h4>
-                        <p>Mobil bensin yang tarikannya berat, boros bahan bakar, atau mesin bergetar.</p>
+                        <h4><i class="fas fa-wrench"></i> DESKRIPSI & COCOK UNTUK</h4>
+                        <p>Servis berkala dasar mesin untuk mobil dengan kondisi mesin normal, tarikan mulai berat, kurang responsif, atau konsumsi BBM mulai meningkat.</p>
+                    </div>
+                    <div class="info-block">
+                        <h4><i class="fas fa-check-circle"></i> CAKUPAN PENGERJAAN:</h4>
+                        <ul class="checklist-items">
+                            <li><i class="fas fa-check-circle"></i> <strong>Diagnostik:</strong> Scan ECU awal/akhir, membaca & menghapus kode DTC.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Pengapian:</strong> Pemeriksaan busi & koil pengapian.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Sistem Udara:</strong> Cek filter udara & saluran intake, pembersihan throttle body.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Bahan Bakar:</strong> Cek saringan bensin & cek kebocoran sistem.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Fluida & Visual:</strong> Cek oli, filter, coolant, minyak rem/steering, air washer, kebocoran mesin, selang vakum, & drive belt.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Kelistrikan:</strong> Cek kondisi aki, pengisian alternator, & sistem starter.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Edukasi:</strong> Penjelasan hasil pemeriksaan & rekomendasi perbaikan.</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4><i class="fas fa-times-circle" style="color:#d32f2f;"></i> TIDAK TERMASUK</h4>
+                        <p style="font-size: 12px; color: #666;">Penggantian spare part/oli/filter/busi, pembersihan injektor, gurah karbon, pembersihan intake manifold, perbaikan kerusakan, & test drive jarak jauh.</p>
+                    </div>
+                    <div class="modal-pricing-box">
+                        <div>
+                            <span class="m-dur">Waktu: ±45–60 Menit</span>
+                            <span class="m-prc">Rp150K - Rp200K</span>
+                        </div>
                     </div>
                 </div>
 
-                <div id="tb-include" class="tab-content">
-                    <ul class="checklist-items">
-                        <li><i class="fas fa-check-circle"></i> Pembersihan Throttle Body</li>
-                        <li><i class="fas fa-check-circle"></i> Pembersihan Kerak Karbon</li>
-                        <li><i class="fas fa-check-circle"></i> Cek & Bersihkan Busi</li>
-                        <li><i class="fas fa-check-circle"></i> Scan ECU & Reset Data Error</li>
-                    </ul>
-                </div>
-
-                <div id="tb-exclude" class="tab-content">
-                    <ul class="crosslist-items">
-                        <li><i class="fas fa-times-circle"></i> Penggantian busi baru</li>
-                        <li><i class="fas fa-times-circle"></i> Suku cadang / sparepart</li>
-                    </ul>
-                </div>
-
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur">Durasi: 120 Menit</span>
-                        <span class="m-prc">Rp250.000 - Rp400.000</span>
+                <!-- Konten Paket: VG TUNE PLUS -->
+                <div id="tune-plus" class="tab-content">
+                    <div class="info-block">
+                        <h4><i class="fas fa-gas-pump"></i> DESKRIPSI & COCOK UNTUK</h4>
+                        <p>Servis berkala ditambah pembersihan sistem udara & bahan bakar. Cocok untuk mesin langsam tidak stabil, pedal gas lambat merespon, atau throttle body kotor.</p>
+                    </div>
+                    <div class="info-block" style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle"></i> MENCAKUP SEMUA LAYANAN VG TUNE BASIC</span>
+                    </div>
+                    <div class="info-block">
+                        <h4><i class="fas fa-check-circle"></i> ITEM TAMBAHAN:</h4>
+                        <ul class="checklist-items">
+                            <li><i class="fas fa-check-circle"></i> <strong>Pembersihan:</strong> Bongkar, bersihkan, & pasang kembali injektor, cek O-ring & saringan injektor.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Adaptasi & Kalibrasi:</strong> Reset ECU, Idle Learning, & Throttle Learning.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Pemeriksaan Ekstra:</strong> Cek PCV valve & selang, vacuum leak, air intake hose, & resonator.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Verifikasi Akhir:</strong> Uji respon pedal gas, kestabilan langsam, & final scan ECU.</li>
+                        </ul>
+                    </div>
+                    <div class="addon-box" style="margin-top: 10px; border: 1px dashed #2e7d32;">
+                        <h4 style="color: #2e7d32;"><i class="fas fa-leaf"></i> REKOMENDASI LAYANAN TAMBAHAN (BIASA TERPISAH)</h4>
+                        <p style="font-size:12px; margin-bottom:5px;"><strong>Gurah Karbon Mesin (Carbon Cleaner):</strong> +Rp75.000 (Jasa) untuk membersihkan endapan kerak karbon ruang bakar secara optimal (±15-30 mnt). *Biaya cairan dihitung terpisah.</p>
+                    </div>
+                    <div class="modal-pricing-box">
+                        <div>
+                            <span class="m-dur">Waktu: ±60–90 Menit</span>
+                            <span class="m-prc">Rp250K - Rp350K</span>
+                        </div>
                     </div>
                 </div>
 
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20Tune%20Up%20Bensin." target="_blank" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <!-- Konten Paket: VG TUNE PRO -->
+                <div id="tune-pro" class="tab-content">
+                    <div class="info-block">
+                        <h4><i class="fas fa-chart-line"></i> DESKRIPSI & COCOK UNTUK</h4>
+                        <p>Servis berkala premium dengan analisis scanner mendalam. Sangat cocok untuk mobil yang brebet, kurang bertenaga, indikator Check Engine menyala, BBM boros, atau sulit ditemukan penyebab gangguannya.</p>
+                    </div>
+                    <div class="info-block" style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle"></i> MENCAKUP SEMUA LAYANAN VG TUNE PLUS</span>
+                    </div>
+                    <div class="info-block">
+                        <h4><i class="fas fa-laptop-diagnostic"></i> ANALISIS SCANNER MENDALAM & PERFORMA:</h4>
+                        <ul class="checklist-items">
+                            <li><i class="fas fa-check-circle"></i> <strong>Analisis Live Data:</strong> Fuel Trim, RPM, ECT, IAT, sensor MAF/MAP, sensor O₂, TPS, APP, & Voltase Aki.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Analisis Performa:</strong> Cek Misfire Counter, Ignition Timing, Injector Balance, & Fuel Pressure Data (jika tersedia).</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Test Drive & Laporan:</strong> Test drive singkat, laporan prioritas perbaikan, edukasi kerusakan, & rekomendasi interval servis selanjutnya.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-pricing-box">
+                        <div>
+                            <span class="m-dur">Waktu: ±90–150 Menit</span>
+                            <span class="m-prc">Rp400K - Rp600K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Konten Paket: VG ADD-ON -->
+                <div id="tune-addon" class="tab-content">
+                    <div class="info-block">
+                        <h4><i class="fas fa-puzzle-piece"></i> LAYANAN TAMBAHAN (OPSIONAL)</h4>
+                        <p>Sempurnakan performa mesin mobil bensin Anda dengan menu lepasan berikut:</p>
+                    </div>
+                    <div class="addon-box" style="margin-top: 5px;">
+                        <ul>
+                            <li>
+                                <span><strong>Gurah Karbon Mesin (Jasa)</strong><br><small>Pembersihan kerak ruang bakar (15-30 mnt)</small></span> 
+                                <strong>Rp75.000*</strong>
+                            </li>
+                            <li>
+                                <span><strong>Pembersihan Intake Manifold</strong><br><small>Belum termasuk gasket & cairan (30-60 mnt)</small></span> 
+                                <strong>Rp50K - Rp100K</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 10px; color: #888; margin-top: 5px;">*Catatan: Biaya cairan/chemical gurah dihitung terpisah sesuai produk dan pemakaian.</p>
+                </div>
+
+                <!-- Catatan Kaki Kebijakan Transparan -->
+                <div style="margin-top: 15px; font-size: 11px; color: #666; background: #f9f9f9; padding: 8px; border-radius: 5px; border-left: 3px solid #ffcc00;">
+                    <i class="fas fa-info-circle"></i> *Seluruh estimasi harga di atas adalah biaya <strong>JASA SAJA</strong>. Belum termasuk biaya transportasi zona operasional, spare part (busi, filter, dll), dan bahan consumable (cairan pembersih/chemical).
+                </div>
+
+                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20paket%20Tune%20Up%20Mesin%20Bensin." target="_blank" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
                 <button class="btn-modal-close-action" onclick="closeModal('modal-tune-bensin')">TUTUP</button>
-            </div>
-        </div>
-    </div>
+            </div> <!-- Tag penutup modal-body -->
+        </div> <!-- Tag penutup modal-dialog -->
+    </div> <!-- Tag penutup modal utama -->
+    
 
     <!-- MODAL: VG TUNE DIESEL -->
     <div id="modal-tune-diesel" class="custom-modal">
