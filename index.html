@@ -182,69 +182,78 @@
                 <img src="img-scan.jpg" alt="VG Check" class="modal-banner-img">
                 <p class="modal-subtitle">Layanan pemeriksaan menyeluruh untuk mengetahui kondisi kendaraan menggunakan scanner diagnostik dan pengecekan visual.</p>
                 
-                <!-- Tab Navigasi -->
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'check-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'check-include')">TERMASUK</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'check-exclude')">TIDAK TERMASUK</button>
-                </div>
+                    <!-- Tab Navigasi -->
+    <div class="modal-tabs" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 15px;">
+        <button class="tab-btn active" onclick="switchTab(this, 'check-info')">INFORMASI</button>
+        <button class="tab-btn" onclick="switchTab(this, 'check-include')">CAKUPAN</button>
+        <button class="tab-btn" onclick="switchTab(this, 'check-exclude')">TIDAK MASUK</button>
+    </div>
 
-                <!-- Tab Konten: INFORMASI -->
-                <div id="check-info" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-car"></i> UNTUK SIAPA?</h4>
-                        <p>Semua jenis mobil (Bensin & Diesel) yang mengalami kendala sistem kelistrikan atau ingin general check-up.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-bullseye"></i> TUJUAN</h4>
-                        <p>Mengetahui kondisi kendaraan secara menyeluruh sebelum terjadi kerusakan yang lebih besar.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-file-alt"></i> HASIL YANG DIDAPAT</h4>
-                        <p>Laporan kondisi kendaraan, rekomendasi perbaikan (jika ada), dan estimasi biaya.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-star"></i> REKOMENDASI</h4>
-                        <p>Disarankan dilakukan secara berkala setiap 3.000 - 5.000 km atau sebelum perjalanan jauh.</p>
-                    </div>
-                    <div class="addon-box">
-                        <h4>LAYANAN TAMBAHAN (ADDON)</h4>
-                        <ul>
-                            <li><span>Check Rem Lengkap</span> <strong>+Rp50.000</strong></li>
-                            <li><span>Cek Kaki-Kaki</span> <strong>+Rp50.000</strong></li>
-                            <li><span>Pembersihan Throttle Body</span> <strong>+Rp100.000</strong></li>
-                            <li><span>Pembersihan Ruang Mesin</span> <strong>+Rp50.000</strong></li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Tab Konten: INFORMASI -->
+    <div id="check-info" class="tab-content active">
+        <div class="info-block">
+            <h4><i class="fas fa-bullseye"></i> COCOK UNTUK KENDALA:</h4>
+            <p style="line-height: 1.6; margin-bottom: 10px;">
+                • Lampu Check Engine Menyala / Brebet<br>
+                • Tenaga Berkurang / Boros BBM<br>
+                • Bunyi Kaki-kaki / Setir Tidak Stabil & Bergetar<br>
+                • Rem Kurang Pakem<br>
+                • <strong>General Check Up Berkala / Sebelum & Sesudah Perjalanan Jauh</strong><br>
+                • <strong>Inspeksi Mobil Bekas Sebelum Dibeli</strong>
+            </p>
+        </div>
+        <div class="info-block" style="background: #e8f5e9; padding: 10px; border-radius: 5px; border-left: 4px solid #2e7d32;">
+            <h4 style="color: #2e7d32; margin-bottom: 5px;"><i class="fas fa-gift"></i> OUTPUT YANG DIDAPAT CUSTOMER:</h4>
+            <ul class="checklist-items" style="margin: 0; padding-left: 15px;">
+                <li><strong>Hasil Scan ECU & Daftar DTC</strong> (Jika ada)</li>
+                <li><strong>Laporan Kondisi Fisik</strong> (Mesin, Rem, & Kaki-kaki)</li>
+                <li><strong>Estimasi Biaya & Prioritas Perbaikan</strong></li>
+                <li><strong>Rekomendasi Servis Berikutnya</strong></li>
+            </ul>
+        </div>
+    </div>
 
-                <!-- Tab Konten: TERMASUK -->
-                <div id="check-include" class="tab-content">
-                    <ul class="checklist-items">
-                        <li><i class="fas fa-check-circle"></i> Scan ECU Komputer System</li>
-                        <li><i class="fas fa-check-circle"></i> Deteksi kode error DTC</li>
-                        <li><i class="fas fa-check-circle"></i> Hapus error / reset data</li>
-                        <li><i class="fas fa-check-circle"></i> Cek aki & sistem pengisian</li>
-                        <li><i class="fas fa-check-circle"></i> Cek oli mesin</li>
-                        <li><i class="fas fa-check-circle"></i> Cek coolant (air radiator)</li>
-                        <li><i class="fas fa-check-circle"></i> Cek minyak rem & kopling</li>
-                        <li><i class="fas fa-check-circle"></i> Cek kebocoran & selang</li>
-                        <li><i class="fas fa-check-circle"></i> Pemeriksaan visual ruang mesin</li>
-                        <li><i class="fas fa-check-circle"></i> Penjelasan hasil & rekomendasi</li>
-                    </ul>
-                </div>
+    <!-- Tab Konten: CAKUPAN INSPEKSI -->
+    <div id="check-include" class="tab-content">
+        <div class="info-block">
+            <h4><i class="fas fa-check-circle"></i> 1. PEMERIKSAAN MESIN (ENGINE CARE)</h4>
+            <ul class="checklist-items">
+                <li><strong>Scan ECU & Sistem Elektrikal:</strong> Pembacaan DTC, Live Data Sensor, Cek Aki, Sistem Charging, & Starter.</li>
+                <li><strong>Cek Cairan & Filter:</strong> Oli Mesin, Coolant, Minyak Rem, Power Steering, & Filter Udara.</li>
+                <li><strong>Fisik & Kebocoran:</strong> Drive Belt, Selang-selang, Kebocoran Oli/Coolant, Throttle Body (Visual), Koil & Busi (Visual), serta Mounting Mesin.</li>
+            </ul>
+        </div>
+        <div class="info-block">
+            <h4><i class="fas fa-check-circle"></i> 2. PEMERIKSAAN SISTEM REM (BRAKE CARE)</h4>
+            <ul class="checklist-items">
+                <li><strong>Kondisi Komponen:</strong> Ketebalan Kampas Rem (Depan/Belakang), Cakram, Tromol, Kaliper, & Wheel Cylinder.</li>
+                <li><strong>Sistem Hidrolis:</strong> Minyak Rem, Selang Rem, Master Rem, Booster Rem (Visual), Kebocoran Sistem, & Rem Parkir.</li>
+            </ul>
+        </div>
+        <div class="info-block">
+            <h4><i class="fas fa-check-circle"></i> 3. SUSPENSI & STEERING (UNDERSTEEL CARE)</h4>
+            <ul class="checklist-items">
+                <li><strong>Komponen Kaki-kaki:</strong> Ball Joint, Tie Rod, Rack End, Long Tie Rod, Stabilizer Link, & Bushing Arm.</li>
+                <li><strong>Peredam & Penggerak:</strong> Shock Absorber, Support Shock, Bearing Roda, CV Joint & Boot.</li>
+                <li><strong>Kemudi & Roda:</strong> Steering Rack, Power Steering, Pengencangan Mur/Baut Kaki-kaki, Kondisi Fisik Ban, & Analisis Indikasi Bunyi.</li>
+            </ul>
+        </div>
+    </div>
 
-                <!-- Tab Konten: TIDAK TERMASUK -->
-                <div id="check-exclude" class="tab-content">
-                    <ul class="crosslist-items">
-                        <li><i class="fas fa-times-circle"></i> Biaya panggilan / transport</li>
-                        <li><i class="fas fa-times-circle"></i> Suku cadang / sparepart</li>
-                        <li><i class="fas fa-times-circle"></i> Penggantian oli</li>
-                        <li><i class="fas fa-times-circle"></i> Perbaikan part yang rusak</li>
-                        <li><i class="fas fa-times-circle"></i> Tindakan diluar pemeriksaan</li>
-                        <li><i class="fas fa-times-circle"></i> Cuci kendaraan</li>
-                    </ul>
-                </div>
+    <!-- Tab Konten: TIDAK TERMASUK -->
+    <div id="check-exclude" class="tab-content">
+        <div class="info-block">
+            <h4><i class="fas fa-times-circle" style="color: #d32f2f;"></i> TIDAK TERMASUK JASA/SPAREPART BERIKUT:</h4>
+            <ul class="crosslist-items">
+                <li>Perbaikan / Penggantian Sparepart (Kaki-kaki, Shock, Kampas Rem, dll)</li>
+                <li>Jasa Servis & Pembersihan (Tune Up, Carbon Clean, Intake, Injektor, Throttle Body)</li>
+                <li>Penggantian Cairan (Oli, Minyak Rem, Coolant) atau Filter</li>
+                <li>Suku Cadang / Sparepart Pengganti & Biaya Transport (Jika Berlaku)</li>
+            </ul>
+            <p style="font-size: 11px; color: #777; font-style: italic; margin-top: 10px;">*Paket ini murni merupakan jasa inspeksi, diagnosa komputer, dan pelaporan kondisi menyeluruh.</p>
+        </div>
+    </div>
+                
 
                 <div class="modal-pricing-box">
                     <div>
