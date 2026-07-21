@@ -253,25 +253,28 @@
     </div>
 </section>
 
-<!-- 6. POPUP SISTEM (Contoh: Sistem Bahan Bakar) -->
-<div id="modal-sys-bahan-bakar" class="custom-modal system-modal">
+<!-- ========================================== -->
+<!-- POPUP SISTEM & DETAIL: BAHAN BAKAR -->
+<!-- ========================================== -->
+
+<!-- 1. Popup Utama Sistem Bahan Bakar -->
+<div id="modal-sys-bahan-bakar" class="custom-modal system-modal" style="display:none;">
     <div class="modal-dialog">
         <div class="modal-header">
             <h3>⛽ SISTEM BAHAN BAKAR</h3>
             <button class="modal-close" onclick="closePopup('modal-sys-bahan-bakar')">&times;</button>
         </div>
         <div class="modal-body p-0">
-            <img src="img-sys-bahanbakar-cover.jpg" alt="Sistem Bahan Bakar Cover" class="modal-banner-img rounded-0">
+            <img src="img-sys-bahanbakar-cover.jpg" alt="Sistem Bahan Bakar" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
             <div class="p-3">
                 <div class="policy-note mb-4">
                     <i class="fas fa-info-circle"></i> Seluruh estimasi merupakan biaya jasa pengerjaan. Sparepart & material dihitung terpisah.
                 </div>
                 
-                <!-- Daftar Layanan Sistem Bahan Bakar -->
                 <div class="service-list-wrapper">
-                    <!-- Item 1 -->
+                    <!-- Pemeriksaan Sistem Bahan Bakar -->
                     <div class="service-list-item">
-                        <img src="img-servis-pemeriksaan-bbm.jpg" alt="Pemeriksaan BBM">
+                        <img src="img-servis-pemeriksaan-bbm.jpg" alt="Pemeriksaan Sistem Bahan Bakar">
                         <div class="service-list-info">
                             <h4>Pemeriksaan Sistem Bahan Bakar</h4>
                             <span class="cat-badge">Pemeriksaan</span>
@@ -283,7 +286,21 @@
                         <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-bbm', 'modal-sys-bahan-bakar')">Detail</button>
                     </div>
 
-                    <!-- Item 2 -->
+                    <!-- Fuel System Cleaner -->
+                    <div class="service-list-item">
+                        <img src="img-servis-fuel-cleaner.jpg" alt="Fuel System Cleaner">
+                        <div class="service-list-info">
+                            <h4>Fuel System Cleaner</h4>
+                            <span class="cat-badge">Perawatan</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp250K – Rp500K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-fuel-cleaner', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Fuel Pump -->
                     <div class="service-list-item">
                         <img src="img-servis-ganti-fuelpump.jpg" alt="Ganti Fuel Pump">
                         <div class="service-list-info">
@@ -296,8 +313,419 @@
                         </div>
                         <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-fuelpump', 'modal-sys-bahan-bakar')">Detail</button>
                     </div>
-                    <!-- (Item lainnya dilanjutkan sesuai data Blueprint) -->
+
+                    <!-- Ganti Filter Bahan Bakar -->
+                    <div class="service-list-item">
+                        <img src="img-servis-filter-bbm.jpg" alt="Ganti Filter Bahan Bakar">
+                        <div class="service-list-info">
+                            <h4>Ganti Filter Bahan Bakar</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp190K – Rp260K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-filterbbm', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Kuras Tangki Bahan Bakar -->
+                    <div class="service-list-item">
+                        <img src="img-servis-kuras-tangki.jpg" alt="Kuras Tangki Bahan Bakar">
+                        <div class="service-list-info">
+                            <h4>Kuras Tangki Bahan Bakar</h4>
+                            <span class="cat-badge">Perawatan</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp290K – Rp330K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-kuras-tangki', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Injector -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-injector.jpg" alt="Ganti Injector">
+                        <div class="service-list-info">
+                            <h4>Ganti Injector</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp275K – Rp400K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-injector', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Servis Injector -->
+                    <div class="service-list-item">
+                        <img src="img-servis-servis-injector.jpg" alt="Servis Injector">
+                        <div class="service-list-info">
+                            <h4>Servis Injector</h4>
+                            <span class="cat-badge">Servis</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp300K – Rp600K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-injector', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Servis Karburator -->
+                    <div class="service-list-item">
+                        <img src="img-servis-servis-karburator.jpg" alt="Servis Karburator">
+                        <div class="service-list-info">
+                            <h4>Servis Karburator</h4>
+                            <span class="cat-badge">Servis</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp220K – Rp350K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-karburator', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Karburator -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-karburator.jpg" alt="Ganti Karburator">
+                        <div class="service-list-info">
+                            <h4>Ganti Karburator</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp120K – Rp200K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 45–90 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-karburator', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- POPUP DETAIL LAYANAN - SISTEM BAHAN BAKAR -->
+<!-- ========================================== -->
+
+<!-- Detail: Pemeriksaan Sistem Bahan Bakar -->
+<div id="modal-det-cek-bbm" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-cek-bbm')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-cek-bbm')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-pemeriksaan-bbm-large.jpg" alt="Pemeriksaan Sistem Bahan Bakar"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Pemeriksaan</span>
+                <h3 class="detail-title">Pemeriksaan Sistem Bahan Bakar</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
+                        <span class="m-prc mt-1">Rp150K – Rp250K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Fuel Pump</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Filter Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Injector</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Sistem Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Analisa Sistem Bahan Bakar</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Pemeriksaan%20Sistem%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Fuel System Cleaner -->
+<div id="modal-det-fuel-cleaner" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-fuel-cleaner')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-fuel-cleaner')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-fuel-cleaner-large.jpg" alt="Fuel System Cleaner"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Perawatan</span>
+                <h3 class="detail-title">Fuel System Cleaner</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp250K – Rp500K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Jalur Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Injector</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Ruang Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Katup Intake</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Sistem Bahan Bakar</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Fuel%20System%20Cleaner." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Fuel Pump -->
+<div id="modal-det-ganti-fuelpump" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-fuelpump')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-fuelpump')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-fuelpump-large.jpg" alt="Ganti Fuel Pump"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Fuel Pump</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Fuel Pump</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Soket Kelistrikan Fuel Pump</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Sistem Bahan Bakar</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Fuel%20Pump." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Filter Bahan Bakar -->
+<div id="modal-det-ganti-filterbbm" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-filterbbm')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-filterbbm')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-filter-bbm-large.jpg" alt="Ganti Filter Bahan Bakar"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Filter Bahan Bakar</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
+                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Filter Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Jalur Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Aliran Bahan Bakar</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Filter%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Kuras Tangki Bahan Bakar -->
+<div id="modal-det-kuras-tangki" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-kuras-tangki')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-kuras-tangki')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-kuras-tangki-large.jpg" alt="Kuras Tangki Bahan Bakar"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Perawatan</span>
+                <h3 class="detail-title">Kuras Tangki Bahan Bakar</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
+                        <span class="m-prc mt-1">Rp290K – Rp330K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengurasan Tangki Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Endapan Kotoran</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Tangki Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Fuel Pump</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Saringan Fuel Pump</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Kuras%20Tangki%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Injector -->
+<div id="modal-det-ganti-injector" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-injector')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-injector')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-injector-large.jpg" alt="Ganti Injector"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Injector</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp275K – Rp400K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Injector</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian O-Ring Injector (bila diperlukan)</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Injector</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Injector." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Servis Injector -->
+<div id="modal-det-servis-injector" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-servis-injector')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-servis-injector')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-servis-injector-large.jpg" alt="Servis Injector"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Servis</span>
+                <h3 class="detail-title">Servis Injector</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
+                        <span class="m-prc mt-1">Rp300K – Rp600K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Injector (bila diperlukan)</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Injector dengan Injector Cleaner</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Pola Semprotan</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Debit Injector</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Injector</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Injector." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Servis Karburator -->
+<div id="modal-det-servis-karburator" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-servis-karburator')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-servis-karburator')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-servis-karburator-large.jpg" alt="Servis Karburator"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Servis</span>
+                <h3 class="detail-title">Servis Karburator</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp220K – Rp350K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Karburator</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Seluruh Jalur Karburator</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Pelampung</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Setelan Idle & Campuran Udara & Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Karburator." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Karburator -->
+<div id="modal-det-ganti-karburator" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-karburator')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-karburator')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-karburator-large.jpg" alt="Ganti Karburator"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Karburator</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 45–90 Menit</span>
+                        <span class="m-prc mt-1">Rp120K – Rp200K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Karburator</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Setelan Idle & Campuran Udara & Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Karburator." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
             </div>
         </div>
     </div>
