@@ -1825,12 +1825,13 @@
             }
         }
 
-        function openSystemModal(systemName) {
-            const modalTitle = document.getElementById('systemModalTitle');
-            const modalDesc = document.getElementById('systemModalDesc');
-            modalTitle.textContent = systemName.toUpperCase();
-            modalDesc.textContent = "Informasi dan pemeriksaan teknis spesialis untuk " + systemName + " pada mobil Anda di wilayah Palembang.";
-            openModal('modal-system');
+        function openSystemPopup(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
         }
 
         // Live Search Filter Function
