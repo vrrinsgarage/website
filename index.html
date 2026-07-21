@@ -587,7 +587,281 @@
         </div>
     </div>
 </div>
+ 
+<!-- ========================================== -->
+<!-- POPUP SISTEM & DETAIL: SUSPENSI -->
+<!-- ========================================== -->
 
+<!-- 1. Popup Utama Sistem Suspensi -->
+<div id="modal-sys-suspensi" class="custom-modal system-modal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3>🛠️ SISTEM SUSPENSI</h3>
+            <button class="modal-close" onclick="closePopup('modal-sys-suspensi')">&times;</button>
+        </div>
+        <div class="modal-body p-0">
+            <img src="img-sys-suspensi-cover.jpg" alt="Sistem Suspensi" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
+            <div class="p-3">
+                <div class="policy-note mb-4">
+                    <i class="fas fa-info-circle"></i> Seluruh estimasi merupakan biaya jasa pengerjaan. Sparepart & material dihitung terpisah.
+                </div>
+                
+                <div class="service-list-wrapper">
+                    <!-- Pemeriksaan Sistem Suspensi -->
+                    <div class="service-list-item">
+                        <img src="img-servis-pemeriksaan-suspensi.jpg" alt="Pemeriksaan Sistem Suspensi">
+                        <div class="service-list-info">
+                            <h4>Pemeriksaan Sistem Suspensi</h4>
+                            <span class="cat-badge">Pemeriksaan</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp150K – Rp250K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-suspensi', 'modal-sys-suspensi')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Shock Absorber / Fork -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-shock.jpg" alt="Ganti Shock Absorber">
+                        <div class="service-list-info">
+                            <h4>Ganti Shock Absorber / Fork</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp200K – Rp450K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-shock', 'modal-sys-suspensi')">Detail</button>
+                    </div>
+
+                    <!-- Servis / Rekondisi Shock Absorber -->
+                    <div class="service-list-item">
+                        <img src="img-servis-rekondisi-shock.jpg" alt="Servis / Rekondisi Shock Absorber">
+                        <div class="service-list-info">
+                            <h4>Servis / Rekondisi Shock Absorber</h4>
+                            <span class="cat-badge">Servis</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp250K – Rp550K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-shock', 'modal-sys-suspensi')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Linkage / Bushing Arm -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-bushing.jpg" alt="Ganti Linkage / Bushing Arm">
+                        <div class="service-list-info">
+                            <h4>Ganti Linkage / Bushing Arm</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp180K – Rp350K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-bushing', 'modal-sys-suspensi')">Detail</button>
+                    </div>
+
+                    <!-- Ganti Bearing Roda / Komstir -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-bearing.jpg" alt="Ganti Bearing Roda / Komstir">
+                        <div class="service-list-info">
+                            <h4>Ganti Bearing Roda / Komstir</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp120K – Rp250K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 45–90 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-bearing', 'modal-sys-suspensi')">Detail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- POPUP DETAIL LAYANAN - SISTEM SUSPENSI -->
+<!-- ========================================== -->
+
+<!-- Detail: Pemeriksaan Sistem Suspensi -->
+<div id="modal-det-cek-suspensi" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-cek-suspensi')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-cek-suspensi')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-pemeriksaan-suspensi-large.jpg" alt="Pemeriksaan Sistem Suspensi"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Pemeriksaan</span>
+                <h3 class="detail-title">Pemeriksaan Sistem Suspensi</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
+                        <span class="m-prc mt-1">Rp150K – Rp250K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Shock Absorber / Fork</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Bushing & Karet Suspensi</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Ball Joint & Tie Rod (Mobil)</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Oli Shock</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Kelayakan & Kestabilan Jalan</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Pemeriksaan%20Sistem%20Suspensi." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Shock Absorber / Fork -->
+<div id="modal-det-ganti-shock" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-shock')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-shock')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-shock-large.jpg" alt="Ganti Shock Absorber"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Shock Absorber / Fork</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp200K – Rp450K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran & Penggantian Unit Shock Absorber</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Mounting & Support Shock</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Penyetelan Ketinggian / Posisi (Bila Ada)</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Uji Fungsi & Kestabilan Suspensi</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Shock%20Absorber." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Servis / Rekondisi Shock Absorber -->
+<div id="modal-det-servis-shock" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-servis-shock')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-servis-shock')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-rekondisi-shock-large.jpg" alt="Servis Shock Absorber"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Servis</span>
+                <h3 class="detail-title">Servis / Rekondisi Shock Absorber</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
+                        <span class="m-prc mt-1">Rp250K – Rp550K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran & Pembersihan Komponen Dalam Shock</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Seal & Oli Shock Baru</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengisian Tekanan Gas / Kalibrasi Katup</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Rebound & Performa Redaman</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Shock%20Absorber." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Linkage / Bushing Arm -->
+<div id="modal-det-ganti-bushing" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-bushing')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-bushing')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-bushing-large.jpg" alt="Ganti Bushing Arm"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Linkage / Bushing Arm</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp180K – Rp350K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pelepasan Arm / Linkage Suspensi</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Press-Out & Press-In Bushing / Karet Baru</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Ball Joint / Sambungan Terkait</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pemasangan Kembali & Penyelarasan Awal</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Bushing%20Arm." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detail: Ganti Bearing Roda / Komstir -->
+<div id="modal-det-ganti-bearing" class="custom-modal detail-modal" style="display:none;">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-bearing')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-bearing')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col"><img src="img-servis-ganti-bearing-large.jpg" alt="Ganti Bearing Roda"></div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Bearing Roda / Komstir</h3>
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 45–90 Menit</span>
+                        <span class="m-prc mt-1">Rp120K – Rp250K</span>
+                    </div>
+                </div>
+                <div class="info-block mt-3">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
+                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Roda / Batang Kemudi (Komstir)</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Bearing / Lahar Lama dengan Baru</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pelumasan Ulang & Penyetelan Kekencangan</li>
+                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Putaran Roda & Kestabilan Kemudi</li>
+                    </ul>
+                </div>
+                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Bearing%20Roda." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div> 
 <!-- Detail: Ganti Injector -->
 <div id="modal-det-ganti-injector" class="custom-modal detail-modal" style="display:none;">
     <div class="modal-dialog detail-dialog">
