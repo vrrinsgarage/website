@@ -5,669 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VRRINS GARAGE - Specialist Remap & ECU Diagnostic</title>
 
-  <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* ==================== RESET & VARIABLES ==================== */
     :root {
       --primary: #ff003c;
-      --primary-hover: #d60032;
       --bg-dark: #0d0d0d;
       --bg-card: #181818;
-      --bg-card-hover: #222222;
       --text-main: #ffffff;
-      --text-muted: #b0b0b0;
+      --text-muted: #aaa;
       --border-color: #2a2a2a;
-      --whatsapp-color: #25d366;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --wa-color: #25d366;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+    h1, h2, h3, h4, .brand-logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, .brand-logo {
-      font-family: 'Orbitron', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ==================== NAVBAR ==================== */
+    /* NAVBAR */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      position: fixed; top: 0; left: 0; width: 100%;
       background: rgba(13, 13, 13, 0.95);
-      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
-      padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      z-index: 1000; padding: 1rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
     }
+    .brand-logo { font-size: 1.4rem; color: var(--primary); font-weight: 900; }
 
-    .brand-logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* ==================== HERO SECTION ==================== */
+    /* HERO */
     .hero {
-      min-height: 100vh;
-      padding: 120px 5% 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.95)),
-                  url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      text-align: center;
+      min-height: 80vh; padding: 120px 5% 60px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; background: radial-gradient(circle, #220008 0%, #0d0d0d 100%);
     }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 1rem;
-      color: var(--text-main);
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    .search-box {
-      position: relative;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+    .hero h1 span { color: var(--primary); }
+    .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
 
     .search-box input {
-      width: 100%;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      border: 2px solid var(--border-color);
-      background: var(--bg-card);
-      color: var(--text-main);
-      font-size: 1rem;
-      outline: none;
-      transition: var(--transition);
+      width: 100%; max-width: 450px; padding: 0.8rem 1.5rem;
+      border-radius: 25px; border: 1px solid var(--border-color);
+      background: var(--bg-card); color: #fff; outline: none;
     }
 
-    .search-box input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
-    }
+    /* SERVICES */
+    .services-container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .service-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; }
+    .service-title { color: #fff; margin-bottom: 0.5rem; }
+    .service-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; flex-grow: 1; }
 
-    /* ==================== SERVICES SECTION ==================== */
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+    .card-actions { display: flex; gap: 10px; }
+    .btn { flex: 1; padding: 0.6rem; border-radius: 5px; font-weight: 600; font-size: 0.8rem; cursor: pointer; border: none; text-align: center; text-decoration: none; display: inline-block; }
+    .btn-detail { background: #2a2a2a; color: #fff; }
+    .btn-wa { background: var(--wa-color); color: #fff; }
 
-    .section-title h2 {
-      font-size: 2rem;
-      color: var(--text-main);
-    }
-
-    .section-title div {
-      width: 60px;
-      height: 4px;
-      background: var(--primary);
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    .services-container {
-      padding: 80px 5%;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .service-img {
-      height: 200px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .service-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .service-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      padding: 0.75rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-align: center;
-      flex: 1;
-    }
-
-    .btn-detail {
-      background: #2a2a2a;
-      color: var(--text-main);
-    }
-
-    .btn-detail:hover {
-      background: #3a3a3a;
-    }
-
-    .btn-wa {
-      background: var(--whatsapp-color);
-      color: #fff;
-    }
-
-    .btn-wa:hover {
-      background: #1eb956;
-    }
-
-    .no-results {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 3rem;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      display: none;
-    }
-
-    /* ==================== PROCESS SECTION ==================== */
-    .process-section {
-      background: #121212;
-      padding: 80px 5%;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .process-card {
-      background: var(--bg-card);
-      padding: 2rem 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      border: 1px solid var(--border-color);
-    }
-
-    .process-icon {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    /* ==================== FOOTER ==================== */
-    footer {
-      background: #080808;
-      border-top: 1px solid var(--border-color);
-      padding: 3rem 5% 1.5rem;
-      text-align: center;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-copy {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border-color);
-      padding-top: 1.5rem;
-    }
-
-    /* ==================== MODAL ==================== */
-    .custom-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(5px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-content {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      max-width: 600px;
-      width: 100%;
-      padding: 2rem;
-      position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .modal-close:hover {
-      color: var(--primary);
-    }
-
-    .modal-title {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .modal-list {
-      list-style: none;
-      margin: 1rem 0 2rem;
-    }
-
-    .modal-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .modal-list li i {
-      color: var(--primary);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero { padding-top: 100px; }
-      .card-actions { flex-direction: column; }
-    }
+    /* MODAL */
+    .custom-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-content { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; max-width: 500px; width: 100%; padding: 2rem; position: relative; }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; color: #aaa; cursor: pointer; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="brand-logo">
-      <i class="fa-solid fa-gauge-high"></i> VRRINS GARAGE
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Beranda</a></li>
-      <li><a href="#services">Layanan</a></li>
-      <li><a href="#process">Proses</a></li>
-      <li><a href="#contact">Kontak</a></li>
-    </ul>
+    <div class="brand-logo"><i class="fa-solid fa-gauge-high"></i> VRRINS GARAGE</div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Optimalkan Performa Mobil Anda Bersama <span>VRRINS GARAGE</span></h1>
-      <p>Layanan Spesialis Remap ECU, Diagnostics, dan Performance Tuning Standar Profesional.</p>
-      
+  <section class="hero">
+    <div>
+      <h1>VRRINS GARAGE <span>PALEMBANG</span></h1>
+      <p>Layanan Bengkel Mobil Rumahan & Panggilan: Remap ECU, Diagnostics, VG Check, & Tune Performance.</p>
       <div class="search-box">
-        <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Cari layanan (misal: ECU Scan, Remap, Tune)...">
+        <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Cari layanan...">
       </div>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section class="services-container" id="services">
-    <div class="section-title">
-      <h2>Paket Layanan Kami</h2>
-      <div></div>
-    </div>
-
+  <section class="services-container">
     <div class="services-grid" id="servicesGrid">
       
-      <!-- Card 1 -->
-      <div class="service-card" data-title="ECU Full Scanning & Diagnostic">
-        <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80" alt="ECU Scan" class="service-img" loading="lazy">
-        <div class="service-body">
-          <h3 class="service-title">ECU Full Scanning</h3>
-          <p class="service-desc">Pemeriksaan sistem kelistrikan & sensor mobil secara komprehensif menggunakan alat standar pabrikan.</p>
-          <div class="card-actions">
-            <button class="btn btn-detail" onclick="openModal('modalScan')"><i class="fa-solid fa-circle-info"></i> Detail</button>
-            <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20ECU%20Full%20Scanning" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Booking</a>
-          </div>
+      <!-- VG Check & Scan -->
+      <div class="service-card" data-title="VG Check & Scan ECU">
+        <h3 class="service-title">VG Check & Scan</h3>
+        <p class="service-desc">Pengecekan kelistrikan, sensor, dan diagnosa error (DTC) secara menyeluruh.</p>
+        <div class="card-actions">
+          <button class="btn btn-detail" onclick="openModal('m1')">Detail</button>
+          <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20mau%20booking%20VG%20Check" target="_blank" class="btn btn-wa">WA</a>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="service-card" data-title="VG Stage 1 Remap ECU Engine">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Remap Stage 1" class="service-img" loading="lazy">
-        <div class="service-body">
-          <h3 class="service-title">VG Stage 1 Remap</h3>
-          <p class="service-desc">Optimasi parameter mesin harian untuk meningkatkan Tenaga (HP) & Torsi tanpa merubah komponen hardware.</p>
-          <div class="card-actions">
-            <button class="btn btn-detail" onclick="openModal('modalStage1')"><i class="fa-solid fa-circle-info"></i> Detail</button>
-            <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Stage%201%20Remap" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Booking</a>
-          </div>
+      <!-- Tune Bensin -->
+      <div class="service-card" data-title="VG Tune Bensin">
+        <h3 class="service-title">VG Tune Bensin</h3>
+        <p class="service-desc">Optimasi performa & efisiensi bahan bakar mesin bensin harian.</p>
+        <div class="card-actions">
+          <button class="btn btn-detail" onclick="openModal('m2')">Detail</button>
+          <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20mau%20booking%20Tune%20Bensin" target="_blank" class="btn btn-wa">WA</a>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="service-card" data-title="VG Custom Tune & Pops Bangs">
-        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="Custom Tune" class="service-img" loading="lazy">
-        <div class="service-body">
-          <h3 class="service-title">VG Custom Tune</h3>
-          <p class="service-desc">Penyetelan kustom sesuai modifikasi komponen kendaraan (Pops & Bangs, Launch Control, Off Limiter).</p>
-          <div class="card-actions">
-            <button class="btn btn-detail" onclick="openModal('modalCustom')"><i class="fa-solid fa-circle-info"></i> Detail</button>
-            <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Custom%20Tune" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Booking</a>
-          </div>
+      <!-- Tune Diesel -->
+      <div class="service-card" data-title="VG Tune Diesel Commonrail">
+        <h3 class="service-title">VG Tune Diesel</h3>
+        <p class="service-desc">Peningkatan torsi instan & hilangkan lag pada mesin diesel commonrail.</p>
+        <div class="card-actions">
+          <button class="btn btn-detail" onclick="openModal('m3')">Detail</button>
+          <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20mau%20booking%20Tune%20Diesel" target="_blank" class="btn btn-wa">WA</a>
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="service-card" data-title="VG Tune Diesel Performance">
-        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80" alt="Diesel Tune" class="service-img" loading="lazy">
-        <div class="service-body">
-          <h3 class="service-title">VG Tune Diesel</h3>
-          <p class="service-desc">Peningkatan torsi & akselerasi pada mesin diesel Commonrail. Menghilangkan lag pada transmisi matik.</p>
-          <div class="card-actions">
-            <button class="btn btn-detail" onclick="openModal('modalDiesel')"><i class="fa-solid fa-circle-info"></i> Detail</button>
-            <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Tune%20Diesel" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Booking</a>
-          </div>
+      <!-- VG Brake -->
+      <div class="service-card" data-title="VG Brake Service">
+        <h3 class="service-title">VG Brake</h3>
+        <p class="service-desc">Perawatan sistem pengereman, pembersihan Kampas, & cek minyak rem.</p>
+        <div class="card-actions">
+          <button class="btn btn-detail" onclick="openModal('m4')">Detail</button>
+          <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20mau%20booking%20VG%20Brake" target="_blank" class="btn btn-wa">WA</a>
         </div>
-      </div>
-
-      <!-- No Results Indicator -->
-      <div class="no-results" id="noResults">
-        <i class="fa-solid fa-magnifying-glass" style="font-size: 2rem; margin-bottom: 10px;"></i>
-        <p>Layanan yang Anda cari tidak ditemukan.</p>
       </div>
 
     </div>
   </section>
-
-  <!-- PROCESS SECTION -->
-  <section class="process-section" id="process">
-    <div class="section-title">
-      <h2>Alur Proses Kerja</h2>
-      <div></div>
-    </div>
-
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="process-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <h4>1. Health Scan</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Pengecekan awal error/fault code pada ECU mobil Anda.</p>
-      </div>
-      <div class="process-card">
-        <div class="process-icon"><i class="fa-solid fa-file-export"></i></div>
-        <h4>2. Data Backup</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Mencadangkan file ECU standar (Original Back-Up Safe Guarantee).</p>
-      </div>
-      <div class="process-card">
-        <div class="process-icon"><i class="fa-solid fa-sliders"></i></div>
-        <h4>3. Software Remap</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Modifikasi map ECU disesuaikan dengan kebutuhan & bahan bakar.</p>
-      </div>
-      <div class="process-card">
-        <div class="process-icon"><i class="fa-solid fa-road"></i></div>
-        <h4>4. Road Test</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Uji jalan & logging data akhir untuk memastikan keamanan mesin.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contact">
-    <div class="footer-content">
-      <div class="brand-logo">
-        <i class="fa-solid fa-gauge-high"></i> VRRINS GARAGE
-      </div>
-      <p style="color: var(--text-muted); max-width: 500px; font-size: 0.9rem;">
-        Penyedia Layanan Remap & Tuning ECU Terbaik untuk Kendaraan Harian dan Performa Tinggi.
-      </p>
-    </div>
-    <div class="footer-copy">
-      &copy; 2026 VRRINS GARAGE. All rights reserved.
-    </div>
-  </footer>
 
   <!-- MODALS -->
-
-  <!-- Modal Scan -->
-  <div class="custom-modal" id="modalScan">
+  <div class="custom-modal" id="m1">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('modalScan')">&times;</span>
-      <h3 class="modal-title">ECU Full Scanning</h3>
-      <p>Layanan analisis diagnostik mendalam untuk mengetahui kondisi kesehatan sensor & modul elektronik kendaraan.</p>
-      <ul class="modal-list">
-        <li><i class="fa-solid fa-check"></i> Read & Clear Fault Codes (DTC)</li>
-        <li><i class="fa-solid fa-check"></i> Real-time Sensor Data Monitoring</li>
-        <li><i class="fa-solid fa-check"></i> Analysis Health Check Engine & Transmisi</li>
-      </ul>
-      <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20ECU%20Full%20Scanning" target="_blank" class="btn btn-wa" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami Via WhatsApp</a>
+      <span class="modal-close" onclick="closeModal('m1')">&times;</span>
+      <h3>VG Check & Scan</h3>
+      <p style="margin-top:10px;">Pemeriksaan modul elektronik & reset indikator engine check.</p>
     </div>
   </div>
 
-  <!-- Modal Stage 1 -->
-  <div class="custom-modal" id="modalStage1">
+  <div class="custom-modal" id="m2">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('modalStage1')">&times;</span>
-      <h3 class="modal-title">VG Stage 1 Remap</h3>
-      <p>Peningkatan performa optimal untuk kendaraan harian tanpa perlu mengganti part mesin.</p>
-      <ul class="modal-list">
-        <li><i class="fa-solid fa-check"></i> Peningkatan Power +15% hingga +30% HP</li>
-        <li><i class="fa-solid fa-check"></i> Respons Gas (Throttle Response) Lebih Instan</li>
-        <li><i class="fa-solid fa-check"></i> Penghematan Bahan Bakar pada RPM Stabil</li>
-      </ul>
-      <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Stage%201%20Remap" target="_blank" class="btn btn-wa" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami Via WhatsApp</a>
+      <span class="modal-close" onclick="closeModal('m2')">&times;</span>
+      <h3>VG Tune Bensin</h3>
+      <p style="margin-top:10px;">Remap Stage 1/2 untuk respon gas lebih padat dan efisien.</p>
     </div>
   </div>
 
-  <!-- Modal Custom -->
-  <div class="custom-modal" id="modalCustom">
+  <div class="custom-modal" id="m3">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('modalCustom')">&times;</span>
-      <h3 class="modal-title">VG Custom Tune</h3>
-      <p>Tuning khusus untuk Anda yang menginginkan performa maksimal dan fitur kustomisasi tinggi.</p>
-      <ul class="modal-list">
-        <li><i class="fa-solid fa-check"></i> Pops & Bangs / Backfire Effect</li>
-        <li><i class="fa-solid fa-check"></i> Speed & RPM Limiter Removal</li>
-        <li><i class="fa-solid fa-check"></i> Adjustment untuk Modifikasi Aftermarket</li>
-      </ul>
-      <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Custom%20Tune" target="_blank" class="btn btn-wa" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami Via WhatsApp</a>
+      <span class="modal-close" onclick="closeModal('m3')">&times;</span>
+      <h3>VG Tune Diesel</h3>
+      <p style="margin-top:10px;">Penyetelan boost & debit solar untuk akselerasi lebih responsif.</p>
     </div>
   </div>
 
-  <!-- Modal Diesel -->
-  <div class="custom-modal" id="modalDiesel">
+  <div class="custom-modal" id="m4">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('modalDiesel')">&times;</span>
-      <h3 class="modal-title">VG Tune Diesel</h3>
-      <p>Spesialis penyetelan torsi melimpah khusus kendaraan bermesin diesel Commonrail.</p>
-      <ul class="modal-list">
-        <li><i class="fa-solid fa-check"></i> Torsi Melimpah di RPM Rendah</li>
-        <li><i class="fa-solid fa-check"></i> Eliminasi Turbo Lag</li>
-        <li><i class="fa-solid fa-check"></i> Peningkatan Akselerasi & Output Mesin</li>
-      </ul>
-      <a href="https://wa.me/6281234567890?text=Halo%20VRRINS%20GARAGE,%20saya%20infin%20booking%20VG%20Tune%20Diesel" target="_blank" class="btn btn-wa" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami Via WhatsApp</a>
+      <span class="modal-close" onclick="closeModal('m4')">&times;</span>
+      <h3>VG Brake Service</h3>
+      <p style="margin-top:10px;">Servis pengereman menyeluruh demi keamanan berkendara.</p>
     </div>
   </div>
 
-  <!-- JAVASCRIPT -->
   <script>
-    // Fungsi Pencarian / Filter Layanan
     function filterServices() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.service-card');
-      const noResults = document.getElementById('noResults');
-      let visibleCount = 0;
-
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.querySelectorAll('.service-card');
       cards.forEach(card => {
-        const title = card.getAttribute('data-title').toLowerCase();
-        const desc = card.querySelector('.service-desc').innerText.toLowerCase();
-
-        if (title.includes(input) || desc.includes(input)) {
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
+        let title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(input) ? 'flex' : 'none';
       });
-
-      // Tampilkan pesan "Tidak Ditemukan" jika tidak ada kartu yang cocok
-      if (visibleCount === 0) {
-        noResults.style.display = 'block';
-      } else {
-        noResults.style.display = 'none';
-      }
     }
 
-    // Fungsi Buka Modal
-    function openModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Matikan scroll latar
-      }
-    }
-
-    // Fungsi Tutup Modal
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Aktifkan kembali scroll
-      }
-    }
-
-    // Tutup modal jika pengguna mengeklik di luar area modal
-    window.onclick = function(event) {
-      if (event.target.classList.contains('custom-modal')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    };
-
-    // Tutup modal dengan tombol 'Escape' keyboard
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        document.querySelectorAll('.custom-modal').forEach(modal => {
-          modal.style.display = 'none';
-        });
-        document.body.style.overflow = 'auto';
-      }
-    });
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
   </script>
 </body>
 </html>
