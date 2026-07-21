@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrrins Garage - Bengkel Panggilan Palembang</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- 13. MENU NAVIGASI (SIDEBAR DRAWER) -->
+        <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+        <div class="nav-drawer" id="navDrawer">
+            <div class="drawer-header">
+                <div class="logo">
+                    <i class="fas fa-wrench logo-icon"></i>
+                    <span>VRRINS</span> GARAGE
+                </div>
+                <button class="drawer-close" onclick="toggleMenu()">&times;</button>
+            </div>
+            <ul class="drawer-menu">
+                <li><a href="#hero" onclick="toggleMenu()"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#keunggulan" onclick="toggleMenu()"><i class="fas fa-star"></i> Keunggulan Kami</a></li>
+                <li><a href="#layanan-utama" onclick="toggleMenu()"><i class="fas fa-cogs"></i> Layanan Utama</a></li>
+                <li><a href="#layanan-sistem" onclick="toggleMenu()"><i class="fas fa-th-large"></i> Layanan Berdasarkan Sistem</a></li>
+                <li><a href="#alur-kerja" onclick="toggleMenu()"><i class="fas fa-route"></i> Alur Proses Kerja</a></li>
+                <li><a href="#wilayah" onclick="toggleMenu()"><i class="fas fa-map-marked-alt"></i> Wilayah Operasional</a></li>
+                <li><a href="#faq" onclick="toggleMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="https://wa.me/6281234567890?text=Halo%20Vrrins%20Garage,%20saya%20ingin%20konsultasi%20servis" target="_blank" class="menu-wa-btn"><i class="fab fa-whatsapp"></i> Hubungi Kami</a></li>
+            </ul>
+        </div>
+
+        <!-- HEADER & NAVBAR -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-wrench logo-icon"></i>
+                <span>VRRINS</span> GARAGE
+            </div>
+            <div class="header-right">
+                <a href="https://wa.me/6281234567890?text=Halo%20Vrrins%20Garage,%20saya%20mau%20booking%20servis" target="_blank" class="btn-booking-wa-head">
+                    <i class="fab fa-whatsapp"></i> BOOKING WA
+                </a>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 1. HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge-repot">REPOT ANTRI DI BENGKEL?</span>
+                <h1>SANTAI DI RUMAH,<br>KAMI YANG <span class="highlight-red">DATANG.</span></h1>
+                <p class="hero-sub">Servis mobil rumahan & panggilan khusus wilayah Palembang.</p>
+                <div class="hero-features">
+                    <span><i class="fas fa-check-circle"></i> Tanpa antre</span>
+                    <span><i class="fas fa-check-circle"></i> Tanpa derek</span>
+                    <span><i class="fas fa-check-circle"></i> Tanpa repot</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Vrrins%20Garage,%20saya%20ingin%20booking%20servis%20di%20rumah" target="_blank" class="btn-primary-wa">
+                        <i class="fab fa-whatsapp"></i> BOOKING WHATSAPP
+                    </a>
+                    <a href="#layanan-utama" class="btn-secondary-outline">
+                        LIHAT LAYANAN &rarr;
+                    </a>
+                </div>
+                <div class="hero-tag">
+                    <i class="fas fa-map-marker-alt"></i> SPESIALIS HOME SERVICE PALEMBANG
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. PENCARIAN LAYANAN -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Cari Layanan... (contoh: radiator, kampas rem, oli)">
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- Dynamic search results populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- 2. KEUNGGULAN KAMI -->
+        <section class="section-block" id="keunggulan">
+            <h2 class="section-title">KEUNGGULAN <span class="highlight-red">KAMI</span></h2>
+            <div class="grid-keunggulan">
+                <div class="card-keunggulan">
+                    <i class="fas fa-user-gear icon-red"></i>
+                    <h3>MEKANIK PROFESIONAL</h3>
+                    <p>Pengerjaan rapi dan teliti.</p>
+                </div>
+                <div class="card-keunggulan">
+                    <i class="fas fa-search-minus icon-red"></i>
+                    <h3>PEMERIKSAAN KENDARAAN</h3>
+                    <p>Diagnosa sesuai kondisi kendaraan.</p>
+                </div>
+                <div class="card-keunggulan">
+                    <i class="fas fa-home icon-red"></i>
+                    <h3>SERVIS DI LOKASI ANDA</h3>
+                    <p>Rumah, kantor, atau lokasi yang disepakati.</p>
+                </div>
+                <div class="card-keunggulan">
+                    <i class="fas fa-tags icon-red"></i>
+                    <h3>HARGA TRANSPARAN</h3>
+                    <p>Estimasi biaya diinformasikan sebelum pengerjaan.</p>
+                </div>
+                <div class="card-keunggulan">
+                    <i class="fab fa-whatsapp icon-red"></i>
+                    <h3>BOOKING VIA WHATSAPP</h3>
+                    <p>Jadwalkan servis dengan mudah.</p>
+                </div>
+                <div class="card-keunggulan">
+                    <i class="fas fa-map-marked-alt icon-red"></i>
+                    <h3>LAYANAN AREA PALEMBANG</h3>
+                    <p>Melayani wilayah Palembang dan sekitarnya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LAYANAN UTAMA VRRINS GARAGE -->
+        <section class="section-block" id="layanan-utama">
+            <h2 class="section-title">LAYANAN UTAMA <span class="highlight-red">VRRINS GARAGE</span></h2>
+            <div class="grid-layanan-utama">
+                
+                <!-- VG CHECK -->
+                <div class="card-layanan-utama">
+                    <div class="badge-tag badge-rekomendasi">REKOMENDASI</div>
+                    <div class="card-img-holder">
+                        <i class="fas fa-microchip card-icon-large"></i>
+                    </div>
+                    <h3>VG CHECK</h3>
+                    <p class="card-desc">Scan & Cek Fisik Kendaraan</p>
+                    <div class="card-price">Rp100K - Rp150K</div>
+                    <div class="card-time"><i class="far fa-clock"></i> 30 - 60 Mnt</div>
+                    <button class="btn-detail" onclick="openPopup('popup-vg-check')">DETAIL</button>
+                </div>
+
+                <!-- VG OIL SERVICE -->
+                <div class="card-layanan-utama">
+                    <div class="badge-tag badge-rekomendasi">REKOMENDASI</div>
+                    <div class="card-img-holder">
+                        <i class="fas fa-oil-can card-icon-large"></i>
+                    </div>
+                    <h3>VG OIL SERVICE</h3>
+                    <p class="card-desc">Ganti Oli & Filter Oli Minus</p>
+                    <div class="card-price">Rp150K - Rp300K</div>
+                    <div class="card-time"><i class="far fa-clock"></i> 30 - 60 Mnt</div>
+                    <button class="btn-detail" onclick="openPopup('popup-vg-oil')">DETAIL</button>
+                </div>
+
+                <!-- VG BRAKE SERVICE -->
+                <div class="card-layanan-utama">
+                    <div class="card-img-holder">
+                        <i class="fas fa-dot-circle card-icon-large"></i>
+                    </div>
+                    <h3>VG BRAKE SERVICE</h3>
+                    <p class="card-desc">Servis Sistem Rem</p>
+                    <div class="card-price">Rp270K</div>
+                    <div class="card-time"><i class="far fa-clock"></i> 60 - 120 Mnt</div>
+                    <button class="btn-detail" onclick="openPopup('popup-vg-brake')">DETAIL</button>
+                </div>
+
+                <!-- VG TUNE BENSIN -->
+                <div class="card-layanan-utama">
+                    <div class="badge-tag badge-bestseller">BEST SELLER</div>
+                    <div class="card-img-holder">
+                        <i class="fas fa-tachometer-alt card-icon-large"></i>
+                    </div>
+                    <h3>VG TUNE BENSIN</h3>
+                    <p class="card-desc">Tune Up Mesin Bensin</p>
+                    <div class="card-price">Rp200K - Rp600K</div>
+                    <div class="card-time"><i class="far fa-clock"></i> 120 Mnt</div>
+                    <button class="btn-detail" onclick="openPopup('popup-vg-tune-bensin')">DETAIL</button>
+                </div>
+
+                <!-- VG TUNE DIESEL -->
+                <div class="card-layanan-utama">
+                    <div class="badge-tag badge-rekomendasi">REKOMENDASI</div>
+                    <div class="card-img-holder">
+                        <i class="fas fa-smog card-icon-large"></i>
+                    </div>
+                    <h3>VG TUNE DIESEL</h3>
+                    <p class="card-desc">Tune Up Mesin Diesel</p>
+                    <div class="card-price">Rp250K - Rp400K</div>
+                    <div class="card-time"><i class="far fa-clock"></i> 120 Mnt</div>
+                    <button class="btn-detail" onclick="openPopup('popup-vg-tune-diesel')">DETAIL</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. LAYANAN BERDASARKAN SISTEM -->
+        <section class="section-block" id="layanan-sistem">
+            <h2 class="section-title">LAYANAN <span class="highlight-red">BERDASARKAN SISTEM</span></h2>
+            <p class="section-sub">Pilih sistem kendaraan yang ingin diperiksa atau diperbaiki. Estimasi resmi merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, coolant, chemical, filter, material, dll.</p>
+            
+            <div class="grid-sistem">
+                <div class="card-sistem">
+                    <i class="fas fa-car-battery icon-red-sistem"></i>
+                    <h4>SISTEM MESIN</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-mesin')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-oil-can icon-red-sistem"></i>
+                    <h4>SISTEM PELUMASAN</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-pelumasan')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-fan icon-red-sistem"></i>
+                    <h4>SISTEM PENDINGIN</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-pendingin')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-bolt icon-red-sistem"></i>
+                    <h4>SISTEM KELISTRIKAN</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-kelistrikan')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-gas-pump icon-red-sistem"></i>
+                    <h4>SISTEM BAHAN BAKAR</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-bahan-bakar')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-dot-circle icon-red-sistem"></i>
+                    <h4>SISTEM REM</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-rem')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-cog icon-red-sistem"></i>
+                    <h4>SISTEM TRANSMISI</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-transmisi')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-dharmachakra icon-red-sistem"></i>
+                    <h4>SISTEM KEMUDI</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-kemudi')">DETAIL</button>
+                </div>
+                <div class="card-sistem">
+                    <i class="fas fa-compress-arrows-alt icon-red-sistem"></i>
+                    <h4>SISTEM SUSPENSI</h4>
+                    <button class="btn-detail-sm" onclick="openPopup('popup-sistem-suspensi')">DETAIL</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ALUR PROSES KERJA -->
+        <section class="section-block" id="alur-kerja">
+            <h2 class="section-title">ALUR <span class="highlight-red">PROSES KERJA</span></h2>
+            <div class="alur-steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <i class="fab fa-whatsapp step-icon"></i>
+                    <h4>Hubungi WhatsApp</h4>
+                    <p>Konsultasikan keluhan mobil Anda lewat Chat WA.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <i class="fas fa-map-marker-alt step-icon"></i>
+                    <h4>Tentukan Lokasi</h4>
+                    <p>Kirim share-loc rumah atau kantor Anda secara presisi.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <i class="fas fa-stethoscope step-icon"></i>
+                    <h4>Cek Diagnosa</h4>
+                    <p>Mekanik datang langsung melakukan scan sistem kelistrikan & fisik.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <i class="fas fa-tools step-icon"></i>
+                    <h4>Proses Eksekusi</h4>
+                    <p>Perbaikan dikerjakan transparan di garasi Anda.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">5</div>
+                    <i class="fas fa-check-double step-icon"></i>
+                    <h4>Selesai & Test</h4>
+                    <p>Kendaraan diuji coba, normal, baru lakukan pembayaran.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. WILAYAH OPERASIONAL -->
+        <section class="section-block" id="wilayah">
+            <h2 class="section-title">WILAYAH <span class="highlight-red">OPERASIONAL</span></h2>
+            <div class="wilayah-card">
+                <div class="map-placeholder">
+                    <div class="map-radar">
+                        <div class="radar-circle circle-3"></div>
+                        <div class="radar-circle circle-2"></div>
+                        <div class="radar-circle circle-1"></div>
+                        <i class="fas fa-wrench radar-center"></i>
+                    </div>
+                </div>
+                <div class="zona-list">
+                    <div class="zona-item zona-1">
+                        <span class="dot-green"></span>
+                        <strong>ZONA 1:</strong> Pusat Kota Palembang (Radius &le; 8 KM)
+                    </div>
+                    <div class="zona-item zona-2">
+                        <span class="dot-yellow"></span>
+                        <strong>ZONA 2:</strong> Pinggiran Kota Palembang (Radius 8 - 15 KM)
+                    </div>
+                    <div class="zona-item zona-3">
+                        <span class="dot-red"></span>
+                        <strong>ZONA 3:</strong> Batas Luar Kota (Radius > 15 KM)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CTA BANNER -->
+        <section class="cta-banner">
+            <h3>MASIH BINGUNG DENGAN MASALAH MOBIL ANDA?</h3>
+            <p>Konsultasikan langsung dengan mekanik kami secara GRATIS!</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Vrrins%20Garage,%20saya%20mau%20konsultasi%20masalah%20mobil%20saya" target="_blank" class="btn-cta-black">
+                HUBUNGI MEKANIK SEKARANG
+            </a>
+        </section>
+
+        <!-- 8. FAQ ACCORDION -->
+        <section class="section-block" id="faq">
+            <h2 class="section-title">FAQ <span class="highlight-red">(PERTANYAAN)</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Apakah bisa servis ke rumah? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Ya, kami melayani sistem home service / mekanik panggilan langsung ke lokasi Anda (rumah, kantor, atau garasi).
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Apakah menerima mobil mogok? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Bisa. Kami menyediakan layanan emergency check & starter jumper / perbaikan darurat di lokasi.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Apakah sparepart disediakan? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Bisa dibantu pengadaannya oleh mekanik kami, atau Anda bisa menggunakan sparepart yang disiapkan sendiri.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Berapa estimasi biaya jasa? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Estimasi biaya jasa akan diinformasikan secara transparan sebelum pengerjaan dimulai sesuai dengan daftar paket layanan kami.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Apakah bisa booking terlebih dahulu? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Sangat disarankan! Silakan klik tombol Booking WA untuk mengamankan jadwal kedatangan mekanik.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. FOOTER -->
+        <footer>
+            <div class="footer-logo">
+                <i class="fas fa-wrench logo-icon"></i>
+                <span>VRRINS</span> GARAGE
+            </div>
+            <p>&copy; 2026 VRRINS GARAGE - Palembang. All Rights Reserved.</p>
+        </footer>
+
+        <!-- FLOATING WHATSAPP BUTTON -->
+        <a href="https://wa.me/6281234567890?text=Halo%20Vrrins%20Garage,%20saya%20butuh%20mekanik%20panggilan" class="floating-wa" target="_blank" aria-label="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== POPUP MODALS ==================== -->
+
+    <!-- 10. POPUP LAYANAN UTAMA (VG TUNE BENSIN) -->
+    <div class="modal-overlay" id="popup-vg-tune-bensin">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-vg-tune-bensin')">&times;</button>
+            <div class="modal-header">
+                <h2>VG Tune Bensin <span class="badge-bestseller-sm">BEST SELLER</span></h2>
+                <p class="modal-sub">Tune Up Mesin Bensin</p>
+            </div>
+            <p class="modal-desc">
+                Layanan tune up mesin bensin terbaik untuk mengembalikan performa mesin, menghemat bahan bakar, dan mengurangi emisi.
+            </p>
+
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab(this, 'tab-paket')">PAKET LAYANAN</button>
+                <button class="tab-btn" onclick="switchTab(this, 'tab-termasuk')">YANG TERMASUK</button>
+            </div>
+
+            <div class="tab-content id-tab-paket">
+                <div class="table-responsive">
+                    <table class="modal-table">
+                        <thead>
+                            <tr>
+                                <th>PAKET</th>
+                                <th>ESTIMASI HARGA (JASA)</th>
+                                <th>ESTIMASI WAKTU</th>
+                                <th>BOOKING</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>TUNE BASIC</strong></td>
+                                <td class="price-red">Rp200.000</td>
+                                <td>&plusmn; 120 Menit</td>
+                                <td><a href="https://wa.me/6281234567890?text=Booking%20Tune%20Basic%20Bensin" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TUNE PLUS</strong></td>
+                                <td class="price-red">Rp400.000</td>
+                                <td>&plusmn; 150 Menit</td>
+                                <td><a href="https://wa.me/6281234567890?text=Booking%20Tune%20Plus%20Bensin" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TUNE PRO</strong></td>
+                                <td class="price-red">Rp600.000</td>
+                                <td>&plusmn; 180 Menit</td>
+                                <td><a href="https://wa.me/6281234567890?text=Booking%20Tune%20Pro%20Bensin" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TUNE ADD ON (Carbon Cleaner)</strong></td>
+                                <td class="price-red">Rp150.000</td>
+                                <td>&plusmn; 60 Menit</td>
+                                <td><a href="https://wa.me/6281234567890?text=Booking%20Tune%20Add%20On%20Bensin" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content id-tab-termasuk" style="display:none;">
+                <ul class="check-list">
+                    <li><i class="fas fa-check icon-green"></i> Pembersihan Throttle Body & Injector</li>
+                    <li><i class="fas fa-check icon-green"></i> Pembersihan Busi & Ruang Bakar</li>
+                    <li><i class="fas fa-check icon-green"></i> Cek Filter Udara & Filter Bensin</li>
+                    <li><i class="fas fa-check icon-green"></i> Reset Computer Diagnostic ECU</li>
+                </ul>
+            </div>
+
+            <p class="note-text">
+                <strong>Catatan:</strong> Harga di atas merupakan biaya jasa pengerjaan. Sparepart, oli, filter, coolant, chemical, dan material lain dihitung terpisah sesuai kebutuhan kendaraan.
+            </p>
+
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20VG%20Tune%20Bensin" target="_blank" class="btn-primary-wa full-width">
+                    <i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP
+                </a>
+                <button class="btn-close-gray" onclick="closePopup('popup-vg-tune-bensin')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP VG CHECK -->
+    <div class="modal-overlay" id="popup-vg-check">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-vg-check')">&times;</button>
+            <div class="modal-header">
+                <h2>VG CHECK</h2>
+                <p class="modal-sub">Scan & Cek Fisik Kendaraan</p>
+            </div>
+            <p class="modal-desc">Layanan diagnosa komprehensif menggunakan Scanner Komputer ECU dan inspeksi fisik 20+ titik vital kendaraan.</p>
+            <div class="modal-info-box">
+                <div><strong>Estimasi Biaya:</strong> <span class="price-red">Rp100.000 - Rp150.000</span></div>
+                <div><strong>Estimasi Waktu:</strong> 30 - 60 Menit</div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20VG%20Check" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-vg-check')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP VG OIL SERVICE -->
+    <div class="modal-overlay" id="popup-vg-oil">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-vg-oil')">&times;</button>
+            <div class="modal-header">
+                <h2>VG OIL SERVICE</h2>
+                <p class="modal-sub">Ganti Oli & Filter Oli</p>
+            </div>
+            <p class="modal-desc">Layanan penggantian oli mesin, filter oli, serta pengecekan ringkas level cairan rem, radiator, dan kelistrikan aki.</p>
+            <div class="modal-info-box">
+                <div><strong>Estimasi Biaya:</strong> <span class="price-red">Rp150.000 - Rp300.000</span></div>
+                <div><strong>Estimasi Waktu:</strong> 30 - 60 Menit</div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20VG%20Oil%20Service" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-vg-oil')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP VG BRAKE SERVICE -->
+    <div class="modal-overlay" id="popup-vg-brake">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-vg-brake')">&times;</button>
+            <div class="modal-header">
+                <h2>VG BRAKE SERVICE</h2>
+                <p class="modal-sub">Servis Sistem Rem</p>
+            </div>
+            <p class="modal-desc">Pembersihan kampas rem, pembubutan piringan disc brake (jika diperlukan), pembersihan kaliper, dan penggantian minyak rem.</p>
+            <div class="modal-info-box">
+                <div><strong>Estimasi Biaya:</strong> <span class="price-red">Rp270.000</span></div>
+                <div><strong>Estimasi Waktu:</strong> 60 - 120 Menit</div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20VG%20Brake%20Service" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-vg-brake')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP VG TUNE DIESEL -->
+    <div class="modal-overlay" id="popup-vg-tune-diesel">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-vg-tune-diesel')">&times;</button>
+            <div class="modal-header">
+                <h2>VG TUNE DIESEL</h2>
+                <p class="modal-sub">Tune Up Mesin Diesel</p>
+            </div>
+            <p class="modal-desc">Purging sistem bahan bakar diesel, pembersihan EGR, pembersihan nozzle injector, dan cek filter solar.</p>
+            <div class="modal-info-box">
+                <div><strong>Estimasi Biaya:</strong> <span class="price-red">Rp250.000 - Rp400.000</span></div>
+                <div><strong>Estimasi Waktu:</strong> 120 Menit</div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20VG%20Tune%20Diesel" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-vg-tune-diesel')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. POPUP SISTEM REM -->
+    <div class="modal-overlay" id="popup-sistem-rem">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-sistem-rem')">&times;</button>
+            <div class="modal-header">
+                <h2>SISTEM REM</h2>
+                <p class="modal-sub">Pemeriksaan, perawatan, dan perbaikan sistem rem agar pengereman tetap aman dan optimal.</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="modal-table">
+                    <thead>
+                        <tr>
+                            <th>LAYANAN</th>
+                            <th>ESTIMASI HARGA (JASA)</th>
+                            <th>ESTIMASI WAKTU</th>
+                            <th>BOOKING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ganti Kampas Rem Depan</strong></td>
+                            <td class="price-red">Rp150.000 - Rp250.000</td>
+                            <td>30 - 60 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Ganti%20Kampas%20Rem%20Depan" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ganti Kampas Rem Belakang</strong></td>
+                            <td class="price-red">Rp150.000 - Rp250.000</td>
+                            <td>30 - 60 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Ganti%20Kampas%20Rem%20Belakang" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bubut Disc Brake (1 Pcs)</strong></td>
+                            <td class="price-red">Rp100.000</td>
+                            <td>30 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Bubut%20Disc%20Brake" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Service Kaliper Rem (1 Pcs)</strong></td>
+                            <td class="price-red">Rp80.000</td>
+                            <td>30 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Service%20Kaliper%20Rem" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ganti Minyak Rem</strong></td>
+                            <td class="price-red">Rp100.000</td>
+                            <td>60 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Ganti%20Minyak%20Rem" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bleeding Rem</strong></td>
+                            <td class="price-red">Rp60.000</td>
+                            <td>30 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Bleeding%20Rem" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Overhaul Master Rem</strong></td>
+                            <td class="price-red">Rp150.000 - Rp250.000</td>
+                            <td>60 - 90 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Overhaul%20Master%20Rem" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cek & Setel Rem Tangan</strong></td>
+                            <td class="price-red">Rp60.000</td>
+                            <td>20 Menit</td>
+                            <td><a href="https://wa.me/6281234567890?text=Setel%20Rem%20Tangan" target="_blank" class="btn-wa-sm"><i class="fab fa-whatsapp"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="note-text">
+                <strong>Catatan:</strong> Harga di atas merupakan biaya jasa pengerjaan. Sparepart, oli, filter, coolant, chemical, dan material dihitung terpisah sesuai kebutuhan kendaraan.
+            </p>
+
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Booking%20Layanan%20Sistem%20Rem" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-sistem-rem')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP SISTEM MESIN -->
+    <div class="modal-overlay" id="popup-sistem-mesin">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-sistem-mesin')">&times;</button>
+            <div class="modal-header">
+                <h2>SISTEM MESIN</h2>
+                <p class="modal-sub">Diagnosa & Perbaikan Mesin Utuh</p>
+            </div>
+            <p class="modal-desc">Penanganan masalah mesin pincang, suara kasar, kurang tenaga, overheat, hingga overhaul cylinder head.</p>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Konsultasi%20Sistem%20Mesin" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> KONSULTASI VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-sistem-mesin')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC POPUP FOR OTHER SYSTEMS -->
+    <div class="modal-overlay" id="popup-generic">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('popup-generic')">&times;</button>
+            <div class="modal-header">
+                <h2 id="generic-title">LAYANAN SISTEM</h2>
+                <p class="modal-sub" id="generic-sub">Detail Layanan Perbaikan</p>
+            </div>
+            <p class="modal-desc" id="generic-desc">Layanan pengecekan dan perbaikan komponen sistem kendaraan oleh mekanik profesional Vrrins Garage.</p>
+            <div class="modal-actions">
+                <a href="https://wa.me/6281234567890?text=Konsultasi%20Layanan" target="_blank" class="btn-primary-wa full-width"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+                <button class="btn-close-gray" onclick="closePopup('popup-generic')">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
