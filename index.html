@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- TAG VIEWPORT SANGAT PENTING AGAR PAS DI HP -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>VRRINS GARAGE - Bengkel Mobil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRRINS GARAGE - Bengkel Mobil Rumahan & Panggilan</title>
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* RESET BASE */
+    /* RESET & GLOBAL STYLES */
     * {
       margin: 0;
       padding: 0;
@@ -22,21 +21,15 @@
       background-color: #0d0d0d;
       color: #ffffff;
       line-height: 1.5;
-      overflow-x: hidden; /* Mencegah layar geser kanan-kiri yang rusak */
+      overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* HEADER & NAVBAR RESPONSIVE */
+    /* HEADER & NAVBAR */
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
+      padding: 12px 15px;
       background-color: #000000;
       border-bottom: 2px solid #e60000;
       position: sticky;
@@ -47,29 +40,26 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px;
     }
 
     .logo-text {
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #ffffff;
       letter-spacing: 0.5px;
     }
 
-    /* Menu Navigasi di HP */
     .nav-menu {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .nav-menu a {
       color: #ffffff !important;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 4px;
@@ -79,32 +69,100 @@
       color: #e60000;
     }
 
-    .btn-wa {
+    .btn-wa-header {
       background-color: #25d366;
       color: #ffffff !important;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       white-space: nowrap;
     }
 
-    /* KONTEN UTAMA */
+    /* HERO SECTION */
+    .hero {
+      padding: 40px 15px;
+      text-align: center;
+      background-color: #121212;
+      border-bottom: 3px solid #e60000;
+    }
+
+    .hero-badge {
+      background-color: #e60000;
+      color: #fff;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      color: #cccccc;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 300px;
+      margin: 0 auto 15px auto;
+    }
+
+    .btn-main-wa {
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* KONTEN UTAMA & GRID LAYANAN SISTEM */
     .container {
-      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 30px 15px;
+      padding: 25px 15px;
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       text-align: center;
       text-transform: uppercase;
     }
@@ -113,11 +171,9 @@
       color: #e60000;
     }
 
-    /* GRID CARDS (MENYESUAIKAN HP & PC) */
     .services-grid {
       display: grid;
-      /* Di HP otomatis 1-2 kolom, di Laptop otomatis 4 kolom */
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* 2 kolom pas di HP */
       gap: 12px;
     }
 
@@ -125,17 +181,12 @@
       background-color: #141414;
       border: 1px solid #262626;
       border-radius: 8px;
-      padding: 20px 10px;
+      padding: 15px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 10px;
-      transition: border-color 0.2s;
-    }
-
-    .service-card:active, .service-card:hover {
-      border-color: #e60000;
     }
 
     .service-card i {
@@ -149,34 +200,44 @@
       color: #ffffff;
     }
 
-    /* MEDIA QUERIES KHUSUS HP (Screen <= 600px) */
-    @media (max-width: 600px) {
+    /* KHUSUS TAMPILAN LAPTOP/PC (Layar Lebih dari 768px) */
+    @media (min-width: 769px) {
       .header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        padding: 15px 5%;
       }
-
-      .logo-container {
-        justify-content: center;
-      }
-
-      .nav-menu {
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .btn-wa {
-        justify-content: center;
-        width: 100%;
-      }
-
-      .section-title {
+      .logo-text {
         font-size: 1.2rem;
       }
-
+      .nav-menu a {
+        font-size: 0.95rem;
+        gap: 6px;
+      }
+      .hero {
+        padding: 60px 20px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero-buttons {
+        flex-direction: row;
+        max-width: none;
+        justify-content: center;
+      }
       .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* Pas 2 kolom rapi di HP */
+        grid-template-columns: repeat(4, 1fr); /* 4 Kolom di Laptop */
+        gap: 20px;
+      }
+      .service-card {
+        padding: 25px 20px;
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+      }
+      .service-card i {
+        font-size: 2rem;
+      }
+      .service-card h3 {
+        font-size: 1rem;
       }
     }
   </style>
@@ -191,19 +252,36 @@
 
     <nav class="nav-menu">
       <a href="#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
-      <a href="#layanan"><i class="fa-solid fa-star"></i> Layanan</a>
+      <a href="#sistem"><i class="fa-solid fa-gears"></i> Sistem</a>
       <a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-      <a href="#hubungi"><i class="fa-solid fa-phone"></i> Hubungi</a>
     </nav>
 
-    <a href="https://wa.me/628123456789" target="_blank" class="btn-wa">
+    <a href="https://wa.me/62895622499262" target="_blank" class="btn-wa-header">
       <i class="fa-brands fa-whatsapp"></i> BOOKING WA
     </a>
   </header>
 
-  <!-- KONTEN UTAMA -->
-  <main class="container">
-    <h2 class="section-title">LAYANAN <span>SISTEM KENDARAAN</span></h2>
+  <!-- HERO SECTION -->
+  <section class="hero" id="beranda">
+    <div class="hero-badge">Repot Antri di Bengkel?</div>
+    <h1>SANTAI DI RUMAH, KAMI YANG DATANG.</h1>
+    <p>Servis mobil rumahan & panggilan khusus wilayah Palembang.</p>
+    
+    <div class="hero-buttons">
+      <a href="https://wa.me/62895622499262" target="_blank" class="btn-main-wa">
+        <i class="fa-brands fa-whatsapp"></i> BOOKING WHATSAPP
+      </a>
+      <a href="#sistem" class="btn-secondary">LIHAT LAYANAN →</a>
+    </div>
+    
+    <div style="font-size: 0.8rem; color: #ff3333; font-weight: bold; margin-top: 10px;">
+      📍 SPESIALIS HOME SERVICE - PALEMBANG
+    </div>
+  </section>
+
+  <!-- KONTEN UTAMA: LAYANAN BERDASARKAN SISTEM -->
+  <main class="container" id="sistem">
+    <h2 class="section-title">Layanan <span>Sistem Kendaraan</span></h2>
 
     <div class="services-grid">
       <div class="service-card">
@@ -244,11 +322,6 @@
       <div class="service-card">
         <i class="fa-solid fa-bolt"></i>
         <h3>Sistem Kelistrikan</h3>
-      </div>
-
-      <div class="service-card">
-        <i class="fa-solid fa-dharmachakra"></i>
-        <h3>Sistem Kemudi</h3>
       </div>
     </div>
   </main>
