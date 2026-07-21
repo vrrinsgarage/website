@@ -1795,81 +1795,97 @@
     </div>
 
     <!-- SCRIPT JAVASCRIPT -->
-    <script>
-        // Modal Control
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function switchTab(btn, tabId) {
-            const modalBody = btn.closest('.modal-body');
-            modalBody.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            modalBody.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
-            btn.classList.add('active');
-            const targetContent = modalBody.querySelector('#' + tabId);
-            if(targetContent) {
-                targetContent.classList.add('active');
-            }
-        }
-
-        function openSystemPopup(modalId) {
+<script>
+// Modal Control Utama
+function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 }
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Fungsi Sistem Kendaraan (3x3 Grid Bawah)
+function openSystemPopup(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Fungsi Detail Pop-up Sistem
+function openDetailPopup(detailId, parentSystemId) {
+    const parentModal = document.getElementById(parentSystemId);
+    const detailModal = document.getElementById(detailId);
+    if (parentModal) parentModal.style.display = 'none';
+    if (detailModal) detailModal.style.display = 'block';
+}
+
+function backToSystemPopup(parentSystemId, detailId) {
+    const detailModal = document.getElementById(detailId);
+    const parentModal = document.getElementById(parentSystemId);
+    if (detailModal) detailModal.style.display = 'none';
+    if (parentModal) parentModal.style.display = 'block';
+}
+
+// Tab Switching
+function switchTab(btn, tabId) {
+    const modalBody = btn.closest('.modal-body');
+    modalBody.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    modalBody.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    
+    btn.classList.add('active');
+    const targetContent = modalBody.querySelector('#' + tabId);
+    if (targetContent) {
+        targetContent.classList.add('active');
+    }
+}
+
+// Live Search Filter Function
+function filterServices() {
+    const input = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('#servicesGrid .service-card');
+    
+    cards.forEach(card => {
+        const titleData = card.getAttribute('data-title');
+        if (titleData.includes(input)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
 
-        // Live Search Filter Function
-        function filterServices() {
-            const input = document.getElementById('searchInput').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('#servicesGrid .service-card');
+// Back to top scroll functionality
+const backToTopBtn = document.getElementById("backToTop");
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+};
 
-            cards.forEach(card => {
-                const titleData = card.getAttribute('data-title');
-                if (titleData.includes(input)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        // Back to top scroll functionality
-        const backToTopBtn = document.getElementById("backToTop");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Window click to close modals
-        window.onclick = function(event) {
-            if (event.target.classList.contains('custom-modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+// Window click to close modals
+window.onclick = function(event) {
+    if (event.target.classList.contains('custom-modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
+</script>
 </body>
 </html>
