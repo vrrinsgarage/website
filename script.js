@@ -93,3 +93,48 @@ function filterServices() {
         resultsContainer.innerHTML = `<div class="search-item" style="color:#888;">Layanan tidak ditemukan. Silakan hubungi WA.</div>`;
     }
 }
+// Membuka Popup Sistem
+function openSystemPopup(modalId) {
+    let modal = document.getElementById(modalId);
+    if(modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Membuka Popup Detail dari dalam Popup Sistem
+function openDetailPopup(detailModalId, parentSystemModalId) {
+    // Sembunyikan popup sistem sementara
+    document.getElementById(parentSystemModalId).style.display = 'none';
+    
+    // Tampilkan popup detail
+    let detailModal = document.getElementById(detailModalId);
+    if(detailModal) {
+        detailModal.style.display = 'flex';
+        // Simpan referensi parent modal ke dalam tombol back
+        let backBtn = detailModal.querySelector('.modal-back');
+        if(backBtn) {
+            backBtn.setAttribute('onclick', `backToSystemPopup('${parentSystemModalId}', '${detailModalId}')`);
+        }
+    }
+}
+
+// Tombol Kembali (Dari Detail -> ke Sistem)
+function backToSystemPopup(parentSystemModalId, detailModalId) {
+    document.getElementById(detailModalId).style.display = 'none';
+    document.getElementById(parentSystemModalId).style.display = 'flex';
+}
+
+// Menutup Popup secara total
+function closePopup(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto'; // Kembalikan scroll background
+}
+
+// Tutup modal jika klik area luar (background gelap)
+window.onclick = function(event) {
+    if (event.target.classList.contains('custom-modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+};
