@@ -1,4 +1,4 @@
-/* CSS UTAMA VRRINS GARAGE - RESPONSIVE & FAST */
+/* VRRINS GARAGE V2 - BLUEPRINT FINAL STYLING */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,8 +7,8 @@
 }
 
 body {
-    background-color: #0b0b0b;
-    color: #e0e0e0;
+    background-color: #0d0d0d;
+    color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -20,10 +20,10 @@ body {
     padding: 0 15px;
 }
 
-/* HEADER */
+/* 4. HEADER & NAV STICKY */
 header {
-    background: #111;
-    border-bottom: 2px solid #ff0000;
+    background: #111111;
+    border-bottom: 2px solid #e50914;
     padding: 12px 0;
     position: sticky;
     top: 0;
@@ -37,43 +37,84 @@ header {
 }
 
 .logo {
-    height: 45px;
+    height: 42px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .btn-booking-wa {
     background: #25d366;
     color: #fff;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.btn-booking-wa:hover {
-    background: #1eb954;
-    transform: translateY(-2px);
+.hamburger-menu {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-/* HERO SECTION */
+/* Nav Menu Drawer */
+.nav-menu {
+    display: none;
+    background: #181818;
+    border-bottom: 2px solid #e50914;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #222;
+}
+
+.nav-menu ul li a:hover {
+    background: #e50914;
+}
+
+/* 5. HERO SECTION */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('hero-bg.png');
     background-size: cover;
     background-position: center;
     text-align: center;
-    padding: 60px 20px;
-    border-bottom: 3px solid #ff0000;
+    padding: 50px 20px;
+    border-bottom: 3px solid #e50914;
 }
 
 .badge-hero {
-    background: #ff0000;
+    background: #e50914;
     color: #fff;
     padding: 4px 12px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: bold;
     border-radius: 4px;
     display: inline-block;
@@ -81,40 +122,41 @@ header {
 }
 
 .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.2;
 }
 
 .hero p {
     color: #ccc;
-    font-size: 1.05rem;
-    margin-bottom: 25px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
 .hero-features {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     flex-wrap: wrap;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #25d366;
+    font-weight: bold;
 }
 
 .hero-buttons {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 350px;
-    margin: 0 auto 30px auto;
+    max-width: 320px;
+    margin: 0 auto 25px auto;
 }
 
 .btn-green {
     background: #25d366;
     color: #fff;
-    padding: 14px;
+    padding: 12px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
@@ -122,53 +164,33 @@ header {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 1.05rem;
-    transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.btn-green:hover {
-    background: #1eb954;
-    transform: translateY(-2px);
+    font-size: 1rem;
 }
 
 .btn-outline {
     background: transparent;
     color: #fff;
     border: 2px solid #fff;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.2s ease;
-}
-
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .hero-location-badge {
-    border: 1px solid #ff0000;
+    border: 1px solid #e50914;
     display: inline-block;
-    padding: 8px 20px;
-    border-radius: 6px;
-    background: rgba(255,0,0,0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(229,9,20,0.15);
+    font-size: 0.85rem;
+    color: #fff;
 }
 
-.hero-location-badge small {
-    display: block;
-    color: #aaa;
-    font-size: 0.75rem;
-}
-
-.hero-location-badge strong {
-    color: #ff0000;
-    font-size: 1.1rem;
-}
-
-/* SEARCH SECTION */
+/* 6. SEARCH SECTION */
 .search-section {
-    padding: 25px 0 10px 0;
-    background: #0b0b0b;
+    padding: 20px 0;
+    background: #0d0d0d;
 }
 
 .search-box {
@@ -182,172 +204,124 @@ header {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #ff0000;
-    font-size: 1.1rem;
+    color: #e50914;
 }
 
 #searchInput {
     width: 100%;
-    padding: 14px 15px 14px 45px;
-    background: #141414;
-    border: 2px solid #333;
+    padding: 12px 15px 12px 42px;
+    background: #181818;
+    border: 1px solid #333;
     border-radius: 8px;
     color: #fff;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     outline: none;
-    transition: border-color 0.3s ease;
 }
 
 #searchInput:focus {
-    border-color: #ff0000;
+    border-color: #e50914;
 }
 
 .no-result {
     text-align: center;
     padding: 20px;
     color: #aaa;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
-/* KEUNGGULAN */
+/* 7. KEUNGGULAN KAMI (2 KOLOM GRID) */
 .features-section {
-    padding: 50px 0;
+    padding: 40px 0;
     background: #141414;
 }
 
 .section-title-center {
     text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
     color: #fff;
 }
 
 .section-title-center span {
-    color: #ff0000;
+    color: #e50914;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
 .feature-item {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    padding: 20px;
+    background: #1c1c1c;
+    border: 1px solid #2a2a2a;
+    padding: 18px 12px;
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-4px);
-    border-color: #ff0000;
 }
 
 .feature-item i {
-    font-size: 2rem;
-    color: #ff0000;
-    margin-bottom: 12px;
+    font-size: 1.8rem;
+    color: #e50914;
+    margin-bottom: 8px;
 }
 
 .feature-item h3 {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     color: #fff;
-    margin-bottom: 6px;
 }
 
-.feature-item p {
-    color: #999;
-    font-size: 0.9rem;
-}
-
-/* LAYANAN SECTION */
+/* 8. LAYANAN UNGGULAN */
 .services-section {
-    padding: 60px 0;
-    background: #0b0b0b;
+    padding: 45px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .section-title h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #fff;
 }
 
 .section-title span {
-    color: #ff0000;
+    color: #e50914;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
 }
 
 .service-card {
     background: #141414;
     border: 1px solid #262626;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: #ff0000;
-    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
-}
-
-.card-header {
-    padding: 10px 15px;
-    background: #1a1a1a;
-    border-bottom: 1px solid #262626;
-}
-
-.badge-tag {
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: #fff;
-}
-
-.label-popular { background: #ff0000; }
-.label-recom { background: #d97706; }
-.label-best { background: #dc2626; }
-.label-premium { background: #7c3aed; }
 
 .card-img img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .card-body h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #fff;
-    margin-bottom: 5px;
-}
-
-.card-desc {
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    flex-grow: 1;
+    margin-bottom: 10px;
 }
 
 .card-meta {
@@ -359,121 +333,142 @@ header {
 }
 
 .price {
-    color: #ff0000;
+    color: #e50914;
     font-weight: bold;
-    font-size: 1rem;
 }
 
 .duration {
-    color: #888;
+    color: #aaa;
 }
 
 .btn-detail {
     background: #222;
     color: #fff;
     border: 1px solid #444;
-    padding: 10px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-detail:hover {
-    background: #ff0000;
-    border-color: #ff0000;
+    background: #e50914;
+    border-color: #e50914;
 }
 
-/* WORKFLOW SECTION */
-.workflow-section {
-    padding: 60px 0;
+/* 10. LAYANAN BERDASARKAN SISTEM */
+.system-section {
+    padding: 45px 0;
     background: #111;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.system-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.system-card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.system-card h3 {
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+/* 12. ALUR PROSES KERJA */
+.workflow-section {
+    padding: 45px 0;
 }
 
 .workflow-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
 }
 
 .workflow-step {
-    background: #181818;
-    border: 1px solid #2a2a2a;
-    padding: 20px;
+    background: #141414;
+    border: 1px solid #262626;
+    padding: 12px;
     border-radius: 8px;
     text-align: center;
 }
 
 .workflow-step img {
     width: 100%;
-    height: 140px;
+    height: 120px;
     object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .workflow-step h3 {
-    color: #ff0000;
-    font-size: 1rem;
-    margin-bottom: 6px;
-}
-
-.workflow-step p {
-    color: #aaa;
+    color: #e50914;
     font-size: 0.85rem;
 }
 
-/* AREA SECTION */
+/* 13. WILAYAH OPERASIONAL */
 .area-section {
-    padding: 60px 0;
-    background: #0b0b0b;
+    padding: 45px 0;
+    background: #111;
 }
 
 .area-box {
-    background: #141414;
-    border: 1px solid #333;
-    padding: 25px;
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    padding: 20px;
     border-radius: 10px;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .area-box h3 {
     text-align: center;
     color: #fff;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.area-map-container img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 15px;
 }
 
 .area-list {
     list-style: none;
-    margin-top: 20px;
 }
 
 .area-list li {
-    padding: 10px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #222;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
-.dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot.green { background: #22c55e; }
-.dot.yellow { background: #eab308; }
-.dot.red { background: #ef4444; }
-
-/* FAQ ACCORDION SECTION */
+/* 14. FAQ ACCORDION */
 .faq-section {
-    padding: 60px 0;
-    background: #111;
+    padding: 45px 0;
 }
 
 .faq-accordion {
@@ -481,29 +476,23 @@ header {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .faq-item {
     background: #141414;
     border: 1px solid #262626;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
-    transition: border-color 0.25s ease;
-}
-
-.faq-item.active {
-    border-color: #ff0000;
 }
 
 .faq-header {
     width: 100%;
-    padding: 16px 20px;
+    padding: 14px 18px;
     background: #1a1a1a;
     color: #fff;
     border: none;
-    outline: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-align: left;
     display: flex;
@@ -513,88 +502,102 @@ header {
 }
 
 .faq-icon {
-    color: #ff0000;
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(180deg);
+    color: #e50914;
 }
 
 .faq-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+    transition: max-height 0.3s ease;
     background: #141414;
 }
 
 .faq-item.active .faq-body {
-    max-height: 300px;
-    transition: max-height 0.35s ease-in-out;
+    max-height: 200px;
 }
 
 .faq-body p {
-    padding: 15px 20px;
+    padding: 12px 18px;
     color: #ccc;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
 }
 
-/* CTA BANNER */
+/* 15. CTA TERAKHIR */
 .cta-banner {
-    background: #ff0000;
-    padding: 50px 20px;
+    background: #e50914;
+    padding: 40px 20px;
     text-align: center;
     color: #fff;
 }
 
 .cta-banner h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .cta-banner p {
-    margin-bottom: 20px;
-    font-size: 1.05rem;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
 }
 
 .btn-wa-large {
     background: #000;
     color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease;
 }
 
-.btn-wa-large:hover {
-    transform: scale(1.03);
+/* FLOATING WA BUTTON */
+.floating-wa {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 998;
+    text-decoration: none;
 }
 
-/* FOOTER */
+/* 16. FOOTER */
 footer {
     background: #080808;
-    padding: 30px 0;
+    padding: 25px 0;
     text-align: center;
     border-top: 1px solid #222;
 }
 
 .footer-logo {
-    height: 40px;
+    height: 35px;
     margin-bottom: 10px;
 }
 
-footer p {
-    color: #777;
-    font-size: 0.85rem;
+.footer-socials {
+    margin-bottom: 10px;
 }
 
-/* ========================================== */
-/* CUSTOM MODAL STYLES                        */
-/* ========================================== */
+.footer-socials a {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 8px;
+}
+
+footer p {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* MODAL / POPUP */
 .custom-modal {
     display: none;
     position: fixed;
@@ -605,116 +608,89 @@ footer p {
     height: 100%;
     overflow-y: auto;
     background-color: rgba(0,0,0,0.85);
-    backdrop-filter: blur(5px);
 }
 
 .modal-dialog {
     background-color: #141414;
     margin: 20px auto;
-    width: 95%;
-    max-width: 600px;
-    border-radius: 12px;
+    width: 92%;
+    max-width: 500px;
+    border-radius: 10px;
     border: 1px solid #333;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    animation: modalSlide 0.25s ease-out;
-}
-
-@keyframes modalSlide {
-    from { transform: translateY(-30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-header {
     background: #1a1a1a;
-    padding: 15px 20px;
+    padding: 12px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #262626;
-    position: relative;
-}
-
-.modal-tag {
-    background: #ff0000;
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 3px;
-    position: absolute;
-    top: 6px;
-    left: 20px;
 }
 
 .modal-header h3 {
     color: #fff;
-    font-size: 1.2rem;
-    margin-top: 8px;
+    font-size: 1.1rem;
 }
 
 .modal-close {
     background: none;
     border: none;
     color: #aaa;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
-.modal-close:hover {
-    color: #fff;
-}
-
 .modal-body {
-    padding: 20px;
+    padding: 15px;
 }
 
 .modal-banner-img {
     width: 100%;
-    height: 220px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
 }
 
 .modal-subtitle {
     color: #ccc;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
 }
 
-/* Modal Tabs */
 .modal-tabs {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     background: #1a1a1a;
-    border-radius: 6px;
     padding: 4px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    border-radius: 6px;
+    margin-bottom: 15px;
 }
 
 .tab-btn {
     flex: 1;
-    min-width: 80px;
     background: none;
     border: none;
     color: #aaa;
-    padding: 10px 5px;
-    font-size: 0.8rem;
+    padding: 8px 4px;
+    font-size: 0.75rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
-    transition: 0.2s;
 }
 
 .tab-btn.active {
-    background: #ff0000;
+    background: #e50914;
     color: #fff;
 }
 
 .tab-content {
     display: none;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 15px;
 }
 
 .tab-content.active {
@@ -724,99 +700,38 @@ footer p {
 .info-block {
     background: #1a1a1a;
     border: 1px solid #262626;
-    padding: 12px 15px;
+    padding: 10px 12px;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
 }
 
 .info-block h4 {
-    color: #fff;
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.info-block h4 i {
-    color: #ff0000;
-}
-
-.info-block p {
-    color: #aaa;
-    font-size: 0.85rem;
-}
-
-.addon-box {
-    background: #1c1c1c;
-    border: 1px dashed #444;
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 15px;
-}
-
-.addon-box ul {
-    list-style: none;
-}
-
-.addon-box li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 6px 0;
-    border-bottom: 1px solid #262626;
-    color: #ccc;
-}
-
-.addon-box li strong {
-    color: #ff0000;
-}
-
-.checklist-items, .crosslist-items {
-    list-style: none;
-}
-
-.checklist-items li {
-    color: #22c55e;
-    font-size: 0.9rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.crosslist-items li {
-    color: #ef4444;
-    font-size: 0.9rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: #e50914;
+    margin-bottom: 4px;
 }
 
 .modal-pricing-box {
     background: #181818;
     border: 1px solid #333;
-    padding: 15px;
+    padding: 12px;
     border-radius: 6px;
-    margin: 20px 0 15px 0;
+    margin: 15px 0 10px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.m-dur {
-    display: block;
-    color: #888;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 .m-prc {
-    color: #ff0000;
+    color: #e50914;
     font-weight: bold;
-    font-size: 1.1rem;
+}
+
+.modal-note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 15px;
+    font-style: italic;
 }
 
 .btn-modal-wa {
@@ -824,31 +739,16 @@ footer p {
     color: #fff;
     display: block;
     text-align: center;
-    padding: 12px;
+    padding: 10px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-    transition: background 0.2s ease;
+    font-size: 0.9rem;
 }
 
-.btn-modal-wa:hover {
-    background: #1eb954;
-}
-
-.btn-modal-close-action {
-    background: transparent;
-    color: #aaa;
-    border: 1px solid #444;
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-modal-close-action:hover {
-    background: #333;
-    color: #fff;
+/* MEDIA QUERIES MOBILE ADAPTATION */
+@media (max-width: 480px) {
+    .system-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
