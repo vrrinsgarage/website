@@ -1179,4 +1179,48 @@ footer p {
     .btn-detail-sm {
         width: 100%;
     }
+}/* Perbaikan Tampilan Kartu Sistem Kendaraan */
+.sys-card {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    border-radius: 8px;
+}
+
+.sys-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sys-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+}
+
+.btn-detail-system {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+    z-index: 2;
+}
+
+.btn-detail-system:hover {
+    background-color: #cc0000;
 }
