@@ -1,4 +1,8 @@
-/* VRRINS GARAGE V2 - BLUEPRINT FINAL STYLING */
+/* CSS UTAMA VRRINS GARAGE */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,10 +11,9 @@
 }
 
 body {
-    background-color: #0d0d0d;
-    color: #ffffff;
+    background-color: #0b0b0b;
+    color: #e0e0e0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .container {
@@ -20,10 +23,16 @@ body {
     padding: 0 15px;
 }
 
-/* 4. HEADER & NAV STICKY */
+/* ACCESSIBILITY FOCUS INDICATOR */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid #ff0000;
+    outline-offset: 3px;
+}
+
+/* HEADER */
 header {
-    background: #111111;
-    border-bottom: 2px solid #e50914;
+    background: #111;
+    border-bottom: 2px solid #ff0000;
     padding: 12px 0;
     position: sticky;
     top: 0;
@@ -37,84 +46,44 @@ header {
 }
 
 .logo {
-    height: 42px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    height: 45px;
+    width: auto;
 }
 
 .btn-booking-wa {
     background: #25d366;
     color: #fff;
-    padding: 8px 14px;
+    padding: 8px 16px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 6px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.hamburger-menu {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
+.btn-booking-wa:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
 }
 
-/* Nav Menu Drawer */
-.nav-menu {
-    display: none;
-    background: #181818;
-    border-bottom: 2px solid #e50914;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-}
-
-.nav-menu.active {
-    display: block;
-}
-
-.nav-menu ul {
-    list-style: none;
-    padding: 10px 0;
-}
-
-.nav-menu ul li a {
-    display: block;
-    padding: 12px 20px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #222;
-}
-
-.nav-menu ul li a:hover {
-    background: #e50914;
-}
-
-/* 5. HERO SECTION */
+/* HERO SECTION */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('hero-bg.png');
     background-size: cover;
     background-position: center;
     text-align: center;
-    padding: 50px 20px;
-    border-bottom: 3px solid #e50914;
+    padding: 60px 20px;
+    border-bottom: 3px solid #ff0000;
 }
 
 .badge-hero {
-    background: #e50914;
+    background: #ff0000;
     color: #fff;
     padding: 4px 12px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: bold;
     border-radius: 4px;
     display: inline-block;
@@ -122,41 +91,40 @@ header {
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #fff;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     line-height: 1.2;
 }
 
 .hero p {
     color: #ccc;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
 }
 
 .hero-features {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #25d366;
-    font-weight: bold;
 }
 
 .hero-buttons {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 320px;
-    margin: 0 auto 25px auto;
+    max-width: 350px;
+    margin: 0 auto 30px auto;
 }
 
 .btn-green {
     background: #25d366;
     color: #fff;
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
@@ -164,33 +132,55 @@ header {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-green:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
     background: transparent;
     color: #fff;
     border: 2px solid #fff;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #000;
 }
 
 .hero-location-badge {
-    border: 1px solid #e50914;
+    border: 1px solid #ff0000;
     display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    background: rgba(229,9,20,0.15);
-    font-size: 0.85rem;
-    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    background: rgba(255,0,0,0.1);
 }
 
-/* 6. SEARCH SECTION */
+.hero-location-badge small {
+    display: block;
+    color: #aaa;
+    font-size: 0.75rem;
+}
+
+.hero-location-badge strong {
+    color: #ff0000;
+    font-size: 1.1rem;
+}
+
+/* SEARCH SECTION */
 .search-section {
-    padding: 20px 0;
-    background: #0d0d0d;
+    padding: 25px 0;
+    background: #111;
+    border-bottom: 1px solid #222;
 }
 
 .search-box {
@@ -204,124 +194,163 @@ header {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #e50914;
+    color: #ff0000;
+    font-size: 1.1rem;
 }
 
-#searchInput {
+.search-box input {
     width: 100%;
-    padding: 12px 15px 12px 42px;
-    background: #181818;
+    padding: 14px 15px 14px 45px;
+    background: #1a1a1a;
     border: 1px solid #333;
     border-radius: 8px;
     color: #fff;
-    font-size: 0.9rem;
-    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
 }
 
-#searchInput:focus {
-    border-color: #e50914;
+.search-box input:focus {
+    border-color: #ff0000;
 }
 
-.no-result {
-    text-align: center;
-    padding: 20px;
-    color: #aaa;
-    font-size: 0.9rem;
-}
-
-/* 7. KEUNGGULAN KAMI (2 KOLOM GRID) */
+/* KEUNGGULAN */
 .features-section {
-    padding: 40px 0;
+    padding: 50px 0;
     background: #141414;
 }
 
 .section-title-center {
     text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 25px;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
     color: #fff;
 }
 
 .section-title-center span {
-    color: #e50914;
+    color: #ff0000;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .feature-item {
-    background: #1c1c1c;
-    border: 1px solid #2a2a2a;
-    padding: 18px 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    border-color: #ff0000;
 }
 
 .feature-item i {
-    font-size: 1.8rem;
-    color: #e50914;
-    margin-bottom: 8px;
+    font-size: 2rem;
+    color: #ff0000;
+    margin-bottom: 12px;
 }
 
 .feature-item h3 {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: #fff;
+    margin-bottom: 6px;
 }
 
-/* 8. LAYANAN UNGGULAN */
+.feature-item p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* LAYANAN SECTION */
 .services-section {
-    padding: 45px 0;
+    padding: 60px 0;
+    background: #0b0b0b;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .section-title h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #fff;
 }
 
 .section-title span {
-    color: #e50914;
+    color: #ff0000;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
 }
 
 .service-card {
     background: #141414;
     border: 1px solid #262626;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 10px 15px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #262626;
+}
+
+.badge-tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.label-popular { background: #ff0000; }
+.label-recom { background: #d97706; }
+.label-best { background: #dc2626; }
+.label-premium { background: #7c3aed; }
 
 .card-img img {
     width: 100%;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
 }
 
 .card-body {
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .card-body h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.card-desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
 }
 
 .card-meta {
@@ -333,142 +362,194 @@ header {
 }
 
 .price {
-    color: #e50914;
+    color: #ff0000;
     font-weight: bold;
+    font-size: 1rem;
 }
 
 .duration {
-    color: #aaa;
+    color: #888;
 }
 
 .btn-detail {
     background: #222;
     color: #fff;
     border: 1px solid #444;
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .btn-detail:hover {
-    background: #e50914;
-    border-color: #e50914;
+    background: #ff0000;
+    border-color: #ff0000;
 }
 
-/* 10. LAYANAN BERDASARKAN SISTEM */
+/* SISTEM KENDARAAN SECTION */
 .system-section {
-    padding: 45px 0;
-    background: #111;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.85rem;
-    margin-top: 5px;
+    padding: 60px 0;
+    background: #141414;
 }
 
 .system-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
-    margin-top: 25px;
 }
 
 .system-card {
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
+    padding: 20px;
     border-radius: 8px;
-    padding: 12px;
     text-align: center;
     cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.system-card img {
-    width: 100%;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 8px;
+.system-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff0000;
+}
+
+.system-card i {
+    font-size: 1.8rem;
+    color: #ff0000;
+    margin-bottom: 10px;
 }
 
 .system-card h3 {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     color: #fff;
 }
 
-/* 12. ALUR PROSES KERJA */
+/* WORKFLOW SECTION */
 .workflow-section {
-    padding: 45px 0;
+    padding: 60px 0;
+    background: #111;
 }
 
 .workflow-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
 .workflow-step {
-    background: #141414;
-    border: 1px solid #262626;
-    padding: 12px;
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
 
 .workflow-step img {
     width: 100%;
-    height: 120px;
+    height: 140px;
     object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .workflow-step h3 {
-    color: #e50914;
+    color: #ff0000;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.workflow-step p {
+    color: #aaa;
     font-size: 0.85rem;
 }
 
-/* 13. WILAYAH OPERASIONAL */
+/* AREA SECTION */
 .area-section {
-    padding: 45px 0;
-    background: #111;
+    padding: 60px 0;
+    background: #0b0b0b;
 }
 
 .area-box {
-    background: #181818;
-    border: 1px solid #2a2a2a;
-    padding: 20px;
+    background: #141414;
+    border: 1px solid #333;
+    padding: 25px;
     border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .area-box h3 {
     text-align: center;
     color: #fff;
-    margin-bottom: 15px;
-}
-
-.area-map-container img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid #333;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
 }
 
 .area-list {
     list-style: none;
+    margin-top: 20px;
 }
 
 .area-list li {
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #222;
-    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
 }
 
-/* 14. FAQ ACCORDION */
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.green { background: #22c55e; }
+.dot.yellow { background: #eab308; }
+.dot.red { background: #ef4444; }
+
+/* CTA BANNER */
+.cta-banner {
+    background: #ff0000;
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.cta-banner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.cta-banner p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.btn-wa-large {
+    background: #000;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-wa-large:hover {
+    background: #1f1f1f;
+    transform: scale(1.03);
+}
+
+/* FAQ SECTION */
 .faq-section {
-    padding: 45px 0;
+    padding: 60px 0;
+    background: #141414;
 }
 
 .faq-accordion {
@@ -476,128 +557,90 @@ header {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .faq-item {
-    background: #141414;
-    border: 1px solid #262626;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.faq-header {
-    width: 100%;
-    padding: 14px 18px;
     background: #1a1a1a;
-    color: #fff;
-    border: none;
-    font-size: 0.9rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.faq-item summary {
     font-weight: bold;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.faq-icon {
-    color: #e50914;
-}
-
-.faq-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background: #141414;
-}
-
-.faq-item.active .faq-body {
-    max-height: 200px;
-}
-
-.faq-body p {
-    padding: 12px 18px;
-    color: #ccc;
-    font-size: 0.85rem;
-}
-
-/* 15. CTA TERAKHIR */
-.cta-banner {
-    background: #e50914;
-    padding: 40px 20px;
-    text-align: center;
     color: #fff;
-}
-
-.cta-banner h2 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.cta-banner p {
-    margin-bottom: 18px;
+    cursor: pointer;
     font-size: 0.95rem;
 }
 
-.btn-wa-large {
-    background: #000;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
+.faq-item p {
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 0.88rem;
+    line-height: 1.5;
 }
 
-/* FLOATING WA BUTTON */
-.floating-wa {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366;
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    z-index: 998;
-    text-decoration: none;
-}
-
-/* 16. FOOTER */
+/* FOOTER */
 footer {
     background: #080808;
-    padding: 25px 0;
+    padding: 30px 0;
     text-align: center;
     border-top: 1px solid #222;
 }
 
 .footer-logo {
-    height: 35px;
+    height: 40px;
+    width: auto;
     margin-bottom: 10px;
 }
 
 .footer-socials {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0 15px 0;
 }
 
 .footer-socials a {
     color: #fff;
     font-size: 1.2rem;
-    margin: 0 8px;
+    transition: color 0.2s ease;
+}
+
+.footer-socials a:hover {
+    color: #ff0000;
 }
 
 footer p {
-    color: #666;
-    font-size: 0.8rem;
+    color: #777;
+    font-size: 0.85rem;
 }
 
-/* MODAL / POPUP */
+/* BACK TO TOP BUTTON */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 99;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background-color: #ff0000;
+    color: white;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+}
+
+/* CUSTOM MODAL STYLES */
 .custom-modal {
     display: none;
     position: fixed;
@@ -608,65 +651,104 @@ footer p {
     height: 100%;
     overflow-y: auto;
     background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
 }
 
 .modal-dialog {
     background-color: #141414;
     margin: 20px auto;
-    width: 92%;
-    max-width: 500px;
-    border-radius: 10px;
+    width: 95%;
+    max-width: 600px;
+    border-radius: 12px;
     border: 1px solid #333;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-header {
     background: #1a1a1a;
-    padding: 12px 18px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #262626;
+    position: relative;
+}
+
+.modal-tag {
+    background: #ff0000;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 3px;
+    position: absolute;
+    top: 6px;
+    left: 20px;
 }
 
 .modal-header h3 {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-top: 8px;
 }
 
 .modal-close {
     background: none;
     border: none;
     color: #aaa;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
 }
 
+.modal-close:hover {
+    color: #fff;
+}
+
 .modal-body {
-    padding: 15px;
+    padding: 20px;
 }
 
 .modal-banner-img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .modal-subtitle {
     color: #ccc;
-    font-size: 0.85rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
+.modal-subtitle-bold {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+/* Modal Tabs */
 .modal-tabs {
     display: flex;
-    gap: 4px;
     background: #1a1a1a;
-    padding: 4px;
     border-radius: 6px;
-    margin-bottom: 15px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.modal-tabs.grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
 }
 
 .tab-btn {
@@ -674,23 +756,28 @@ footer p {
     background: none;
     border: none;
     color: #aaa;
-    padding: 8px 4px;
-    font-size: 0.75rem;
+    padding: 10px 5px;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
+    transition: 0.2s;
 }
 
 .tab-btn.active {
-    background: #e50914;
+    background: #ff0000;
     color: #fff;
+}
+
+.star-label {
+    display: block;
+    font-size: 9px;
+    color: #ffcc00;
+    font-weight: bold;
 }
 
 .tab-content {
     display: none;
-    font-size: 0.85rem;
-    color: #ccc;
-    margin-bottom: 15px;
 }
 
 .tab-content.active {
@@ -700,38 +787,124 @@ footer p {
 .info-block {
     background: #1a1a1a;
     border: 1px solid #262626;
-    padding: 10px 12px;
+    padding: 12px 15px;
     border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.info-highlight {
+    background: #122817;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #2e7d32;
+}
+
+.info-highlight-green {
+    background: #122817;
+    padding: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
-    font-size: 0.85rem;
 }
 
 .info-block h4 {
-    color: #e50914;
-    margin-bottom: 4px;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-block h4 i {
+    color: #ff0000;
+}
+
+.info-block p {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.addon-box {
+    background: #1c1c1c;
+    border: 1px dashed #444;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.addon-dashed {
+    margin-top: 10px;
+    border: 1px dashed #2e7d32;
+}
+
+.addon-box h4 {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.addon-box ul {
+    list-style: none;
+}
+
+.addon-box li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #262626;
+    color: #ccc;
+}
+
+.addon-box li strong {
+    color: #ff0000;
+}
+
+.checklist-items, .crosslist-items {
+    list-style: none;
+}
+
+.checklist-items li {
+    color: #22c55e;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crosslist-items li {
+    color: #ef4444;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .modal-pricing-box {
     background: #181818;
     border: 1px solid #333;
-    padding: 12px;
+    padding: 15px;
     border-radius: 6px;
-    margin: 15px 0 10px 0;
+    margin: 20px 0 15px 0;
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    align-items: center;
+}
+
+.m-dur {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
 }
 
 .m-prc {
-    color: #e50914;
+    color: #ff0000;
     font-weight: bold;
-}
-
-.modal-note {
-    font-size: 0.75rem;
-    color: #888;
-    margin-bottom: 15px;
-    font-style: italic;
+    font-size: 1.1rem;
 }
 
 .btn-modal-wa {
@@ -739,157 +912,48 @@ footer p {
     color: #fff;
     display: block;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    transition: background 0.2s ease;
 }
 
-/* MEDIA QUERIES MOBILE ADAPTATION */
-@media (max-width: 480px) {
-    .system-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-/* ==========================================
-   DESAIN MODAL / POP-UP VRRINS GARAGE V2
-   ========================================== */
-
-/* Background Gelap Transparan (Overlay) */
-.vg-modal {
-  display: none; 
-  position: fixed; 
-  z-index: 9999; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(4px);
-  animation: vgFadeIn 0.3s ease-in-out;
+.btn-modal-wa:hover {
+    background: #20ba5a;
 }
 
-/* Kotak Modal Utama */
-.vg-modal-content {
-  background-color: #111111;
-  color: #ffffff;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #333333;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 8px 24px rgba(230, 0, 0, 0.2);
-  position: relative;
+.btn-modal-close-action {
+    background: transparent;
+    color: #aaa;
+    border: 1px solid #444;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Header Modal */
-.vg-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #222222;
-  padding-bottom: 12px;
-  margin-bottom: 15px;
+.btn-modal-close-action:hover {
+    background: #333;
+    color: #fff;
 }
 
-.vg-modal-header h3 {
-  margin: 0;
-  color: #ff2222; /* Aksen Merah Vrrins Garage */
-  font-size: 1.2rem;
+.footnote-text {
+    font-size: 11px;
+    color: #777;
+    font-style: italic;
+    margin-top: 10px;
 }
 
-/* Tombol Tutup (X) */
-.vg-close-btn {
-  color: #aaaaaa;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.vg-close-btn:hover {
-  color: #ffffff;
-}
-
-/* Kartu Layanan (Level 1) */
-.vg-service-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  padding: 12px 15px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.vg-badge {
-  background-color: #ff2222;
-  color: #ffffff;
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-/* Tombol Detail */
-.vg-btn-detail {
-  background-color: #333333;
-  color: #ffffff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: 0.2s;
-}
-
-.vg-btn-detail:hover {
-  background-color: #ff2222;
-}
-
-/* Footer Modal & Tombol WA (Level 2) */
-.vg-modal-footer {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  border-top: 1px solid #222222;
-  padding-top: 15px;
-}
-
-.vg-btn-back {
-  background-color: #222222;
-  color: #ffffff;
-  border: 1px solid #444444;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  flex: 1;
-}
-
-.vg-btn-wa {
-  background-color: #25d366; /* Warna Hijau WA */
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-weight: bold;
-  flex: 2;
-  display: inline-block;
-  transition: 0.2s;
-}
-
-.vg-btn-wa:hover {
-  background-color: #1eb954;
-}
-
-/* Animasi Fade In */
-@keyframes vgFadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.policy-note {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #aaa;
+    background: #181818;
+    padding: 8px;
+    border-radius: 5px;
+    border-left: 3px solid #ff0000;
 }
