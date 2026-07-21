@@ -166,22 +166,190 @@
         </div>
     </section>
 
-    <!-- LAYANAN BERDASARKAN SISTEM KENDARAAN -->
-    <section class="system-section">
-        <div class="container">
-            <div class="section-title"><h2>LAYANAN <span>SISTEM KENDARAAN</span></h2></div>
-            <div class="system-grid">
-                <div class="system-card" onclick="openSystemModal('Sistem Mesin')"><i class="fas fa-cogs" aria-hidden="true"></i><h3>Sistem Mesin</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Pelumasan')"><i class="fas fa-oil-can" aria-hidden="true"></i><h3>Sistem Pelumasan</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Bahan Bakar')"><i class="fas fa-gas-pump" aria-hidden="true"></i><h3>Sistem Bahan Bakar</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Suspensi')"><i class="fas fa-car-side" aria-hidden="true"></i><h3>Sistem Suspensi</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Kemudi')"><i class="fas fa-steering-wheel" aria-hidden="true"></i><h3>Sistem Kemudi</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Rem')"><i class="fas fa-stop-circle" aria-hidden="true"></i><h3>Sistem Rem</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Pendingin')"><i class="fas fa-fan" aria-hidden="true"></i><h3>Sistem Pendingin</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Transmisi & Pemindah Daya')"><i class="fas fa-tachometer-alt" aria-hidden="true"></i><h3>Sistem Transmisi & Pemindah Daya</h3></div>
-                <div class="system-card" onclick="openSystemModal('Sistem Kelistrikan')"><i class="fas fa-bolt" aria-hidden="true"></i><h3>Sistem Kelistrikan</h3></div>
+    <!-- 5. LAYANAN BERDASARKAN SISTEM KENDARAAN -->
+<section class="system-section" id="sistem-kendaraan">
+    <div class="container">
+        <div class="section-title-center">
+            <h2>LAYANAN BERDASARKAN <span>SISTEM KENDARAAN</span></h2>
+        </div>
+        <!-- Grid 3x3 Sesuai Blueprint -->
+        <div class="system-grid-3x3">
+            <!-- Baris 1 -->
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-mesin')">
+                <img src="img-sys-mesin.jpg" alt="Sistem Mesin" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-cogs sys-icon"></i>
+                    <h3>SISTEM MESIN</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-pelumasan')">
+                <img src="img-sys-pelumasan.jpg" alt="Sistem Pelumasan" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-oil-can sys-icon"></i>
+                    <h3>SISTEM PELUMASAN</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-bahan-bakar')">
+                <img src="img-sys-bahanbakar.jpg" alt="Sistem Bahan Bakar" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-gas-pump sys-icon"></i>
+                    <h3>SISTEM BAHAN BAKAR</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <!-- Baris 2 -->
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-suspensi')">
+                <img src="img-sys-suspensi.jpg" alt="Sistem Suspensi" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-car-crash sys-icon"></i>
+                    <h3>SISTEM SUSPENSI</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-kemudi')">
+                <img src="img-sys-kemudi.jpg" alt="Sistem Kemudi" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-steering-wheel sys-icon"></i>
+                    <h3>SISTEM KEMUDI</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-rem')">
+                <img src="img-sys-rem.jpg" alt="Sistem Rem" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-dot-circle sys-icon"></i>
+                    <h3>SISTEM REM</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <!-- Baris 3 -->
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-pendingin')">
+                <img src="img-sys-pendingin.jpg" alt="Sistem Pendingin" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-snowflake sys-icon"></i>
+                    <h3>SISTEM PENDINGIN</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-transmisi')">
+                <img src="img-sys-transmisi.jpg" alt="Sistem Transmisi" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-cog sys-icon"></i>
+                    <h3>SISTEM TRANSMISI</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
+            </div>
+            <div class="sys-card" onclick="openSystemPopup('modal-sys-kelistrikan')">
+                <img src="img-sys-kelistrikan.jpg" alt="Sistem Kelistrikan" class="sys-bg">
+                <div class="sys-overlay">
+                    <i class="fas fa-bolt sys-icon"></i>
+                    <h3>SISTEM KELISTRIKAN</h3>
+                </div>
+                <img src="logo-vrrins-watermark.png" class="sys-watermark" alt="VG">
             </div>
         </div>
+    </div>
+</section>
+
+<!-- 6. POPUP SISTEM (Contoh: Sistem Bahan Bakar) -->
+<div id="modal-sys-bahan-bakar" class="custom-modal system-modal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3>⛽ SISTEM BAHAN BAKAR</h3>
+            <button class="modal-close" onclick="closePopup('modal-sys-bahan-bakar')">&times;</button>
+        </div>
+        <div class="modal-body p-0">
+            <img src="img-sys-bahanbakar-cover.jpg" alt="Sistem Bahan Bakar Cover" class="modal-banner-img rounded-0">
+            <div class="p-3">
+                <div class="policy-note mb-4">
+                    <i class="fas fa-info-circle"></i> Seluruh estimasi merupakan biaya jasa pengerjaan. Sparepart & material dihitung terpisah.
+                </div>
+                
+                <!-- Daftar Layanan Sistem Bahan Bakar -->
+                <div class="service-list-wrapper">
+                    <!-- Item 1 -->
+                    <div class="service-list-item">
+                        <img src="img-servis-pemeriksaan-bbm.jpg" alt="Pemeriksaan BBM">
+                        <div class="service-list-info">
+                            <h4>Pemeriksaan Sistem Bahan Bakar</h4>
+                            <span class="cat-badge">Pemeriksaan</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp150K – Rp250K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-bbm', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="service-list-item">
+                        <img src="img-servis-ganti-fuelpump.jpg" alt="Ganti Fuel Pump">
+                        <div class="service-list-info">
+                            <h4>Ganti Fuel Pump</h4>
+                            <span class="cat-badge">Penggantian</span>
+                            <div class="sl-meta">
+                                <span class="sl-price">Rp190K – Rp260K</span>
+                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
+                            </div>
+                        </div>
+                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-fuelpump', 'modal-sys-bahan-bakar')">Detail</button>
+                    </div>
+                    <!-- (Item lainnya dilanjutkan sesuai data Blueprint) -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 7. POPUP DETAIL LAYANAN (Contoh: Ganti Fuel Pump) -->
+<div id="modal-det-ganti-fuelpump" class="custom-modal detail-modal">
+    <div class="modal-dialog detail-dialog">
+        <div class="modal-header">
+            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-fuelpump')">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+            <button class="modal-close" onclick="closePopup('modal-det-ganti-fuelpump')">&times;</button>
+        </div>
+        <div class="modal-body flex-row">
+            <div class="detail-img-col">
+                <img src="img-servis-ganti-fuelpump-large.jpg" alt="Ganti Fuel Pump">
+            </div>
+            <div class="detail-info-col">
+                <span class="cat-badge mb-2">Penggantian</span>
+                <h3 class="detail-title">Ganti Fuel Pump</h3>
+                
+                <div class="modal-pricing-box">
+                    <div>
+                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
+                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
+                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
+                    <ul class="checklist-items mt-2">
+                        <li><i class="fas fa-check-circle"></i> Penggantian Fuel Pump</li>
+                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Tekanan Bahan Bakar</li>
+                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Soket Kelistrikan Fuel Pump</li>
+                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Kebocoran</li>
+                        <li><i class="fas fa-check-circle"></i> Uji Sistem Bahan Bakar</li>
+                    </ul>
+                </div>
+
+                <div class="policy-note">
+                    Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.
+                </div>
+
+                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Fuel%20Pump." target="_blank" class="btn-wa-large w-100 mt-3" style="font-size:0.95rem;">
+                    <i class="fab fa-whatsapp"></i> Booking via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- ALUR PROSES KERJA -->
