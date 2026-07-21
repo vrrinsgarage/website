@@ -957,3 +957,226 @@ footer p {
     border-radius: 5px;
     border-left: 3px solid #ff0000;
 }
+
+/* GRID 3x3 SISTEM KENDARAAN */
+.system-grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.sys-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 180px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.sys-card:hover {
+    transform: scale(1.02);
+    border-color: #ff0000;
+}
+
+.sys-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.2);
+    transition: filter 0.3s ease;
+}
+
+.sys-card:hover .sys-bg {
+    filter: brightness(0.3) contrast(1.3);
+}
+
+.sys-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.sys-icon {
+    font-size: 2.2rem;
+    color: #ff0000;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+.sys-overlay h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+.sys-watermark {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 40px;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+/* LIST LAYANAN DALAM POPUP SISTEM */
+.service-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-list-item {
+    display: flex;
+    align-items: center;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 15px;
+}
+
+.service-list-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+.service-list-info {
+    flex-grow: 1;
+}
+
+.service-list-info h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.cat-badge {
+    background: #333;
+    color: #fff;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border-left: 2px solid #ff0000;
+}
+
+.sl-meta {
+    display: flex;
+    gap: 15px;
+    margin-top: 6px;
+    font-size: 0.8rem;
+}
+
+.sl-price {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.sl-time {
+    color: #aaa;
+}
+
+.btn-detail-sm {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.2s;
+}
+
+.btn-detail-sm:hover {
+    background: #cc0000;
+}
+
+/* POPUP DETAIL (FLEX ROW UNTUK DESKTOP) */
+.detail-dialog {
+    max-width: 800px;
+}
+
+.modal-body.flex-row {
+    display: flex;
+    gap: 20px;
+}
+
+.detail-img-col {
+    flex: 1;
+}
+
+.detail-img-col img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.detail-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-title {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.modal-back {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.modal-back:hover {
+    color: #fff;
+}
+
+/* MEDIA QUERIES UNTUK MOBILE FIRST */
+@media (max-width: 768px) {
+    .system-grid-3x3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .modal-body.flex-row {
+        flex-direction: column;
+    }
+    .detail-img-col img {
+        min-height: 200px;
+    }
+}
+@media (max-width: 480px) {
+    .system-grid-3x3 {
+        grid-template-columns: 1fr;
+    }
+    .service-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .service-list-item img {
+        width: 100%;
+        height: 120px;
+    }
+    .btn-detail-sm {
+        width: 100%;
+    }
+}
