@@ -96,8 +96,8 @@ function filterServices() {
 // Membuka Popup Sistem
 function openSystemPopup(modalId) {
     let modal = document.getElementById(modalId);
-    if(modal) {
-        modal.style.display = 'flex';
+    if (modal) {
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 }
@@ -105,15 +105,18 @@ function openSystemPopup(modalId) {
 // Membuka Popup Detail dari dalam Popup Sistem
 function openDetailPopup(detailModalId, parentSystemModalId) {
     // Sembunyikan popup sistem sementara
-    document.getElementById(parentSystemModalId).style.display = 'none';
-    
+    let parentModal = document.getElementById(parentSystemModalId);
+    if (parentModal) {
+        parentModal.classList.remove('active');
+    }
+
     // Tampilkan popup detail
     let detailModal = document.getElementById(detailModalId);
-    if(detailModal) {
-        detailModal.style.display = 'flex';
+    if (detailModal) {
+        detailModal.classList.add('active');
         // Simpan referensi parent modal ke dalam tombol back
         let backBtn = detailModal.querySelector('.modal-back');
-        if(backBtn) {
+        if (backBtn) {
             backBtn.setAttribute('onclick', `backToSystemPopup('${parentSystemModalId}', '${detailModalId}')`);
         }
     }
@@ -121,20 +124,29 @@ function openDetailPopup(detailModalId, parentSystemModalId) {
 
 // Tombol Kembali (Dari Detail -> ke Sistem)
 function backToSystemPopup(parentSystemModalId, detailModalId) {
-    document.getElementById(detailModalId).style.display = 'none';
-    document.getElementById(parentSystemModalId).style.display = 'flex';
+    let detailModal = document.getElementById(detailModalId);
+    if (detailModal) {
+        detailModal.classList.remove('active');
+    }
+    let parentModal = document.getElementById(parentSystemModalId);
+    if (parentModal) {
+        parentModal.classList.add('active');
+    }
 }
 
 // Menutup Popup secara total
 function closePopup(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; // Kembalikan scroll background
+    let modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Kembalikan scroll background
+    }
 }
 
 // Tutup modal jika klik area luar (background gelap)
 window.onclick = function(event) {
     if (event.target.classList.contains('custom-modal')) {
-        event.target.style.display = "none";
+        event.target.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
 };
