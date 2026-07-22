@@ -336,13 +336,13 @@ header {
     object-fit: cover;
 }
 
-/* Responsif untuk Layar HP */
 @media (max-width: 480px) {
     .system-grid-3x3 {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 }
+
 
 /* WORKFLOW SECTION */
 .workflow-section {
