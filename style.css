@@ -1,8 +1,4 @@
 /* CSS UTAMA VRRINS GARAGE */
-html {
-    scroll-behavior: smooth;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,12 +19,6 @@ body {
     padding: 0 15px;
 }
 
-/* ACCESSIBILITY FOCUS INDICATOR */
-a:focus-visible, button:focus-visible, input:focus-visible {
-    outline: 2px solid #ff0000;
-    outline-offset: 3px;
-}
-
 /* HEADER */
 header {
     background: #111;
@@ -47,7 +37,6 @@ header {
 
 .logo {
     height: 45px;
-    width: auto;
 }
 
 .btn-booking-wa {
@@ -61,12 +50,6 @@ header {
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.btn-booking-wa:hover {
-    background: #20ba5a;
-    transform: translateY(-2px);
 }
 
 /* HERO SECTION */
@@ -133,12 +116,6 @@ header {
     justify-content: center;
     gap: 8px;
     font-size: 1.05rem;
-    transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.btn-green:hover {
-    background: #20ba5a;
-    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -149,12 +126,6 @@ header {
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.btn-outline:hover {
-    background: #fff;
-    color: #000;
 }
 
 .hero-location-badge {
@@ -174,43 +145,6 @@ header {
 .hero-location-badge strong {
     color: #ff0000;
     font-size: 1.1rem;
-}
-
-/* SEARCH SECTION */
-.search-section {
-    padding: 25px 0;
-    background: #111;
-    border-bottom: 1px solid #222;
-}
-
-.search-box {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ff0000;
-    font-size: 1.1rem;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 14px 15px 14px 45px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 0.95rem;
-    transition: border-color 0.2s ease;
-}
-
-.search-box input:focus {
-    border-color: #ff0000;
 }
 
 /* KEUNGGULAN */
@@ -242,12 +176,6 @@ header {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    border-color: #ff0000;
 }
 
 .feature-item i {
@@ -300,12 +228,6 @@ header {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.15);
 }
 
 .card-header {
@@ -387,42 +309,37 @@ header {
     border-color: #ff0000;
 }
 
-/* SISTEM KENDARAAN SECTION */
-.system-section {
-    padding: 60px 0;
-    background: #141414;
-}
-
-.system-grid {
+/* GRID 3x3 SISTEM KENDARAAN */
+.system-grid-3x3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+    width: 100%;
 }
 
-.system-card {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    padding: 20px;
+.system-grid-3x3 .sys-card {
+    position: relative;
     border-radius: 8px;
-    text-align: center;
+    overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 180px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.system-card:hover {
-    transform: translateY(-3px);
-    border-color: #ff0000;
+.system-grid-3x3 .sys-card img,
+.system-grid-3x3 .sys-card .sys-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.system-card i {
-    font-size: 1.8rem;
-    color: #ff0000;
-    margin-bottom: 10px;
-}
-
-.system-card h3 {
-    font-size: 0.95rem;
-    color: #fff;
+/* Responsif untuk Layar HP */
+@media (max-width: 480px) {
+    .system-grid-3x3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 }
 
 /* WORKFLOW SECTION */
@@ -538,47 +455,6 @@ header {
     font-weight: bold;
     display: inline-block;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.btn-wa-large:hover {
-    background: #1f1f1f;
-    transform: scale(1.03);
-}
-
-/* FAQ SECTION */
-.faq-section {
-    padding: 60px 0;
-    background: #141414;
-}
-
-.faq-accordion {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.faq-item {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 6px;
-    padding: 15px;
-}
-
-.faq-item summary {
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.95rem;
-}
-
-.faq-item p {
-    margin-top: 10px;
-    color: #aaa;
-    font-size: 0.88rem;
-    line-height: 1.5;
 }
 
 /* FOOTER */
@@ -591,25 +467,7 @@ footer {
 
 .footer-logo {
     height: 40px;
-    width: auto;
     margin-bottom: 10px;
-}
-
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 10px 0 15px 0;
-}
-
-.footer-socials a {
-    color: #fff;
-    font-size: 1.2rem;
-    transition: color 0.2s ease;
-}
-
-.footer-socials a:hover {
-    color: #ff0000;
 }
 
 footer p {
@@ -617,30 +475,9 @@ footer p {
     font-size: 0.85rem;
 }
 
-/* BACK TO TOP BUTTON */
-#backToTop {
-    display: none;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 99;
-    font-size: 1.1rem;
-    border: none;
-    outline: none;
-    background-color: #ff0000;
-    color: white;
-    cursor: pointer;
-    padding: 12px 16px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    transition: transform 0.2s ease;
-}
-
-#backToTop:hover {
-    transform: scale(1.1);
-}
-
-/* CUSTOM MODAL STYLES */
+/* ========================================== */
+/* CUSTOM MODAL STYLES (FULL SCREEN MEMANJANG)*/
+/* ========================================== */
 .custom-modal {
     display: none;
     position: fixed;
@@ -667,7 +504,7 @@ footer p {
 }
 
 @keyframes modalSlide {
-    from { transform: translateY(-30px); opacity: 0; }
+    from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
@@ -729,13 +566,6 @@ footer p {
     margin-bottom: 20px;
 }
 
-.modal-subtitle-bold {
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-}
-
 /* Modal Tabs */
 .modal-tabs {
     display: flex;
@@ -743,12 +573,6 @@ footer p {
     border-radius: 6px;
     padding: 4px;
     margin-bottom: 20px;
-}
-
-.modal-tabs.grid-2x2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
 }
 
 .tab-btn {
@@ -769,13 +593,6 @@ footer p {
     color: #fff;
 }
 
-.star-label {
-    display: block;
-    font-size: 9px;
-    color: #ffcc00;
-    font-weight: bold;
-}
-
 .tab-content {
     display: none;
 }
@@ -790,20 +607,6 @@ footer p {
     padding: 12px 15px;
     border-radius: 6px;
     margin-bottom: 12px;
-}
-
-.info-highlight {
-    background: #122817;
-    padding: 10px;
-    border-radius: 5px;
-    border-left: 4px solid #2e7d32;
-}
-
-.info-highlight-green {
-    background: #122817;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
 }
 
 .info-block h4 {
@@ -830,11 +633,6 @@ footer p {
     padding: 15px;
     border-radius: 6px;
     margin-top: 15px;
-}
-
-.addon-dashed {
-    margin-top: 10px;
-    border: 1px dashed #2e7d32;
 }
 
 .addon-box h4 {
@@ -918,11 +716,6 @@ footer p {
     font-weight: bold;
     font-size: 0.95rem;
     margin-bottom: 10px;
-    transition: background 0.2s ease;
-}
-
-.btn-modal-wa:hover {
-    background: #20ba5a;
 }
 
 .btn-modal-close-action {
@@ -939,294 +732,5 @@ footer p {
 .btn-modal-close-action:hover {
     background: #333;
     color: #fff;
-}
-
-.footnote-text {
-    font-size: 11px;
-    color: #777;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-.policy-note {
-    margin-top: 15px;
-    font-size: 11px;
-    color: #aaa;
-    background: #181818;
-    padding: 8px;
-    border-radius: 5px;
-    border-left: 3px solid #ff0000;
-}
-
-/* GRID 3x3 SISTEM KENDARAAN */
-.system-grid-3x3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 100%;
-}
-
-.system-grid-3x3 .sys-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    height: 180px;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-/* Tambahkan ini agar gambar di dalam card tidak keluar jalur */
-.system-grid-3x3 .sys-card img,
-.system-grid-3x3 .sys-card .sys-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsif untuk Layar HP */
-@media (max-width: 480px) {
-    .system-grid-3x3 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
     }
-}
-
-
-
-
-/* LIST LAYANAN DALAM POPUP SISTEM */
-.service-list-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.service-list-item {
-    display: flex;
-    align-items: center;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 10px;
-    gap: 15px;
-}
-
-.service-list-item img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid #333;
-}
-
-.service-list-info {
-    flex-grow: 1;
-}
-
-.service-list-info h4 {
-    color: #fff;
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-}
-
-.cat-badge {
-    background: #333;
-    color: #fff;
-    font-size: 0.65rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    border-left: 2px solid #ff0000;
-}
-
-.sl-meta {
-    display: flex;
-    gap: 15px;
-    margin-top: 6px;
-    font-size: 0.8rem;
-}
-
-.sl-price {
-    color: #ff0000;
-    font-weight: bold;
-}
-
-.sl-time {
-    color: #aaa;
-}
-
-.btn-detail-sm {
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: 0.2s;
-}
-
-.btn-detail-sm:hover {
-    background: #cc0000;
-}
-
-/* POPUP DETAIL (FLEX ROW UNTUK DESKTOP) */
-.detail-dialog {
-    max-width: 800px;
-}
-
-.modal-body.flex-row {
-    display: flex;
-    gap: 20px;
-}
-
-.detail-img-col {
-    flex: 1;
-}
-
-.detail-img-col img {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #333;
-}
-
-.detail-info-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.detail-title {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-}
-
-.modal-back {
-    background: none;
-    border: none;
-    color: #aaa;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.modal-back:hover {
-    color: #fff;
-}
-
-/* MEDIA QUERIES UNTUK MOBILE FIRST */
-@media (max-width: 768px) {
-    .system-grid-3x3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .modal-body.flex-row {
-        flex-direction: column;
-    }
-    .detail-img-col img {
-        min-height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .system-grid-3x3 {
-        grid-template-columns: 1fr;
-    }
-    .service-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .service-list-item img {
-        width: 100%;
-        height: 120px;
-    }
-    .btn-detail-sm {
-        width: 100%;
-    }
-}
-
-/* Container Grid */
-.system-grid-3x3 {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 15px !important;
-}
-
-/* Kartu Utama (Tinggi konsisten 130px) */
-.sys-card {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: unset !important;
-    height: 130px !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    display: block !important;
-}
-
-/* Gambar Latar Belakang */
-.sys-card img, 
-.sys-card .sys-bg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* Lapisan Teks & Tombol di Tengah */
-.sys-overlay {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 8px !important;
-    z-index: 2 !important;
-}
-
-/* Teks Judul di dalam Kartu */
-.sys-overlay h3, 
-.sys-overlay span,
-.sys-overlay p {
-    color: #ffffff !important;
-    font-size: 12px !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    margin: 0 0 4px 0 !important;
-}
-
-/* Tombol Detail */
-.btn-detail-system {
-    margin-top: 2px !important;
-    padding: 4px 10px !important;
-    background-color: #ff0000 !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
-    font-weight: bold !important;
-    font-size: 10px !important;
-    z-index: 3 !important;
-}
-
-/* Responsif khusus layar HP kecil */
-@media (max-width: 480px) {
-    .system-grid-3x3 {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-    }
-}
+    
