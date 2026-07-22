@@ -1192,8 +1192,8 @@ footer p {
 .sys-card {
     position: relative !important;
     width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
+    aspect-ratio: unset !important;
+    height: 130px !important;
     border-radius: 8px !important;
     overflow: hidden !important;
 }
