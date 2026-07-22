@@ -1,4 +1,6 @@
-/* CSS UTAMA VRRINS GARAGE */
+/* ========================================== */
+/* CSS UTAMA VRRINS GARAGE - FINAL VERSION    */
+/* ========================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,7 +38,8 @@ header {
 }
 
 .logo {
-    height: 45px;
+    height: 44px; /* Sesuai ketentuan tinggi logo */
+    object-fit: contain;
 }
 
 .btn-booking-wa {
@@ -147,21 +150,10 @@ header {
     font-size: 1.1rem;
 }
 
-/* KEUNGGULAN */
+/* KEUNGGULAN (FEATURES SECTION) */
 .features-section {
     padding: 50px 0;
     background: #141414;
-}
-
-.section-title-center {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: #fff;
-}
-
-.section-title-center span {
-    color: #ff0000;
 }
 
 .features-grid {
@@ -195,7 +187,7 @@ header {
     font-size: 0.9rem;
 }
 
-/* LAYANAN SECTION */
+/* REKOMENDASI LAYANAN (4 PAKET UTAMA) */
 .services-section {
     padding: 60px 0;
     background: #0b0b0b;
@@ -217,44 +209,32 @@ header {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Desktop 4 kartu sejajar */
     gap: 20px;
 }
 
 @media (max-width: 768px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr; /* Mobile: 1 kartu per baris (vertikal) */
         gap: 15px;
     }
 }
 
 .service-card {
     background: #141414;
-    border: 1px solid #262626;
-    border-radius: 10px;
+    border: 1px solid #333;
+    border-radius: 20px; /* Sudut membulat 20px */
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.card-header {
-    padding: 10px 15px;
-    background: #1a1a1a;
-    border-bottom: 1px solid #262626;
+.service-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-4px);
 }
-
-.badge-tag {
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: #fff;
-}
-
-.label-popular { background: #ff0000; }
-.label-recom { background: #d97706; }
-.label-best { background: #dc2626; }
-.label-premium { background: #7c3aed; }
 
 .card-img img {
     width: 100%;
@@ -272,7 +252,7 @@ header {
 .card-body h3 {
     font-size: 1.2rem;
     color: #fff;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .card-desc {
@@ -286,70 +266,70 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+    padding-top: 12px;
 }
 
 .price {
     color: #ff0000;
     font-weight: bold;
-    font-size: 1rem;
 }
 
 .duration {
     color: #888;
 }
 
-.btn-detail {
-    background: #222;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-detail:hover {
-    background: #ff0000;
-    border-color: #ff0000;
-}
-
-/* GRID 3x3 SISTEM KENDARAAN */
+/* LAYANAN BERDASARKAN KONDISI MOBIL ANDA (GRID 3x3 KARTU KONDISI) */
 .system-grid-3x3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Desktop: Grid 3x3 */
     gap: 15px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.system-grid-3x3 .sys-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    height: 180px;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.system-grid-3x3 .sys-card img,
-.system-grid-3x3 .sys-card .sys-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .system-grid-3x3 {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Mobile: Grid 2x5 / disesuaikan */
         gap: 10px;
     }
 }
 
+.sys-card {
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 20px; /* Radius 20 px */
+    height: 90px; /* Tinggi spesifik 90 px */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.sys-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-2px);
+}
+
+.sys-card svg, .sys-card img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 6px;
+    color: #ff0000; /* Warna merah untuk ikon SVG outline */
+}
+
+.sys-card span {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 650; /* Semi Bold */
+    text-align: center;
+}
 
 /* WORKFLOW SECTION */
 .workflow-section {
@@ -359,8 +339,14 @@ header {
 
 .workflow-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Desktop: 4 kolom sejajar */
     gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .workflow-container {
+        grid-template-columns: 1fr; /* Mobile: 1 kolom vertikal */
+    }
 }
 
 .workflow-step {
@@ -368,19 +354,27 @@ header {
     border: 1px solid #2a2a2a;
     padding: 20px;
     border-radius: 8px;
-    text-align: center;
+    text-align: left;
+    position: relative;
 }
 
-.workflow-step img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 12px;
+.workflow-step .step-number {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.workflow-step svg {
+    width: 36px;
+    height: 36px;
+    color: #ff0000;
+    margin-bottom: 10px;
 }
 
 .workflow-step h3 {
-    color: #ff0000;
+    color: #fff;
     font-size: 1rem;
     margin-bottom: 6px;
 }
@@ -437,6 +431,46 @@ header {
 .dot.yellow { background: #eab308; }
 .dot.red { background: #ef4444; }
 
+/* FAQ ACCORDION SECTION */
+.faq-section {
+    padding: 60px 0;
+    background: #111;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    padding: 0 20px 15px 20px;
+    color: #aaa;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
 /* CTA BANNER */
 .cta-banner {
     background: #ff0000;
@@ -469,9 +503,16 @@ header {
 /* FOOTER */
 footer {
     background: #080808;
-    padding: 30px 0;
-    text-align: center;
+    padding: 40px 0;
     border-top: 1px solid #222;
+    color: #aaa;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .footer-logo {
@@ -479,13 +520,41 @@ footer {
     margin-bottom: 10px;
 }
 
-footer p {
-    color: #777;
+footer h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+footer ul li a:hover {
+    color: #ff0000;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 20px;
     font-size: 0.85rem;
+    color: #777;
 }
 
 /* ========================================== */
-/* CUSTOM MODAL STYLES (FULL SCREEN MEMANJANG)*/
+/* CUSTOM MODAL & MULTI-STEP POPUP STYLES     */
 /* ========================================== */
 .custom-modal {
     display: none;
@@ -502,10 +571,10 @@ footer p {
 
 .modal-dialog {
     background-color: #141414;
-    margin: 20px auto;
+    margin: 30px auto;
     width: 95%;
     max-width: 600px;
-    border-radius: 12px;
+    border-radius: 20px;
     border: 1px solid #333;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
@@ -513,7 +582,7 @@ footer p {
 }
 
 @keyframes modalSlide {
-    from { transform: translateY(-50px); opacity: 0; }
+    from { transform: translateY(-30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
@@ -524,25 +593,11 @@ footer p {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #262626;
-    position: relative;
-}
-
-.modal-tag {
-    background: #ff0000;
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 3px;
-    position: absolute;
-    top: 6px;
-    left: 20px;
 }
 
 .modal-header h3 {
     color: #fff;
-    font-size: 1.2rem;
-    margin-top: 8px;
+    font-size: 1.1rem;
 }
 
 .modal-close {
@@ -563,112 +618,15 @@ footer p {
 
 .modal-banner-img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 15px;
 }
 
-.modal-subtitle {
-    color: #ccc;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-/* Modal Tabs */
-.modal-tabs {
-    display: flex;
-    background: #1a1a1a;
-    border-radius: 6px;
-    padding: 4px;
-    margin-bottom: 20px;
-}
-
-.tab-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    color: #aaa;
-    padding: 10px 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 0.2s;
-}
-
-.tab-btn.active {
-    background: #ff0000;
-    color: #fff;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.info-block {
-    background: #1a1a1a;
-    border: 1px solid #262626;
-    padding: 12px 15px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-}
-
-.info-block h4 {
-    color: #fff;
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.info-block h4 i {
-    color: #ff0000;
-}
-
-.info-block p {
-    color: #aaa;
-    font-size: 0.85rem;
-}
-
-.addon-box {
-    background: #1c1c1c;
-    border: 1px dashed #444;
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 15px;
-}
-
-.addon-box h4 {
-    color: #fff;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.addon-box ul {
+.checklist-items {
     list-style: none;
-}
-
-.addon-box li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 6px 0;
-    border-bottom: 1px solid #262626;
-    color: #ccc;
-}
-
-.addon-box li strong {
-    color: #ff0000;
-}
-
-.checklist-items, .crosslist-items {
-    list-style: none;
+    margin: 15px 0;
 }
 
 .checklist-items li {
@@ -681,21 +639,11 @@ footer p {
     gap: 10px;
 }
 
-.crosslist-items li {
-    color: #ef4444;
-    font-size: 0.9rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .modal-pricing-box {
     background: #181818;
     border: 1px solid #333;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 12px;
     margin: 20px 0 15px 0;
     display: flex;
     justify-content: space-between;
@@ -712,33 +660,4 @@ footer p {
     color: #ff0000;
     font-weight: bold;
     font-size: 1.1rem;
-}
-
-.btn-modal-wa {
-    background: #25d366;
-    color: #fff;
-    display: block;
-    text-align: center;
-    padding: 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-}
-
-.btn-modal-close-action {
-    background: transparent;
-    color: #aaa;
-    border: 1px solid #444;
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-modal-close-action:hover {
-    background: #333;
-    color: #fff;
 }
