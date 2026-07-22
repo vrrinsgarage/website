@@ -26,6 +26,97 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Tambahan Style Internal Khusus Peningkatan UX (Tanpa Mengubah Tema/Warna) -->
+    <style>
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #121212; /* Menyesuaikan latar belakang gelap khas Vrrins Garage */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* FAQ Accordion Styling */
+        .faq-section {
+            padding: 60px 0;
+            background-color: #181818;
+            color: #fff;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .faq-item {
+            background: #222;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #2a2a2a;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 20px;
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 18px 20px;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
@@ -42,7 +133,12 @@
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20jadwal%20servis." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- HEADER (Sticky) -->
     <header>
         <div class="container header-container">
             <img src="logo.png" alt="VRRINS GARAGE Logo" class="logo" width="180" height="45">
@@ -76,7 +172,7 @@
         </div>
     </section>
 
-    <!-- SEARCH BAR SECTION -->
+    <!-- SEARCH BAR SECTION (Live Search Aktif) -->
     <section class="search-section">
         <div class="container">
             <div class="search-box">
@@ -148,1763 +244,142 @@
                         <button class="btn-detail" onclick="openModal('modal-tune-bensin')" aria-label="Detail VG Tune Bensin">DETAIL</button>
                     </div>
                 </div>
-                                    <!-- CARD 4: VG TUNE DIESEL -->
-        <div class="service-card" data-title="vg tune diesel tune up mesin diesel">
-            <div class="card-header"><span class="badge-tag label-recom">REKOMENDASI</span></div>
-            <div class="card-img"><img src="img-tune-diesel.jpg" alt="VG TUNE DIESEL"></div>
-            <div class="card-body">
-                <h3>VG TUNE DIESEL</h3>
-                <p class="card-desc">Tune Up Mesin Diesel</p>
-                <div class="card-meta">
-                    <span class="price">Rp250K - Rp400K</span>
-                    <span class="duration">120 Mnt</span>
-                </div>
-                <button class="btn-detail" onclick="openModal('modal-tune-diesel')">DETAIL</button>
-            </div>
-        </div>
-
-
-            <!-- CARD 5: VG OIL SERVICE -->
-            <div class="service-card" data-title="vg oil service ganti oli mesin transmisi gardan">
-                <div class="card-header"><span class="badge-tag label-recom">REKOMENDASI</span></div>
-                <div class="card-img"><img src="img-oil-service.jpg" alt="VG OIL SERVICE"></div>
-                <div class="card-body">
-                    <h3>VG OIL SERVICE</h3>
-                    <p class="card-desc">Ganti Oli (Mesin / Transmisi / Gardan)</p>
-                    <div class="card-meta">
-                        <span class="price">Rp50K - Rp75K</span>
-                        <span class="duration">15 - 30 Mnt</span>
-                    </div>
-                    <button class="btn-detail" onclick="openModal('modal-oil-service')">DETAIL</button>
-                </div>
-            </div>
-
-        </div> <!-- Tutup .services-grid -->
-    </div> <!-- Tutup .container -->
-</section> <!-- Tutup section utama -->
-
-
-<!-- 5. LAYANAN BERDASARKAN SISTEM KENDARAAN -->
-<section class="system-section" id="sistem-kendaraan">
-
-    <div class="container">
-        <div class="section-title-center">
-            <h2>LAYANAN BERDASARKAN <span>SISTEM KENDARAAN</span></h2>
-        </div>
-        
-        <!-- Grid 3x3 -->
-        <div class="system-grid-3x3">
-            <!-- Baris 1 -->
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-mesin')">
-                <img src="img-sys-mesin.jpg" alt="Sistem Mesin" class="sys-bg">
-            </div>
-            
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-pelumasan')">
-                <img src="img-sys-pelumasan.jpg" alt="Sistem Pelumasan" class="sys-bg">
-            </div>
-            
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-bahan-bakar')">
-                <img src="img-sys-bahan-bakar.jpg" alt="Sistem Bahan Bakar" class="sys-bg">
-            </div>
-
-            <!-- Baris 2 -->
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-suspensi')">
-                <img src="img-sys-suspensi.jpg" alt="Sistem Suspensi" class="sys-bg">
-            </div>
-            
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-kemudi')">
-                <img src="img-sys-kemudi.jpg" alt="Sistem Kemudi" class="sys-bg">
-            </div>
-            
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-rem')">
-                <img src="img-sys-rem.jpg" alt="Sistem Rem" class="sys-bg">
-            </div>
-
-            <!-- Baris 3 -->
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-pendingin')">
-                <img src="img-sys-pendingin.jpg" alt="Sistem Pendingin" class="sys-bg">
-            </div>
-            
-            <div class="sys-card" onclick="openSystemPopup('modal-sys-transmisi')">
-                <img src="img-sys-transmisi.jpg" alt="Sistem Transmisi" class="sys-bg">
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: BAHAN BAKAR -->
-<!-- ========================================== -->
-
-<!-- 1. Popup Utama Sistem Bahan Bakar -->
-<div id="modal-sys-bahan-bakar" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>⛽ SISTEM BAHAN BAKAR</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-bahan-bakar')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-bahanbakar-cover.jpg" alt="Sistem Bahan Bakar" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4">
-                    <i class="fas fa-info-circle"></i> Seluruh estimasi merupakan biaya jasa pengerjaan. Sparepart & material dihitung terpisah.
-                </div>
-                
-                <div class="service-list-wrapper">
-                    <!-- Pemeriksaan Sistem Bahan Bakar -->
-                    <div class="service-list-item">
-                        <img src="img-servis-pemeriksaan-bbm.jpg" alt="Pemeriksaan Sistem Bahan Bakar">
-                        <div class="service-list-info">
-                            <h4>Pemeriksaan Sistem Bahan Bakar</h4>
-                            <span class="cat-badge">Pemeriksaan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp150K – Rp250K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
-                            </div>
+                <!-- CARD 4: VG TUNE DIESEL -->
+                <div class="service-card" data-title="vg tune diesel tune up mesin diesel">
+                    <div class="card-header"><span class="badge-tag label-recom">REKOMENDASI</span></div>
+                    <div class="card-img"><img src="img-tune-diesel.jpg" alt="VG TUNE DIESEL"></div>
+                    <div class="card-body">
+                        <h3>VG TUNE DIESEL</h3>
+                        <p class="card-desc">Tune Up Mesin Diesel</p>
+                        <div class="card-meta">
+                            <span class="price">Rp250K - Rp400K</span>
+                            <span class="duration">120 Mnt</span>
                         </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-bbm', 'modal-sys-bahan-bakar')">Detail</button>
+                        <button class="btn-detail" onclick="openModal('modal-tune-diesel')">DETAIL</button>
                     </div>
-
-                    <!-- Fuel System Cleaner -->
-                    <div class="service-list-item">
-                        <img src="img-servis-fuel-cleaner.jpg" alt="Fuel System Cleaner">
-                        <div class="service-list-info">
-                            <h4>Fuel System Cleaner</h4>
-                            <span class="cat-badge">Perawatan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp250K – Rp500K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
+                </div>
+                <!-- CARD 5: VG OIL SERVICE -->
+                <div class="service-card" data-title="vg oil service ganti oli mesin transmisi gardan">
+                    <div class="card-header"><span class="badge-tag label-recom">REKOMENDASI</span></div>
+                    <div class="card-img"><img src="img-oil-service.jpg" alt="VG OIL SERVICE"></div>
+                    <div class="card-body">
+                        <h3>VG OIL SERVICE</h3>
+                        <p class="card-desc">Ganti Oli (Mesin / Transmisi / Gardan)</p>
+                        <div class="card-meta">
+                            <span class="price">Rp50K - Rp75K</span>
+                            <span class="duration">15 - 30 Mnt</span>
                         </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-fuel-cleaner', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Fuel Pump -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-fuelpump.jpg" alt="Ganti Fuel Pump">
-                        <div class="service-list-info">
-                            <h4>Ganti Fuel Pump</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp190K – Rp260K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-fuelpump', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Filter Bahan Bakar -->
-                    <div class="service-list-item">
-                        <img src="img-servis-filter-bbm.jpg" alt="Ganti Filter Bahan Bakar">
-                        <div class="service-list-info">
-                            <h4>Ganti Filter Bahan Bakar</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp190K – Rp260K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-filterbbm', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Kuras Tangki Bahan Bakar -->
-                    <div class="service-list-item">
-                        <img src="img-servis-kuras-tangki.jpg" alt="Kuras Tangki Bahan Bakar">
-                        <div class="service-list-info">
-                            <h4>Kuras Tangki Bahan Bakar</h4>
-                            <span class="cat-badge">Perawatan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp290K – Rp330K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-kuras-tangki', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Injector -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-injector.jpg" alt="Ganti Injector">
-                        <div class="service-list-info">
-                            <h4>Ganti Injector</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp275K – Rp400K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-injector', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Servis Injector -->
-                    <div class="service-list-item">
-                        <img src="img-servis-servis-injector.jpg" alt="Servis Injector">
-                        <div class="service-list-info">
-                            <h4>Servis Injector</h4>
-                            <span class="cat-badge">Servis</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp300K – Rp600K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-injector', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Servis Karburator -->
-                    <div class="service-list-item">
-                        <img src="img-servis-servis-karburator.jpg" alt="Servis Karburator">
-                        <div class="service-list-info">
-                            <h4>Servis Karburator</h4>
-                            <span class="cat-badge">Servis</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp220K – Rp350K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-karburator', 'modal-sys-bahan-bakar')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Karburator -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-karburator.jpg" alt="Ganti Karburator">
-                        <div class="service-list-info">
-                            <h4>Ganti Karburator</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp120K – Rp200K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 45–90 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-karburator', 'modal-sys-bahan-bakar')">Detail</button>
+                        <button class="btn-detail" onclick="openModal('modal-oil-service')">DETAIL</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<!-- ========================================== -->
-<!-- POPUP DETAIL LAYANAN - SISTEM BAHAN BAKAR -->
-<!-- ========================================== -->
-
-<!-- Detail: Pemeriksaan Sistem Bahan Bakar -->
-<div id="modal-det-cek-bbm" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-cek-bbm')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-cek-bbm')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-pemeriksaan-bbm-large.jpg" alt="Pemeriksaan Sistem Bahan Bakar"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Pemeriksaan</span>
-                <h3 class="detail-title">Pemeriksaan Sistem Bahan Bakar</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
-                        <span class="m-prc mt-1">Rp150K – Rp250K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Fuel Pump</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Filter Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Injector</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Sistem Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Analisa Sistem Bahan Bakar</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Pemeriksaan%20Sistem%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Fuel System Cleaner -->
-<div id="modal-det-fuel-cleaner" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-fuel-cleaner')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-fuel-cleaner')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-fuel-cleaner-large.jpg" alt="Fuel System Cleaner"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Perawatan</span>
-                <h3 class="detail-title">Fuel System Cleaner</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp250K – Rp500K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Jalur Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Injector</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Ruang Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Katup Intake</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Sistem Bahan Bakar</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Fuel%20System%20Cleaner." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Ganti Fuel Pump -->
-<div id="modal-det-ganti-fuelpump" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-fuelpump')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-fuelpump')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-fuelpump-large.jpg" alt="Ganti Fuel Pump"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Fuel Pump</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Fuel Pump</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Soket Kelistrikan Fuel Pump</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Sistem Bahan Bakar</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Fuel%20Pump." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Ganti Filter Bahan Bakar -->
-<div id="modal-det-ganti-filterbbm" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-filterbbm')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-filterbbm')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-filter-bbm-large.jpg" alt="Ganti Filter Bahan Bakar"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Filter Bahan Bakar</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
-                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Filter Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Jalur Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Aliran Bahan Bakar</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Filter%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Kuras Tangki Bahan Bakar -->
-<div id="modal-det-kuras-tangki" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-kuras-tangki')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-kuras-tangki')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-kuras-tangki-large.jpg" alt="Kuras Tangki Bahan Bakar"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Perawatan</span>
-                <h3 class="detail-title">Kuras Tangki Bahan Bakar</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
-                        <span class="m-prc mt-1">Rp290K – Rp330K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengurasan Tangki Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Endapan Kotoran</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Tangki Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Fuel Pump</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Saringan Fuel Pump</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Kuras%20Tangki%20Bahan%20Bakar." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
- 
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SUSPENSI -->
-<!-- ========================================== -->
-
-<!-- 1. Popup Utama Sistem Suspensi -->
-<div id="modal-sys-suspensi" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>🛠️ SISTEM SUSPENSI</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-suspensi')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-suspensi-cover.jpg" alt="Sistem Suspensi" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4">
-                    <i class="fas fa-info-circle"></i> Seluruh estimasi merupakan biaya jasa pengerjaan. Sparepart & material dihitung terpisah.
-                </div>
-                
-                <div class="service-list-wrapper">
-                    <!-- Pemeriksaan Sistem Suspensi -->
-                    <div class="service-list-item">
-                        <img src="img-servis-pemeriksaan-suspensi.jpg" alt="Pemeriksaan Sistem Suspensi">
-                        <div class="service-list-info">
-                            <h4>Pemeriksaan Sistem Suspensi</h4>
-                            <span class="cat-badge">Pemeriksaan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp150K – Rp250K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–60 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-suspensi', 'modal-sys-suspensi')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Shock Absorber / Fork -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-shock.jpg" alt="Ganti Shock Absorber">
-                        <div class="service-list-info">
-                            <h4>Ganti Shock Absorber / Fork</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp200K – Rp450K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-shock', 'modal-sys-suspensi')">Detail</button>
-                    </div>
-
-                    <!-- Servis / Rekondisi Shock Absorber -->
-                    <div class="service-list-item">
-                        <img src="img-servis-rekondisi-shock.jpg" alt="Servis / Rekondisi Shock Absorber">
-                        <div class="service-list-info">
-                            <h4>Servis / Rekondisi Shock Absorber</h4>
-                            <span class="cat-badge">Servis</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp250K – Rp550K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 90–180 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-servis-shock', 'modal-sys-suspensi')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Linkage / Bushing Arm -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-bushing.jpg" alt="Ganti Linkage / Bushing Arm">
-                        <div class="service-list-info">
-                            <h4>Ganti Linkage / Bushing Arm</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp180K – Rp350K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 60–120 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-bushing', 'modal-sys-suspensi')">Detail</button>
-                    </div>
-
-                    <!-- Ganti Bearing Roda / Komstir -->
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-bearing.jpg" alt="Ganti Bearing Roda / Komstir">
-                        <div class="service-list-info">
-                            <h4>Ganti Bearing Roda / Komstir</h4>
-                            <span class="cat-badge">Penggantian</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp120K – Rp250K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 45–90 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-ganti-bearing', 'modal-sys-suspensi')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- ========================================== -->
-<!-- POPUP DETAIL LAYANAN - SISTEM SUSPENSI -->
-<!-- ========================================== -->
-
-<!-- Detail: Pemeriksaan Sistem Suspensi -->
-<div id="modal-det-cek-suspensi" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-cek-suspensi')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-cek-suspensi')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-pemeriksaan-suspensi-large.jpg" alt="Pemeriksaan Sistem Suspensi"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Pemeriksaan</span>
-                <h3 class="detail-title">Pemeriksaan Sistem Suspensi</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–60 Menit</span>
-                        <span class="m-prc mt-1">Rp150K – Rp250K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Shock Absorber / Fork</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Bushing & Karet Suspensi</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Ball Joint & Tie Rod (Mobil)</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Oli Shock</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Kelayakan & Kestabilan Jalan</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Pemeriksaan%20Sistem%20Suspensi." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Ganti Shock Absorber / Fork -->
-<div id="modal-det-ganti-shock" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-shock')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-shock')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-shock-large.jpg" alt="Ganti Shock Absorber"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Shock Absorber / Fork</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp200K – Rp450K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran & Penggantian Unit Shock Absorber</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Mounting & Support Shock</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Penyetelan Ketinggian / Posisi (Bila Ada)</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Fungsi & Kestabilan Suspensi</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Shock%20Absorber." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Servis / Rekondisi Shock Absorber -->
-<div id="modal-det-servis-shock" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-servis-shock')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-servis-shock')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-rekondisi-shock-large.jpg" alt="Servis Shock Absorber"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Servis</span>
-                <h3 class="detail-title">Servis / Rekondisi Shock Absorber</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
-                        <span class="m-prc mt-1">Rp250K – Rp550K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran & Pembersihan Komponen Dalam Shock</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Seal & Oli Shock Baru</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengisian Tekanan Gas / Kalibrasi Katup</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Rebound & Performa Redaman</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Shock%20Absorber." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-   <!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SISTEM REM -->
-<!-- ========================================== -->
-<div id="modal-sys-rem" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>🛑 SISTEM REM</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-rem')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-rem-cover.jpg" alt="Sistem Rem" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4"><i class="fas fa-info-circle"></i> Estimasi biaya jasa pengerjaan belum termasuk sparepart.</div>
-                <div class="service-list-wrapper">
-                    <div class="service-list-item">
-                        <img src="img-servis-cek-rem.jpg" alt="Pemeriksaan Sistem Rem">
-                        <div class="service-list-info">
-                            <h4>Pemeriksaan Sistem Rem</h4>
-                            <span class="cat-badge">Pemeriksaan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp100K – Rp200K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–45 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-rem', 'modal-sys-rem')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal-det-cek-rem" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-rem', 'modal-det-cek-rem')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-cek-rem')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-cek-rem-large.jpg" alt="Pemeriksaan Sistem Rem"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Pemeriksaan</span>
-                <h3 class="detail-title">Pemeriksaan Sistem Rem</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–45 Menit</span>
-                        <span class="m-prc mt-1">Rp100K – Rp200K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kampas & Piringan Rem</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Ketebalan & Kebocoran Minyak Rem</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20Pemeriksaan%20Sistem%20Rem." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SISTEM KEMUDI -->
-<!-- ========================================== -->
-<div id="modal-sys-kemudi" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3> steering SISTEM KEMUDI</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-kemudi')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-kemudi-cover.jpg" alt="Sistem Kemudi" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4"><i class="fas fa-info-circle"></i> Estimasi biaya jasa pengerjaan belum termasuk sparepart.</div>
-                <div class="service-list-wrapper">
-                    <div class="service-list-item">
-                        <img src="img-servis-cek-kemudi.jpg" alt="Pemeriksaan Sistem Kemudi">
-                        <div class="service-list-info">
-                            <h4>Pemeriksaan Sistem Kemudi</h4>
-                            <span class="cat-badge">Pemeriksaan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp100K – Rp200K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–45 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-kemudi', 'modal-sys-kemudi')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal-det-cek-kemudi" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-kemudi', 'modal-det-cek-kemudi')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-cek-kemudi')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-cek-kemudi-large.jpg" alt="Pemeriksaan Sistem Kemudi"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Pemeriksaan</span>
-                <h3 class="detail-title">Pemeriksaan Sistem Kemudi</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–45 Menit</span>
-                        <span class="m-prc mt-1">Rp100K – Rp200K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Rack End & Tie Rod</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Power Steering</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20Pemeriksaan%20Sistem%20Kemudi." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SISTEM PENDINGIN -->
-<!-- ========================================== -->
-<div id="modal-sys-pendingin" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>❄️ SISTEM PENDINGIN</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-pendingin')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-pendingin-cover.jpg" alt="Sistem Pendingin" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4"><i class="fas fa-info-circle"></i> Estimasi biaya jasa pengerjaan belum termasuk sparepart.</div>
-                <div class="service-list-wrapper">
-                    <div class="service-list-item">
-                        <img src="img-servis-kuras-radiator.jpg" alt="Kuras Radiator">
-                        <div class="service-list-info">
-                            <h4>Kuras Radiator & Coolant</h4>
-                            <span class="cat-badge">Maintenance</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp150K – Rp300K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 45–60 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-kuras-radiator', 'modal-sys-pendingin')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal-det-kuras-radiator" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-pendingin', 'modal-det-kuras-radiator')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-kuras-radiator')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-kuras-radiator-large.jpg" alt="Kuras Radiator"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Maintenance</span>
-                <h3 class="detail-title">Kuras Radiator & Coolant</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 45–60 Menit</span>
-                        <span class="m-prc mt-1">Rp150K – Rp300K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengurasan Air Radiator Lama</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Kerak & Pengisian Coolant Baru</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20Kuras%20Radiator." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SISTEM TRANSMISI -->
-<!-- ========================================== -->
-<div id="modal-sys-transmisi" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>⚙️ SISTEM TRANSMISI</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-transmisi')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-transmisi-cover.jpg" alt="Sistem Transmisi" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4"><i class="fas fa-info-circle"></i> Estimasi biaya jasa pengerjaan belum termasuk sparepart.</div>
-                <div class="service-list-wrapper">
-                    <div class="service-list-item">
-                        <img src="img-servis-ganti-oli-transmisi.jpg" alt="Ganti Oli Transmisi">
-                        <div class="service-list-info">
-                            <h4>Ganti Oli Transmisi</h4>
-                            <span class="cat-badge">Maintenance</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp150K – Rp350K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 45–60 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-oli-transmisi', 'modal-sys-transmisi')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal-det-oli-transmisi" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-transmisi', 'modal-det-oli-transmisi')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-oli-transmisi')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-oli-transmisi-large.jpg" alt="Ganti Oli Transmisi"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Maintenance</span>
-                <h3 class="detail-title">Ganti Oli Transmisi</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 45–60 Menit</span>
-                        <span class="m-prc mt-1">Rp150K – Rp350K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengurasan Oli Transmisi Lama</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengisian Oli Transmisi Baru (Manual/Matic)</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20Ganti%20Oli%20Transmisi." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========================================== -->
-<!-- POPUP SISTEM & DETAIL: SISTEM KELISTRIKAN -->
-<!-- ========================================== -->
-<div id="modal-sys-kelistrikan" class="custom-modal system-modal" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3>⚡ SISTEM KELISTRIKAN</h3>
-            <button class="modal-close" onclick="closePopup('modal-sys-kelistrikan')">&times;</button>
-        </div>
-        <div class="modal-body p-0">
-            <img src="img-sys-kelistrikan-cover.jpg" alt="Sistem Kelistrikan" class="modal-banner-img rounded-0 w-100" style="height: 160px; object-fit: cover;">
-            <div class="p-3">
-                <div class="policy-note mb-4"><i class="fas fa-info-circle"></i> Estimasi biaya jasa pengerjaan belum termasuk sparepart.</div>
-                <div class="service-list-wrapper">
-                    <div class="service-list-item">
-                        <img src="img-servis-cek-kelistrikan.jpg" alt="Pemeriksaan Kelistrikan">
-                        <div class="service-list-info">
-                            <h4>Pemeriksaan Kelistrikan & Aki</h4>
-                            <span class="cat-badge">Pemeriksaan</span>
-                            <div class="sl-meta">
-                                <span class="sl-price">Rp75K – Rp200K</span>
-                                <span class="sl-time"><i class="far fa-clock"></i> 30–45 Menit</span>
-                            </div>
-                        </div>
-                        <button class="btn-detail-sm" onclick="openDetailPopup('modal-det-cek-kelistrikan', 'modal-sys-kelistrikan')">Detail</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal-det-cek-kelistrikan" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-kelistrikan', 'modal-det-cek-kelistrikan')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-cek-kelistrikan')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-cek-kelistrikan-large.jpg" alt="Pemeriksaan Kelistrikan"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Pemeriksaan</span>
-                <h3 class="detail-title">Pemeriksaan Kelistrikan & Aki</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 30–45 Menit</span>
-                        <span class="m-prc mt-1">Rp75K – Rp200K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengecekan Tegangan & Kesehatan Aki</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Dinamo Ampere & Kabel Utama</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20Pemeriksaan%20Kelistrikan." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div> 
-<!-- Detail: Ganti Linkage / Bushing Arm -->
-<div id="modal-det-ganti-bushing" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-bushing')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-bushing')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-bushing-large.jpg" alt="Ganti Bushing Arm"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Linkage / Bushing Arm</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp180K – Rp350K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pelepasan Arm / Linkage Suspensi</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Press-Out & Press-In Bushing / Karet Baru</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Ball Joint / Sambungan Terkait</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemasangan Kembali & Penyelarasan Awal</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Bushing%20Arm." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Ganti Bearing Roda / Komstir -->
-<div id="modal-det-ganti-bearing" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-suspensi', 'modal-det-ganti-bearing')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-bearing')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-bearing-large.jpg" alt="Ganti Bearing Roda"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Bearing Roda / Komstir</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 45–90 Menit</span>
-                        <span class="m-prc mt-1">Rp120K – Rp250K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Roda / Batang Kemudi (Komstir)</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Bearing / Lahar Lama dengan Baru</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pelumasan Ulang & Penyetelan Kekencangan</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Putaran Roda & Kestabilan Kemudi</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Bearing%20Roda." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div> 
-<!-- Detail: Ganti Injector -->
-<div id="modal-det-ganti-injector" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-injector')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-injector')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-injector-large.jpg" alt="Ganti Injector"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Injector</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp275K – Rp400K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Injector</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian O-Ring Injector (bila diperlukan)</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Tekanan Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Injector</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Injector." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Servis Injector -->
-<div id="modal-det-servis-injector" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-servis-injector')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-servis-injector')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-servis-injector-large.jpg" alt="Servis Injector"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Servis</span>
-                <h3 class="detail-title">Servis Injector</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 90–180 Menit</span>
-                        <span class="m-prc mt-1">Rp300K – Rp600K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Injector (bila diperlukan)</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Injector dengan Injector Cleaner</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Pola Semprotan</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pengujian Debit Injector</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran Injector</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Injector." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Servis Karburator -->
-<div id="modal-det-servis-karburator" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-servis-karburator')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-servis-karburator')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-servis-karburator-large.jpg" alt="Servis Karburator"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Servis</span>
-                <h3 class="detail-title">Servis Karburator</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp220K – Rp350K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembongkaran Karburator</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pembersihan Seluruh Jalur Karburator</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Pelampung</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Setelan Idle & Campuran Udara & Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Servis%20Karburator." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Detail: Ganti Karburator -->
-<div id="modal-det-ganti-karburator" class="custom-modal detail-modal" style="display:none;">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-karburator')"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-karburator')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col"><img src="img-servis-ganti-karburator-large.jpg" alt="Ganti Karburator"></div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Karburator</h3>
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 45–90 Menit</span>
-                        <span class="m-prc mt-1">Rp120K – Rp200K</span>
-                    </div>
-                </div>
-                <div class="info-block mt-3">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2" style="list-style: none; padding:0; color:#ccc; font-size:0.85rem;">
-                        <li><i class="fas fa-check-circle text-danger"></i> Penggantian Karburator</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Setelan Idle & Campuran Udara & Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Pemeriksaan Kebocoran</li>
-                        <li><i class="fas fa-check-circle text-danger"></i> Uji Performa Mesin</li>
-                    </ul>
-                </div>
-                <div class="policy-note mt-3">Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.</div>
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Karburator." target="_blank" class="btn-wa-large w-100 mt-3 text-center" style="display:block; background:#25d366; color:#fff; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold;"><i class="fab fa-whatsapp"></i> Booking via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 7. POPUP DETAIL LAYANAN (Contoh: Ganti Fuel Pump) -->
-<div id="modal-det-ganti-fuelpump" class="custom-modal detail-modal">
-    <div class="modal-dialog detail-dialog">
-        <div class="modal-header">
-            <button class="modal-back" onclick="backToSystemPopup('modal-sys-bahan-bakar', 'modal-det-ganti-fuelpump')">
-                <i class="fas fa-arrow-left"></i> Kembali
-            </button>
-            <button class="modal-close" onclick="closePopup('modal-det-ganti-fuelpump')">&times;</button>
-        </div>
-        <div class="modal-body flex-row">
-            <div class="detail-img-col">
-                <img src="img-servis-ganti-fuelpump-large.jpg" alt="Ganti Fuel Pump">
-            </div>
-            <div class="detail-info-col">
-                <span class="cat-badge mb-2">Penggantian</span>
-                <h3 class="detail-title">Ganti Fuel Pump</h3>
-                
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur"><i class="fas fa-car"></i> Tergantung jenis kendaraan</span>
-                        <span class="m-dur"><i class="far fa-clock"></i> 60–120 Menit</span>
-                        <span class="m-prc mt-1">Rp190K – Rp260K</span>
-                    </div>
-                </div>
-
-                <div class="info-block">
-                    <h4><i class="fas fa-tools"></i> Meliputi:</h4>
-                    <ul class="checklist-items mt-2">
-                        <li><i class="fas fa-check-circle"></i> Penggantian Fuel Pump</li>
-                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Tekanan Bahan Bakar</li>
-                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Soket Kelistrikan Fuel Pump</li>
-                        <li><i class="fas fa-check-circle"></i> Pemeriksaan Kebocoran</li>
-                        <li><i class="fas fa-check-circle"></i> Uji Sistem Bahan Bakar</li>
-                    </ul>
-                </div>
-
-                <div class="policy-note">
-                    Estimasi harga di atas merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical maupun material lain yang diperlukan.
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20Admin%20Vrrins%20Garage.%20Saya%20nak%20booking%20layanan%20Ganti%20Fuel%20Pump." target="_blank" class="btn-wa-large w-100 mt-3" style="font-size:0.95rem;">
-                    <i class="fab fa-whatsapp"></i> Booking via WhatsApp
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
     </section>
 
-    <!-- ALUR PROSES KERJA -->
-    <section id="cara-kerja" class="workflow-section">
+    <!-- LAYANAN BERDASARKAN SISTEM KENDARAAN -->
+    <section class="system-section" id="sistem-kendaraan">
         <div class="container">
-            <div class="section-title"><h2>ALUR <span>PROSES KERJA</span></h2></div>
-            <div class="workflow-container">
-                <div class="workflow-step"><img src="step1.jpg" alt="Hubungi WhatsApp" loading="lazy"><h3>1. Hubungi WhatsApp</h3><p>Konsultasikan keluhan mobil Anda lewat Chat WA.</p></div>
-                <div class="workflow-step"><img src="step2.jpg" alt="Tentukan Lokasi" loading="lazy"><h3>2. Tentukan Lokasi</h3><p>Kirim share-loc rumah atau kantor Anda secara presisi.</p></div>
-                <div class="workflow-step"><img src="step3.jpg" alt="Cek Diagnosa" loading="lazy"><h3>3. Cek Diagnosa</h3><p>Mekanik datang langsung melakukan scan sistem kelistrikan.</p></div>
-                <div class="workflow-step"><img src="step4.jpg" alt="Proses Eksekusi" loading="lazy"><h3>4. Proses Eksekusi</h3><p>Perbaikan dikerjakan transparan di garasi Anda.</p></div>
-                <div class="workflow-step"><img src="step5.jpg" alt="Selesai dan Test Drive" loading="lazy"><h3>5. Selesai & Test</h3><p>Kendaraan diuji coba, normal, baru lakukan pembayaran.</p></div>
+            <div class="section-title-center">
+                <h2>LAYANAN BERDASARKAN <span>SISTEM KENDARAAN</span></h2>
             </div>
-        </div>
-    </section>
-
-    <!-- WILAYAH OPERASIONAL -->
-    <section class="area-section">
-        <div class="container">
-            <div class="area-box">
-                <h3>WILAYAH OPERASIONAL</h3>
-                <div class="area-map-container" style="text-align: center; margin-bottom: 20px;">
-                    <img src="img-radar.jpg" alt="Peta Radius Operasional Vrrins Garage Palembang" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ff0000; display: block; margin: 0 auto;">
+            
+            <div class="system-grid-3x3">
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-mesin')">
+                    <img src="img-sys-mesin.jpg" alt="Sistem Mesin" class="sys-bg">
                 </div>
-                <ul class="area-list">
-                    <li><span class="dot green"></span> <strong>ZONA 1:</strong> Pusat Kota Palembang (Radius &le; 8 KM)</li>
-                    <li><span class="dot yellow"></span> <strong>ZONA 2:</strong> Pinggiran Kota Palembang (Radius 8 - 15 KM)</li>
-                    <li><span class="dot red"></span> <strong>ZONA 3:</strong> Batas Luar Kota (Radius &gt; 15 KM)</li>
-                </ul>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-pelumasan')">
+                    <img src="img-sys-pelumasan.jpg" alt="Sistem Pelumasan" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-bahan-bakar')">
+                    <img src="img-sys-bahan-bakar.jpg" alt="Sistem Bahan Bakar" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-suspensi')">
+                    <img src="img-sys-suspensi.jpg" alt="Sistem Suspensi" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-kemudi')">
+                    <img src="img-sys-kemudi.jpg" alt="Sistem Kemudi" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-rem')">
+                    <img src="img-sys-rem.jpg" alt="Sistem Rem" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-pendingin')">
+                    <img src="img-sys-pendingin.jpg" alt="Sistem Pendingin" class="sys-bg">
+                </div>
+                <div class="sys-card" onclick="openSystemPopup('modal-sys-transmisi')">
+                    <img src="img-sys-transmisi.jpg" alt="Sistem Transmisi" class="sys-bg">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA BANNER -->
-    <section class="cta-banner">
-        <div class="container">
-            <h2>KONSULTASI MASALAH MOBIL GRATIS?</h2>
-            <p>Langsung klik di bawah ini, tim mekanik panggilan kami siap meluncur.</p>
-            <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20konsultasi%20gratis." target="_blank" rel="noopener noreferrer" class="btn-wa-large">HUBUNGI MEKANIK SEKARANG</a>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
+    <!-- FAQ SECTION (Interaktif Akordeon) -->
     <section class="faq-section">
         <div class="container">
-            <div class="section-title"><h2>PERTANYAAN <span>UMUM (FAQ)</span></h2></div>
-            <div class="faq-accordion">
-                <details class="faq-item">
-                    <summary>Bagaimana cara booking servis panggilan di Vrrins Garage?</summary>
-                    <p>Anda cukup menekan tombol 'Booking WA' atau menghubungi nomor WhatsApp kami, tentukan lokasi rumah/kantor Anda di Palembang, dan atur jadwal penanganan mekanik.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Apakah ada biaya transportasi tambahan?</summary>
-                    <p>Estimasi biaya transportasi disesuaikan berdasarkan zona wilayah operasional (Zona 1, Zona 2, atau Zona 3) di Palembang.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Metode pembayaran apa saja yang diterima?</summary>
-                    <p>Kami menerima pembayaran tunai maupun transfer bank setelah pengerjaan dan uji coba kendaraan selesai dilakukan.</p>
-                </details>
+            <div class="section-title-center mb-4">
+                <h2>PERTANYAAN UMUM <span>(FAQ)</span></h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Bagaimana cara memesan layanan Vrrins Garage?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Anda dapat langsung mengklik tombol "Booking WA" atau ikon WhatsApp yang tersedia di layar untuk terhubung langsung dengan admin kami dan menjadwalkan waktu serta lokasi servis.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah layanan ini khusus wilayah Palembang?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Ya, saat ini Vrrins Garage berfokus melayani servis mobil rumahan dan panggilan secara khusus untuk wilayah Palembang dan sekitarnya.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah harga jasa sudah termasuk sparepart?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Estimasi harga yang tertera di setiap layanan merupakan biaya jasa pengerjaan. Belum termasuk sparepart, oli, filter, coolant, chemical, atau material lain yang diperlukan.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <img src="logo.png" alt="VRRINS GARAGE Logo" class="footer-logo" width="160" height="40">
-            <div class="footer-socials">
-                <a href="https://wa.me/62895622499262" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Vrrins Garage"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Vrrins Garage"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p>&copy; 2026 VRRINS GARAGE - Palembang. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- SCRIPT PENDUKUNG (Live Search & FAQ Akordeon) -->
+    <script>
+        // Fungsi Live Search untuk menyaring kartu layanan
+        function filterServices() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.service-card');
 
-    <!-- BACK TO TOP BUTTON -->
-    <button id="backToTop" onclick="scrollToTop()" aria-label="Kembali ke atas"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
-
-    <!-- POPUP SISTEM KENDARAAN (GENERIC) -->
-    <div id="modal-system" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">SISTEM KENDARAAN</span>
-                <h3 id="systemModalTitle">DETAIL SISTEM</h3>
-                <button class="modal-close" onclick="closeModal('modal-system')" aria-label="Tutup Popup">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p id="systemModalDesc" class="modal-subtitle">Informasi mengenai perbaikan dan pemeriksaan sistem kendaraan.</p>
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20tanya%20mengenai%20layanan%20sistem%20kendaraan." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-system')">TUTUP</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POPUP DETAIL LAYANAN: VG CHECK -->
-    <div id="modal-check" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG CHECK</span>
-                <h3>VG CHECK</h3>
-                <button class="modal-close" onclick="closeModal('modal-check')" aria-label="Tutup Popup">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img src="img-scan.jpg" alt="VG Check" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle">Layanan pemeriksaan menyeluruh untuk mengetahui kondisi kendaraan menggunakan scanner diagnostik dan pengecekan visual.</p>
-                
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'check-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'check-include')">CAKUPAN</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'check-exclude')">TIDAK MASUK</button>
-                </div>
-
-                <div id="check-info" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-bullseye" aria-hidden="true"></i> COCOK UNTUK KENDALA:</h4>
-                        <p>• Lampu Check Engine Menyala / Brebet<br>• Tenaga Berkurang / Boros BBM<br>• Bunyi Kaki-kaki / Setir Tidak Stabil & Bergetar<br>• Rem Kurang Pakem<br>• <strong>General Check Up Berkala / Sebelum & Sesudah Perjalanan Jauh</strong><br>• <strong>Inspeksi Mobil Bekas Sebelum Dibeli</strong></p>
-                    </div>
-                    <div class="info-block info-highlight">
-                        <h4><i class="fas fa-gift" aria-hidden="true"></i> OUTPUT YANG DIDAPAT CUSTOMER:</h4>
-                        <ul class="checklist-items">
-                            <li><strong>Hasil Scan ECU & Daftar DTC</strong> (Jika ada)</li>
-                            <li><strong>Laporan Kondisi Fisik</strong> (Mesin, Rem, & Kaki-kaki)</li>
-                            <li><strong>Estimasi Biaya & Prioritas Perbaikan</strong></li>
-                            <li><strong>Rekomendasi Servis Berikutnya</strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="check-include" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> 1. PEMERIKSAAN MESIN (ENGINE CARE)</h4>
-                        <ul class="checklist-items">
-                            <li><strong>Scan ECU & Sistem Elektrikal:</strong> Pembacaan DTC, Live Data Sensor, Cek Aki, Sistem Charging, & Starter.</li>
-                            <li><strong>Cek Cairan & Filter:</strong> Oli Mesin, Coolant, Minyak Rem, Power Steering, & Filter Udara.</li>
-                            <li><strong>Fisik & Kebocoran:</strong> Drive Belt, Selang-selang, Kebocoran Oli/Coolant, Throttle Body (Visual), Koil & Busi (Visual), serta Mounting Mesin.</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> 2. PEMERIKSAAN SISTEM REM (BRAKE CARE)</h4>
-                        <ul class="checklist-items">
-                            <li><strong>Kondisi Komponen:</strong> Ketebalan Kampas Rem (Depan/Belakang), Cakram, Tromol, Kaliper, & Wheel Cylinder.</li>
-                            <li><strong>Sistem Hidrolis:</strong> Minyak Rem, Selang Rem, Master Rem, Booster Rem (Visual), Kebocoran Sistem, & Rem Parkir.</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> 3. SUSPENSI & STEERING (UNDERSTEEL CARE)</h4>
-                        <ul class="checklist-items">
-                            <li><strong>Komponen Kaki-kaki:</strong> Ball Joint, Tie Rod, Rack End, Long Tie Rod, Stabilizer Link, & Bushing Arm.</li>
-                            <li><strong>Peredam & Penggerak:</strong> Shock Absorber, Support Shock, Bearing Roda, CV Joint & Boot.</li>
-                            <li><strong>Kemudi & Roda:</strong> Steering Rack, Power Steering, Pengencangan Mur/Baut Kaki-kaki, Kondisi Fisik Ban, & Analisis Indikasi Bunyi.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="check-exclude" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-times-circle" style="color: #d32f2f;" aria-hidden="true"></i> TIDAK TERMASUK JASA/SPAREPART BERIKUT:</h4>
-                        <ul class="crosslist-items">
-                            <li>Perbaikan / Penggantian Sparepart (Kaki-kaki, Shock, Kampas Rem, dll)</li>
-                            <li>Jasa Servis & Pembersihan (Tune Up, Carbon Clean, Intake, Injektor, Throttle Body)</li>
-                            <li>Penggantian Cairan (Oli, Minyak Rem, Coolant) atau Filter</li>
-                            <li>Suku Cadang / Sparepart Pengganti & Biaya Transport (Jika Berlaku)</li>
-                        </ul>
-                        <p class="footnote-text">*Paket ini murni merupakan jasa inspeksi, diagnosa komputer, dan pelaporan kondisi menyeluruh.</p>
-                    </div>
-                </div>
-
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur">Durasi: 30 - 60 Menit</span>
-                        <span class="m-prc">Rp100.000 - Rp150.000</span>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20VG%20Check." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-check')">TUTUP</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POPUP DETAIL LAYANAN: VG BRAKE SERVICE -->
-    <div id="modal-brake" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG BRAKE</span>
-                <h3>VG BRAKE SERVICE</h3>
-                <button class="modal-close" onclick="closeModal('modal-brake')" aria-label="Tutup Popup">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img src="img-brake.jpg" alt="VG Brake Service" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle">Servis sistem pengereman secara profesional untuk memastikan keamanan dan ketahanan pengereman mobil Anda.</p>
-                
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'brake-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'brake-include')">TERMASUK</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'brake-exclude')">TIDAK TERMASUK</button>
-                </div>
-
-                <div id="brake-info" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-car" aria-hidden="true"></i> UNTUK SIAPA?</h4>
-                        <p>Mobil yang remnya berbunyi, bergetar saat diinjak, atau sudah lama tidak diservis.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-bullseye" aria-hidden="true"></i> TUJUAN</h4>
-                        <p>Mengembalikan performa pengereman agar pakem, responsif, dan aman dikendarai.</p>
-                    </div>
-                </div>
-
-                <div id="brake-include" class="tab-content">
-                    <ul class="checklist-items">
-                        <li>Pemeriksaan Menyeluruh Sistem Rem</li>
-                        <li>Service Rem 4 Roda</li>
-                        <li>Pelumasan Komponen Kaliper & Pin Rem</li>
-                        <li>Penyetelan Rem Tangan</li>
-                    </ul>
-                </div>
-                
-                <div id="brake-exclude" class="tab-content">
-                    <ul class="crosslist-items">
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Penggantian kampas rem baru (part baru)</li>
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Penggantian minyak rem</li>
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Bubut piringan cakram</li>
-                    </ul>
-                </div>
-
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur">Durasi: 60 - 120 Menit</span>
-                        <span class="m-prc">Rp270K</span>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20VG%20Brake%20Service." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-brake')">TUTUP</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POPUP DETAIL LAYANAN: VG TUNE BENSIN -->
-    <div id="modal-tune-bensin" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG TUNE BENSIN</span>
-                <h3>VG TUNE BENSIN</h3>
-                <button class="modal-close" onclick="closeModal('modal-tune-bensin')" aria-label="Tutup Popup">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img id="tune-bensin-banner" src="img-tune-basic.jpg" alt="Tune Up Bensin" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle modal-subtitle-bold">PILIH PAKET YANG SESUAI KEBUTUHAN ANDA</p>
-
-                <div class="modal-tabs grid-2x2">
-                    <button class="tab-btn active" onclick="switchTab(this, 'tune-basic'); document.getElementById('tune-bensin-banner').src='img-tune-basic.jpg'">VG TUNE BASIC</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-plus'); document.getElementById('tune-bensin-banner').src='img-tune-plus.jpg'">VG TUNE PLUS <small class="star-label">⭐ BEST SELLER</small></button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-pro'); document.getElementById('tune-bensin-banner').src='img-tune-pro.jpg'">VG TUNE PRO</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-addon'); document.getElementById('tune-bensin-banner').src='img-tune-addon.jpg'">VG ADD-ON</button>
-                </div>
-
-                <!-- VG TUNE BASIC -->
-                <div id="tune-basic" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-wrench" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala dasar mesin untuk mobil dengan kondisi mesin normal, tarikan mulai berat, kurang responsif, atau konsumsi BBM mulai meningkat.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> CAKUPAN PENGERJAAN:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Diagnostik:</strong> Scan ECU awal/akhir, membaca & menghapus kode DTC.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pengapian:</strong> Pemeriksaan busi & koil pengapian.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Sistem Udara:</strong> Cek filter udara & saluran intake, pembersihan throttle body.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Bahan Bakar:</strong> Cek saringan bensin & cek kebocoran sistem.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Fluida & Visual:</strong> Cek oli, filter, coolant, minyak rem/steering, air washer, kebocoran mesin, selang vakum, & drive belt.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Kelistrikan:</strong> Cek kondisi aki, pengisian alternator, & sistem starter.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Edukasi:</strong> Penjelasan hasil pemeriksaan & rekomendasi perbaikan.</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-times-circle" style="color:#d32f2f;" aria-hidden="true"></i> TIDAK TERMASUK</h4>
-                        <p style="font-size: 12px; color: #666;">Penggantian spare part/oli/filter/busi, pembersihan injektor, gurah karbon, pembersihan intake manifold, perbaikan kerusakan, & test drive jarak jauh.</p>
-                    </div>
-                    <div class="modal-pricing-box">
-                        <div>
-                            <span class="m-dur">Waktu: ±45–60 Menit</span>
-                            <span class="m-prc">Rp200K</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VG TUNE PLUS -->
-                <div id="tune-plus" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-gas-pump" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala ditambah pembersihan sistem udara & bahan bakar. Cocok untuk mesin langsam tidak stabil, pedal gas lambat merespon, atau throttle body kotor.</p>
-                    </div>
-                    <div class="info-block info-highlight-green">
-                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle" aria-hidden="true"></i> MENCAKUP SEMUA LAYANAN VG TUNE BASIC</span>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> ITEM TAMBAHAN:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pembersihan:</strong> Bongkar, bersihkan, & pasang kembali injektor, cek O-ring & saringan injektor.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Adaptasi & Kalibrasi:</strong> Reset ECU, Idle Learning, & Throttle Learning.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pemeriksaan Ekstra:</strong> Cek PCV valve & selang, vacuum leak, air intake hose, & resonator.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Verifikasi Akhir:</strong> Uji respon pedal gas, kestabilan langsam, & final scan ECU.</li>
-                        </ul>
-                    </div>
-                    <div class="addon-box addon-dashed">
-                        <h4 style="color: #2e7d32;"><i class="fas fa-leaf" aria-hidden="true"></i> REKOMENDASI LAYANAN TAMBAHAN (BIASA TERPISAH)</h4>
-                        <p style="font-size:12px; margin-bottom:5px;"><strong>Gurah Karbon Mesin (Carbon Cleaner):</strong> +Rp75.000 (Jasa) untuk membersihkan endapan kerak karbon ruang bakar secara optimal (±15-30 mnt). *Biaya cairan dihitung terpisah.</p>
-                    </div>
-                    <div class="modal-pricing-box">
-                        <div>
-                            <span class="m-dur">Waktu: ±60–90 Menit</span>
-                            <span class="m-prc">Rp250K - Rp350K</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VG TUNE PRO -->
-                <div id="tune-pro" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-chart-line" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala premium dengan analisis scanner mendalam. Sangat cocok untuk mobil yang brebet, kurang bertenaga, indikator Check Engine menyala, BBM boros, atau sulit ditemukan penyebab gangguannya.</p>
-                    </div>
-                    <div class="info-block info-highlight-green">
-                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle" aria-hidden="true"></i> MENCAKUP SEMUA LAYANAN VG TUNE PLUS</span>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-laptop-diagnostic" aria-hidden="true"></i> ANALISIS SCANNER MENDALAM & PERFORMA:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Analisis Live Data:</strong> Fuel Trim, RPM, ECT, IAT, sensor MAF/MAP, sensor O₂, TPS, APP, & Voltase Aki.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Analisis Performa:</strong> Cek Misfire Counter, Ignition Timing, Injector Balance, & Fuel Pressure Data (jika tersedia).</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Test Drive & Laporan:</strong> Test drive singkat, laporan prioritas perbaikan, edukasi kerusakan, & rekomendasi interval servis selanjutnya.</li>
-                        </ul>
-                    </div>
-                    <div class="modal-pricing-box">
-                        <div>
-                            <span class="m-dur">Waktu: ±90–150 Menit</span>
-                            <span class="m-prc">Rp400K - Rp600K</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VG ADD-ON -->
-                <div id="tune-addon" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-puzzle-piece" aria-hidden="true"></i> LAYANAN TAMBAHAN (OPSIONAL)</h4>
-                        <p>Sempurnakan performa mesin mobil bensin Anda dengan menu lepasan berikut:</p>
-                    </div>
-                    <div class="addon-box">
-                        <ul>
-                            <li>
-                                <span><strong>Gurah Karbon Mesin (Jasa)</strong><br><small>Pembersihan kerak ruang bakar (15-30 mnt)</small></span> 
-                                <strong>Rp75.000*</strong>
-                            </li>
-                            <li>
-                                <span><strong>Pembersihan Intake Manifold</strong><br><small>Belum termasuk gasket & cairan (30-60 mnt)</small></span> 
-                                <strong>Rp50K - Rp100K</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="footnote-text">*Catatan: Biaya cairan/chemical gurah dihitung terpisah sesuai produk dan pemakaian.</p>
-                </div>
-
-                <div class="policy-note">
-                    <i class="fas fa-info-circle" aria-hidden="true"></i> *Seluruh estimasi harga di atas adalah biaya <strong>JASA SAJA</strong>. Belum termasuk biaya transportasi zona operasional, spare part (busi, filter, dll), dan bahan consumable (cairan pembersih/chemical).
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20paket%20Tune%20Up%20Mesin%20Bensin." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-tune-bensin')">TUTUP</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POPUP DETAIL LAYANAN: VG TUNE DIESEL -->
-    <div id="modal-tune-diesel" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG TUNE DIESEL</span>
-                <h3>VG TUNE DIESEL</h3>
-                <button class="modal-close" onclick="closeModal('modal-tune-diesel')" aria-label="Tutup Popup">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img src="img-tune-diesel.jpg" alt="Tune Up Diesel" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle">Perawatan khusus mesin diesel modern commonrail untuk membersihkan injector dan ruang bakar.</p>
-                
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'td-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'td-include')">TERMASUK</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'td-exclude')">TIDAK TERMASUK</button>
-                </div>
-
-                <div id="td-info" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-car" aria-hidden="true"></i> UNTUK SIAPA?</h4>
-                        <p>Mobil diesel (Innova Diesel, Fortuner, Pajero, Hilux, dll) dengan tenaga menurun atau berasap.</p>
-                    </div>
-                </div>
-
-                <div id="td-include" class="tab-content">
-                    <ul class="checklist-items">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Purging Injector Solar</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Pembersihan Kerak EGR</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cek Filter Udara & Solar</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Scan ECU & Hapus DTC</li>
-                    </ul>
-                </div>
-
-                <div id="td-exclude" class="tab-content">
-                    <ul class="crosslist-items">
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Penggantian filter solar baru</li>
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Suku cadang</li>
-                    </ul>
-                </div>
-
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur">Durasi: 120 Menit</span>
-                        <span class="m-prc">Rp250.000 - Rp400.000</span>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20Tune%20Up%20Diesel." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-tune-diesel')">TUTUP</button>
-            </div>
-        </div>
-    </div>
-<!-- MODAL VG OIL SERVICE -->
-<div id="modal-oil-service" class="custom-modal">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <span class="modal-tag">VG OIL SERVICE</span>
-            <h3>Ganti Oli Kendaraan</h3>
-            <button class="modal-close" onclick="closeModal('modal-oil-service')">&times;</button>
-        </div>
-        <div class="modal-body">
-            <img src="img-oil-service.jpg" alt="VG Oil Service" class="modal-banner-img">
-            <p class="modal-subtitle">Penggantian profesional untuk mesin, transmisi manual/otomatis, dan gardan dengan pemeriksaan menyeluruh.</p>
-            
-            <div class="modal-pricing-box">
-                <div>
-                    <span class="m-dur">Estimasi Waktu: 15–30 Menit</span>
-                    <strong>Biaya Jasa:</strong>
-                </div>
-                <div class="m-prc">Rp50K – Rp75K</div>
-            </div>
-
-            <div class="info-block">
-                <h4><i class="fas fa-check-circle"></i> Yang Dilakukan:</h4>
-                <ul class="checklist-items">
-                    <li><i class="fas fa-check"></i> Penggantian Oli Mesin / Oli Transmisi Manual / Oli Transmisi Otomatis / Oli Gardan</li>
-                    <li><i class="fas fa-check"></i> Pemeriksaan Kondisi Oli Lama</li>
-                    <li><i class="fas fa-check"></i> Pemeriksaan Baut Drain & Fill</li>
-                    <li><i class="fas fa-check"></i> Pemeriksaan Ring Baut Drain (bila diperlukan)</li>
-                    <li><i class="fas fa-check"></i> Pemeriksaan Kebocoran Oli</li>
-                    <li><i class="fas fa-check"></i> Reset Service Reminder (jika tersedia & didukung kendaraan)</li>
-                </ul>
-            </div>
-
-            <a href="https://wa.me/62895622499262?text=👋%20Halo%20Vrrins%20Garage.%0AAku%20nak%20booking%20VG%20OIL%20SERVICE.%20🛢️%0AData%20kendaraan:%20🚗%20Merk/Tipe:%20📅%20Tahun:%20📍%20Lokasi:%20🛢️%20Layanan%20yang%20dipilih:%20%0A☐%20Oli%20Mesin%20%0A☐%20Oli%20Transmisi%20Manual%20%0A☐%20Oli%20Transmisi%20Otomatis%20%0A☐%20Oli%20Gardan%20%0A☐%20Belum%20yakin,%20minta%20dicek%20dulu.%0AMohon%20info%20jadwal%20dan%20estimasi%20biayanyo.%20Terimo%20kasih.%20🙏" target="_blank" class="btn-modal-wa">
-                <i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP
-            </a>
-            <button class="btn-modal-close-action" onclick="closeModal('modal-oil-service')">Tutup</button>
-        </div>
-    </div>
-</div>
-    
-    <!-- SCRIPT JAVASCRIPT -->
-<script>
-// Modal Control Utama
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Fungsi Sistem Kendaraan (3x3 Grid Bawah)
-function openSystemPopup(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-// Fungsi Detail Pop-up Sistem
-function openDetailPopup(detailId, parentSystemId) {
-    const parentModal = document.getElementById(parentSystemId);
-    const detailModal = document.getElementById(detailId);
-    if (parentModal) parentModal.style.display = 'none';
-    if (detailModal) detailModal.style.display = 'block';
-}
-
-function backToSystemPopup(parentSystemId, detailId) {
-    const detailModal = document.getElementById(detailId);
-    const parentModal = document.getElementById(parentSystemId);
-    if (detailModal) detailModal.style.display = 'none';
-    if (parentModal) parentModal.style.display = 'block';
-}
-
-// Tab Switching
-function switchTab(btn, tabId) {
-    const modalBody = btn.closest('.modal-body');
-    modalBody.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    modalBody.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    
-    btn.classList.add('active');
-    const targetContent = modalBody.querySelector('#' + tabId);
-    if (targetContent) {
-        targetContent.classList.add('active');
-    }
-}
-
-// Live Search Filter Function
-function filterServices() {
-    const input = document.getElementById('searchInput').value.toLowerCase().trim();
-    const cards = document.querySelectorAll('#servicesGrid .service-card');
-    
-    cards.forEach(card => {
-        const titleData = card.getAttribute('data-title');
-        if (titleData.includes(input)) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
+            cards.forEach(card => {
+                let title = card.getAttribute('data-title') || card.innerText.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
-    });
-}
 
-// Back to top scroll functionality
-const backToTopBtn = document.getElementById("backToTop");
-window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-};
+        // Fungsi Interaktif FAQ Akordeon
+        function toggleFaq(button) {
+            let item = button.parentElement;
+            let allItems = document.querySelectorAll('.faq-item');
 
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+            allItems.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('active');
+                }
+            });
 
-// Window click to close modals
-window.onclick = function(event) {
-    if (event.target.classList.contains('custom-modal')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-};
-</script>
+            item.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
