@@ -993,66 +993,7 @@ footer p {
 }
 
 
-.sys-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    height: 180px;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
 
-.sys-card:hover {
-    transform: scale(1.02);
-    border-color: #ff0000;
-}
-
-.sys-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4) contrast(1.2);
-    transition: filter 0.3s ease;
-}
-
-.sys-card:hover .sys-bg {
-    filter: brightness(0.3) contrast(1.3);
-}
-
-.sys-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    z-index: 2;
-}
-
-.sys-icon {
-    font-size: 2.2rem;
-    color: #ff0000;
-    margin-bottom: 8px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-}
-
-.sys-overlay h3 {
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-}
-
-.sys-watermark {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 40px;
-    opacity: 0.6;
-    z-index: 2;
-}
 
 /* LIST LAYANAN DALAM POPUP SISTEM */
 .service-list-wrapper {
