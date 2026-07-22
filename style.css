@@ -1220,22 +1220,23 @@ footer p {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 15px !important;
+    padding: 8px !important; /* Diubah dari 15px jadi 8px agar lebih pas */
     z-index: 2 !important;
 }
 
 .btn-detail-system {
-    margin-top: 8px !important;
-    padding: 5px 12px !important;
+    margin-top: 4px !important;
+    padding: 4px 10px !important;
     background-color: #ff0000 !important;
     color: white !important;
     border: none !important;
     border-radius: 4px !important;
     cursor: pointer !important;
     font-weight: bold !important;
-    font-size: 11px !important;
+    font-size: 10px !important;
     z-index: 3 !important;
 }
+
 
 .btn-detail-system:hover {
     background-color: #cc0000 !important;
