@@ -742,44 +742,42 @@ footer p {
     background: #333;
     color: #fff;
 }
-/* Style Modal VG TUNE */
-#modal-vgtune {
+/* ==========================================
+   FIX MODAL VG TUNE DI TENGAH LAYAR
+   ========================================== */
+#tune-modal, #modal-vgtune, .tune-modal {
     display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Background hitam transparan */
-    backdrop-filter: blur(5px);
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 550px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    border: 1px solid #333 !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    z-index: 99999 !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) !important;
 }
 
-#modal-vgtune .modal-content-custom {
-    background-color: #121212;
-    color: #ffffff;
-    margin: 5% auto;
-    padding: 25px;
-    border: 1px solid #333;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    position: relative;
-}
-
+/* Card Pilihan / Opsi di dalam Modal */
+#tune-modal .tune-option-card, 
 #modal-vgtune .tune-option-card {
-    background: #1a1a1a;
+    background-color: #1a1a1a;
     border: 1px solid #333;
     border-radius: 8px;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
+#tune-modal .tune-option-card:hover,
 #modal-vgtune .tune-option-card:hover {
-    border-color: #ff0000;
-    background: #222;
+    border-color: #e50914;
+    background-color: #222;
 }
