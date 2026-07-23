@@ -1,10 +1,10 @@
 const SYSTEM_DATA = {
     categories: {
         mesin: {
-            title: "Mesin",
+            title: "MESIN",
             name: "Mesin",
-            icon: "mesin.jpg",
-            image: "mesin.jpg",
+            icon: "fas fa-cog",
+            image: "img-sys-mesin.jpg",
             services: [
                 {
                     name: "Flushing Oli Mesin",
@@ -65,10 +65,10 @@ const SYSTEM_DATA = {
             ]
         },
         pelumasan: {
-            title: "Pelumasan",
+            title: "PELUMASAN",
             name: "Pelumasan",
-            icon: "pelumasan.jpg",
-            image: "pelumasan.jpg",
+            icon: "fas fa-oil-can",
+            image: "img-sys-pelumasan.jpg",
             services: [
                 {
                     name: "Ganti Oli Mesin",
@@ -129,10 +129,10 @@ const SYSTEM_DATA = {
             ]
         },
         bahan_bakar: {
-            title: "Bahan Bakar",
+            title: "BAHAN BAKAR",
             name: "Bahan Bakar",
-            icon: "bahan-bakar.jpg",
-            image: "bahan-bakar.jpg",
+            icon: "fas fa-gas-pump",
+            image: "img-sys-bensin.jpg",
             services: [
                 {
                     name: "Pemeriksaan Sistem Bahan Bakar",
@@ -209,10 +209,10 @@ const SYSTEM_DATA = {
             ]
         },
         suspensi: {
-            title: "Suspensi",
+            title: "SUSPENSI",
             name: "Suspensi",
-            icon: "suspensi.jpg",
-            image: "suspensi.jpg",
+            icon: "fas fa-car-side",
+            image: "img-sys-suspensi.jpg",
             services: [
                 {
                     name: "Ganti Shock Absorber Depan",
@@ -297,10 +297,10 @@ const SYSTEM_DATA = {
             ]
         },
         kemudi: {
-            title: "Kemudi",
+            title: "KEMUDI",
             name: "Kemudi",
-            icon: "kemudi.jpg",
-            image: "kemudi.jpg",
+            icon: "fas fa-crosshairs",
+            image: "img-sys-kemudi.jpg",
             services: [
                 {
                     name: "Ganti Steering Rack",
@@ -377,10 +377,10 @@ const SYSTEM_DATA = {
             ]
         },
         rem: {
-            title: "Rem",
+            title: "REM",
             name: "Rem",
-            icon: "rem.jpg",
-            image: "rem.jpg",
+            icon: "fas fa-stop-circle",
+            image: "img-sys-rem.jpg",
             services: [
                 {
                     name: "Servis Rem (Setel & Bersihkan 2 Roda)",
@@ -473,10 +473,10 @@ const SYSTEM_DATA = {
             ]
         },
         pendingin: {
-            title: "Pendingin",
+            title: "PENDINGIN",
             name: "Pendingin",
-            icon: "pendingin.jpg",
-            image: "pendingin.jpg",
+            icon: "fas fa-thermometer-half",
+            image: "img-sys-pendingin.jpg",
             services: [
                 {
                     name: "Kuras Radiator",
@@ -553,10 +553,10 @@ const SYSTEM_DATA = {
             ]
         },
         transmisi: {
-            title: "Transmisi",
+            title: "TRANSMISI",
             name: "Transmisi",
-            icon: "transmisi.jpg",
-            image: "transmisi.jpg",
+            icon: "fas fa-cogs",
+            image: "img-sys-transmisi.jpg",
             services: [
                 {
                     name: "Ganti Kopling",
@@ -616,11 +616,11 @@ const SYSTEM_DATA = {
                 }
             ]
         },
-        kelistrikan_mesin: {
-            title: "Kelistrikan Mesin",
+        kelistrikan: {
+            title: "KELISTRIKAN MESIN",
             name: "Kelistrikan Mesin",
-            icon: "kelistrikan-mesin.jpg",
-            image: "kelistrikan-mesin.jpg",
+            icon: "fas fa-battery-full",
+            image: "img-sys-kelistrikan.jpg",
             services: [
                 {
                     name: "Ganti Aki",
