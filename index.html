@@ -728,194 +728,296 @@
         </div>
     </div>
 
-    <!-- POPUP DETAIL LAYANAN: VG TUNE BENSIN -->
-    <div id="modal-tune-bensin" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG TUNE BENSIN</span>
-                <h3>VG TUNE BENSIN</h3>
-                <button class="modal-close" onclick="closeModal('modal-tune-bensin')" aria-label="Tutup Popup">&times;</button>
+    <!-- ========================================== -->
+<!-- MODAL MULTI-STEP: VG TUNE -->
+<!-- ========================================== -->
+<div id="modal-vgtune" class="custom-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; overflow-y:auto; padding:20px;">
+    
+    <!-- STEP 1: PILIH JENIS MESIN -->
+    <div id="tune-step-1" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 600px; border: 1px solid #ff3333;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="m-0 text-danger fw-bold">1. PILIH JENIS MESIN</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <p class="text-muted mb-4">Pilih jenis mesin kendaraan Anda</p>
+        
+        <div class="row g-3">
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-3 text-white" onclick="switchTuneView('tune-step-2a')" style="cursor: pointer; border-left: 4px solid #ff3333 !important;">
+                    <div class="d-flex align-items-center">
+                        <img src="img-tune-bensin.jpg" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px;" alt="Bensin">
+                        <div>
+                            <h5 class="mb-1">MESIN BENSIN</h5>
+                            <small class="text-muted">Untuk kendaraan berbahan bakar bensin</small>
+                        </div>
+                        <h4 class="ms-auto text-danger m-0">➔</h4>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <img id="tune-bensin-banner" src="img-tune-basic.jpg" alt="Tune Up Bensin" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle modal-subtitle-bold">PILIH PAKET YANG SESUAI KEBUTUHAN ANDA</p>
-
-                <div class="modal-tabs grid-2x2">
-                    <button class="tab-btn active" onclick="switchTab(this, 'tune-basic'); document.getElementById('tune-bensin-banner').src='img-tune-basic.jpg'">VG TUNE BASIC</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-plus'); document.getElementById('tune-bensin-banner').src='img-tune-plus.jpg'">VG TUNE PLUS <small class="star-label">⭐ BEST SELLER</small></button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-pro'); document.getElementById('tune-bensin-banner').src='img-tune-pro.jpg'">VG TUNE PRO</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'tune-addon'); document.getElementById('tune-bensin-banner').src='img-tune-addon.jpg'">VG ADD-ON</button>
-                </div>
-
-                <!-- VG TUNE BASIC -->
-                <div id="tune-basic" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-wrench" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala dasar mesin untuk mobil dengan kondisi mesin normal, tarikan mulai berat, kurang responsif, atau konsumsi BBM mulai meningkat.</p>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> CAKUPAN PENGERJAAN:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Diagnostik:</strong> Scan ECU awal/akhir, membaca & menghapus kode DTC.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pengapian:</strong> Pemeriksaan busi & koil pengapian.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Sistem Udara:</strong> Cek filter udara & saluran intake, pembersihan throttle body.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Bahan Bakar:</strong> Cek saringan bensin & cek kebocoran sistem.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Fluida & Visual:</strong> Cek oli, filter, coolant, minyak rem/steering, air washer, kebocoran mesin, selang vakum, & drive belt.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Kelistrikan:</strong> Cek kondisi aki, pengisian alternator, & sistem starter.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Edukasi:</strong> Penjelasan hasil pemeriksaan & rekomendasi perbaikan.</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-times-circle" style="color:#d32f2f;" aria-hidden="true"></i> TIDAK TERMASUK</h4>
-                        <p style="font-size: 12px; color: #666;">Penggantian spare part/oli/filter/busi, pembersihan injektor, gurah karbon, pembersihan intake manifold, perbaikan kerusakan, & test drive jarak jauh.</p>
-                    </div>
-                    <div class="modal-pricing-box">
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-3 text-white" onclick="switchTuneView('tune-step-2b')" style="cursor: pointer; border-left: 4px solid #ff3333 !important;">
+                    <div class="d-flex align-items-center">
+                        <img src="img-tune-diesel.jpg" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px;" alt="Diesel">
                         <div>
-                            <span class="m-dur">Waktu: ±45–60 Menit</span>
-                            <span class="m-prc">Rp200K</span>
+                            <h5 class="mb-1">MESIN DIESEL</h5>
+                            <small class="text-muted">Untuk kendaraan berbahan bakar diesel</small>
                         </div>
+                        <h4 class="ms-auto text-danger m-0">➔</h4>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="alert alert-dark border-secondary text-muted mt-4 p-2 text-center" style="font-size: 0.85rem;">
+            ℹ️ Pilih sesuai jenis mesin kendaraan Anda untuk mendapatkan layanan yang tepat.
+        </div>
+    </div>
 
-                <!-- VG TUNE PLUS -->
-                <div id="tune-plus" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-gas-pump" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala ditambah pembersihan sistem udara & bahan bakar. Cocok untuk mesin langsam tidak stabil, pedal gas lambat merespon, atau throttle body kotor.</p>
-                    </div>
-                    <div class="info-block info-highlight-green">
-                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle" aria-hidden="true"></i> MENCAKUP SEMUA LAYANAN VG TUNE BASIC</span>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> ITEM TAMBAHAN:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pembersihan:</strong> Bongkar, bersihkan, & pasang kembali injektor, cek O-ring & saringan injektor.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Adaptasi & Kalibrasi:</strong> Reset ECU, Idle Learning, & Throttle Learning.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Pemeriksaan Ekstra:</strong> Cek PCV valve & selang, vacuum leak, air intake hose, & resonator.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Verifikasi Akhir:</strong> Uji respon pedal gas, kestabilan langsam, & final scan ECU.</li>
-                        </ul>
-                    </div>
-                    <div class="addon-box addon-dashed">
-                        <h4 style="color: #2e7d32;"><i class="fas fa-leaf" aria-hidden="true"></i> REKOMENDASI LAYANAN TAMBAHAN (BIASA TERPISAH)</h4>
-                        <p style="font-size:12px; margin-bottom:5px;"><strong>Gurah Karbon Mesin (Carbon Cleaner):</strong> +Rp75.000 (Jasa) untuk membersihkan endapan kerak karbon ruang bakar secara optimal (±15-30 mnt). *Biaya cairan dihitung terpisah.</p>
-                    </div>
-                    <div class="modal-pricing-box">
-                        <div>
-                            <span class="m-dur">Waktu: ±60–90 Menit</span>
-                            <span class="m-prc">Rp250K - Rp350K</span>
+    <!-- STEP 2A: VG TUNE BENSIN (PILIH PAKET) -->
+    <div id="tune-step-2a" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 600px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary btn-sm me-3" onclick="switchTuneView('tune-step-1')">⬅ Kembali</button>
+                <h4 class="m-0 text-danger fw-bold">2A. VG TUNE BENSIN</h4>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <p class="text-muted mb-4">Pilih paket tune up bensin yang sesuai kebutuhan Anda</p>
+        
+        <div class="row g-2">
+            <!-- Basic -->
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-2 text-white" onclick="switchTuneView('tune-step-3a')" style="cursor: pointer;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ps-2">
+                            <h5 class="text-danger mb-0">BASIC</h5>
+                            <small class="text-muted">Tune up berkala standar</small>
                         </div>
+                        <img src="img-tune-basic.jpg" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;" alt="Basic">
                     </div>
                 </div>
-
-                <!-- VG TUNE PRO -->
-                <div id="tune-pro" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-chart-line" aria-hidden="true"></i> DESKRIPSI & COCOK UNTUK</h4>
-                        <p>Servis berkala premium dengan analisis scanner mendalam. Sangat cocok untuk mobil yang brebet, kurang bertenaga, indikator Check Engine menyala, BBM boros, atau sulit ditemukan penyebab gangguannya.</p>
-                    </div>
-                    <div class="info-block info-highlight-green">
-                        <span style="font-weight: bold; color: #2e7d32;"><i class="fas fa-plus-circle" aria-hidden="true"></i> MENCAKUP SEMUA LAYANAN VG TUNE PLUS</span>
-                    </div>
-                    <div class="info-block">
-                        <h4><i class="fas fa-laptop-diagnostic" aria-hidden="true"></i> ANALISIS SCANNER MENDALAM & PERFORMA:</h4>
-                        <ul class="checklist-items">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Analisis Live Data:</strong> Fuel Trim, RPM, ECT, IAT, sensor MAF/MAP, sensor O₂, TPS, APP, & Voltase Aki.</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Analisis Performa:</strong> Cek Misfire Counter, Ignition Timing, Injector Balance, & Fuel Pressure Data (jika tersedia).</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Test Drive & Laporan:</strong> Test drive singkat, laporan prioritas perbaikan, edukasi kerusakan, & rekomendasi interval servis selanjutnya.</li>
-                        </ul>
-                    </div>
-                    <div class="modal-pricing-box">
-                        <div>
-                            <span class="m-dur">Waktu: ±90–150 Menit</span>
-                            <span class="m-prc">Rp400K - Rp600K</span>
+            </div>
+            <!-- Plus -->
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-2 text-white" onclick="switchTuneView('tune-step-3b')" style="cursor: pointer;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ps-2">
+                            <h5 class="text-danger mb-0">PLUS</h5>
+                            <small class="text-muted">Tune up + Fuel System</small>
                         </div>
+                        <img src="img-tune-plus.jpg" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;" alt="Plus">
                     </div>
                 </div>
-
-                <!-- VG ADD-ON -->
-                <div id="tune-addon" class="tab-content">
-                    <div class="info-block">
-                        <h4><i class="fas fa-puzzle-piece" aria-hidden="true"></i> LAYANAN TAMBAHAN (OPSIONAL)</h4>
-                        <p>Sempurnakan performa mesin mobil bensin Anda dengan menu lepasan berikut:</p>
+            </div>
+            <!-- Pro -->
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-2 text-white" onclick="switchTuneView('tune-step-3c')" style="cursor: pointer;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ps-2">
+                            <h5 class="text-danger mb-0">PRO</h5>
+                            <small class="text-muted">Tune up + Scanner ECU</small>
+                        </div>
+                        <img src="img-tune-pro.jpg" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;" alt="Pro">
                     </div>
-                    <div class="addon-box">
-                        <ul>
-                            <li>
-                                <span><strong>Gurah Karbon Mesin (Jasa)</strong><br><small>Pembersihan kerak ruang bakar (15-30 mnt)</small></span> 
-                                <strong>Rp75.000*</strong>
-                            </li>
-                            <li>
-                                <span><strong>Pembersihan Intake Manifold</strong><br><small>Belum termasuk gasket & cairan (30-60 mnt)</small></span> 
-                                <strong>Rp50K - Rp100K</strong>
-                            </li>
-                        </ul>
+                </div>
+            </div>
+            <!-- Add-on -->
+            <div class="col-12">
+                <div class="card bg-dark border-secondary p-2 text-white" onclick="switchTuneView('tune-step-3d')" style="cursor: pointer;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ps-2">
+                            <h5 class="text-warning mb-0">ADD-ON</h5>
+                            <small class="text-muted">Layanan tambahan</small>
+                        </div>
+                        <img src="img-tune-addon.jpg" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;" alt="Add-on">
                     </div>
-                    <p class="footnote-text">*Catatan: Biaya cairan/chemical gurah dihitung terpisah sesuai produk dan pemakaian.</p>
                 </div>
-
-                <div class="policy-note">
-                    <i class="fas fa-info-circle" aria-hidden="true"></i> *Seluruh estimasi harga di atas adalah biaya <strong>JASA SAJA</strong>. Belum termasuk biaya transportasi zona operasional, spare part (busi, filter, dll), dan bahan consumable (cairan pembersih/chemical).
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20paket%20Tune%20Up%20Mesin%20Bensin." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-tune-bensin')">TUTUP</button>
             </div>
         </div>
     </div>
 
-    <!-- POPUP DETAIL LAYANAN: VG TUNE DIESEL -->
-    <div id="modal-tune-diesel" class="custom-modal" role="dialog" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <span class="modal-tag">VG TUNE DIESEL</span>
-                <h3>VG TUNE DIESEL</h3>
-                <button class="modal-close" onclick="closeModal('modal-tune-diesel')" aria-label="Tutup Popup">&times;</button>
+    <!-- STEP 2B: DETAIL VG TUNE DIESEL -->
+    <div id="tune-step-2b" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 700px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchTuneView('tune-step-1')">⬅ Kembali</button>
+            <h4 class="m-0 text-white bg-danger px-3 py-1 rounded">2B. VG TUNE DIESEL</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <img src="img-tune-diesel.jpg" class="w-100 rounded mb-3" style="height: 250px; object-fit: cover; border: 1px solid #444;" alt="Diesel Tune Up">
+        <h5 class="text-white">VG TUNE DIESEL</h5>
+        <p class="text-muted">Perawatan menyeluruh untuk performa mesin diesel agar tetap optimal dan responsif.</p>
+        
+        <h6 class="text-danger mt-3">MELIPUTI :</h6>
+        <div class="row text-sm mb-4">
+            <div class="col-md-6">
+                <ul class="list-unstyled text-muted">
+                    <li><span class="text-danger">✔</span> Pemeriksaan Scanner ECU</li>
+                    <li><span class="text-danger">✔</span> Pemeriksaan & Ganti Fuel Filter</li>
+                    <li><span class="text-danger">✔</span> Pembersihan Intake Manifold</li>
+                    <li><span class="text-danger">✔</span> Pemeriksaan & Cleaning Injector</li>
+                    <li><span class="text-danger">✔</span> Pemeriksaan Turbo (Boost)</li>
+                </ul>
             </div>
-            <div class="modal-body">
-                <img src="img-tune-diesel.jpg" alt="Tune Up Diesel" class="modal-banner-img" loading="lazy">
-                <p class="modal-subtitle">Perawatan khusus mesin diesel modern commonrail untuk membersihkan injector dan ruang bakar.</p>
-                
-                <div class="modal-tabs">
-                    <button class="tab-btn active" onclick="switchTab(this, 'td-info')">INFORMASI</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'td-include')">TERMASUK</button>
-                    <button class="tab-btn" onclick="switchTab(this, 'td-exclude')">TIDAK TERMASUK</button>
-                </div>
-
-                <div id="td-info" class="tab-content active">
-                    <div class="info-block">
-                        <h4><i class="fas fa-car" aria-hidden="true"></i> UNTUK SIAPA?</h4>
-                        <p>Mobil diesel (Innova Diesel, Fortuner, Pajero, Hilux, dll) dengan tenaga menurun atau berasap.</p>
-                    </div>
-                </div>
-
-                <div id="td-include" class="tab-content">
-                    <ul class="checklist-items">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Purging Injector Solar</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Pembersihan Kerak EGR</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cek Filter Udara & Solar</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Scan ECU & Hapus DTC</li>
-                    </ul>
-                </div>
-
-                <div id="td-exclude" class="tab-content">
-                    <ul class="crosslist-items">
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Penggantian filter solar baru</li>
-                        <li><i class="fas fa-times-circle" aria-hidden="true"></i> Suku cadang</li>
-                    </ul>
-                </div>
-
-                <div class="modal-pricing-box">
-                    <div>
-                        <span class="m-dur">Durasi: 120 Menit</span>
-                        <span class="m-prc">Rp250.000 - Rp400.000</span>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/62895622499262?text=Halo%20VRRins%20Garage,%20saya%20mau%20booking%20Tune%20Up%20Diesel." target="_blank" rel="noopener noreferrer" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
-                <button class="btn-modal-close-action" onclick="closeModal('modal-tune-diesel')">TUTUP</button>
+            <div class="col-md-6">
+                <ul class="list-unstyled text-muted">
+                    <li><span class="text-danger">✔</span> Pemeriksaan Water Separator</li>
+                    <li><span class="text-danger">✔</span> Pemeriksaan Fuel Pressure</li>
+                    <li><span class="text-danger">✔</span> Live Data & Analisa</li>
+                    <li><span class="text-danger">✔</span> Reset ECU</li>
+                </ul>
             </div>
         </div>
+
+        <div class="row mb-4 border-top border-bottom border-secondary py-3">
+            <div class="col-6 border-end border-secondary">
+                <small class="text-muted d-block">⏱ ESTIMASI WAKTU</small>
+                <strong class="text-white fs-5">±120 Menit</strong>
+            </div>
+            <div class="col-6 ps-4">
+                <small class="text-muted d-block">💰 ESTIMASI HARGA</small>
+                <strong class="text-danger fs-5">Rp250K - Rp400K</strong>
+            </div>
+        </div>
+        <a href="https://wa.me/6285542240950?text=Halo%20VRRINS%20Garage,%20saya%20ingin%20booking%20VG%20Tune%20Diesel" target="_blank" class="btn btn-success w-100 py-2">Booking via WhatsApp</a>
     </div>
+
+    <!-- STEP 3A: DETAIL BASIC -->
+    <div id="tune-step-3a" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 700px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchTuneView('tune-step-2a')">⬅ Kembali</button>
+            <h4 class="m-0 text-white bg-danger px-3 py-1 rounded">3A. VG TUNE BASIC</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <img src="img-tune-basic.jpg" class="w-100 rounded mb-3" style="height: 250px; object-fit: cover; border: 1px solid #444;" alt="Basic Tune Up">
+        <h5 class="text-white">VG TUNE BASIC</h5>
+        <p class="text-muted">Perawatan berkala untuk menjaga performa mesin tetap optimal dan responsif.</p>
+        
+        <h6 class="text-danger mt-3">MELIPUTI :</h6>
+        <ul class="list-unstyled text-muted mb-4">
+            <li><span class="text-danger">✔</span> Pemeriksaan Mesin</li>
+            <li><span class="text-danger">✔</span> Pembersihan Throttle Body</li>
+            <li><span class="text-danger">✔</span> Idle Learning & Reset ECU</li>
+            <li><span class="text-danger">✔</span> Pemeriksaan Busi & Filter Udara</li>
+        </ul>
+
+        <div class="row mb-4 border-top border-bottom border-secondary py-3">
+            <div class="col-6 border-end border-secondary">
+                <small class="text-muted d-block">⏱ ESTIMASI WAKTU</small>
+                <strong class="text-white fs-5">±60 Menit</strong>
+            </div>
+            <div class="col-6 ps-4">
+                <small class="text-muted d-block">💰 ESTIMASI HARGA</small>
+                <strong class="text-danger fs-5">Rp200K - Rp300K</strong>
+            </div>
+        </div>
+        <a href="https://wa.me/6285542240950?text=Halo%20VRRINS%20Garage,%20saya%20ingin%20booking%20VG%20Tune%20Bensin%20(Basic)" target="_blank" class="btn btn-success w-100 py-2">Booking via WhatsApp</a>
+    </div>
+
+    <!-- STEP 3B: DETAIL PLUS -->
+    <div id="tune-step-3b" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 700px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchTuneView('tune-step-2a')">⬅ Kembali</button>
+            <h4 class="m-0 text-white bg-danger px-3 py-1 rounded">3B. VG TUNE PLUS</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <img src="img-tune-plus.jpg" class="w-100 rounded mb-3" style="height: 250px; object-fit: cover; border: 1px solid #444;" alt="Plus Tune Up">
+        <h5 class="text-white">VG TUNE PLUS</h5>
+        <p class="text-muted">Tune up menyeluruh + perawatan sistem bahan bakar untuk tenaga lebih optimal & irit.</p>
+        
+        <h6 class="text-danger mt-3">MELIPUTI :</h6>
+        <ul class="list-unstyled text-muted mb-4">
+            <li><span class="text-danger">✔</span> <strong>Semua di Paket Basic</strong></li>
+            <li><span class="text-danger">✔</span> Bongkar & Bersihkan Injector</li>
+            <li><span class="text-danger">✔</span> Ganti O-ring Injector (jika perlu)</li>
+            <li><span class="text-danger">✔</span> Fuel System Cleaner</li>
+            <li><span class="text-danger">✔</span> Pemeriksaan Vacuum & Throttle Learning</li>
+        </ul>
+
+        <div class="row mb-4 border-top border-bottom border-secondary py-3">
+            <div class="col-6 border-end border-secondary">
+                <small class="text-muted d-block">⏱ ESTIMASI WAKTU</small>
+                <strong class="text-white fs-5">±90 - 120 Menit</strong>
+            </div>
+            <div class="col-6 ps-4">
+                <small class="text-muted d-block">💰 ESTIMASI HARGA</small>
+                <strong class="text-danger fs-5">Rp300K - Rp450K</strong>
+            </div>
+        </div>
+        <a href="https://wa.me/6285542240950?text=Halo%20VRRINS%20Garage,%20saya%20ingin%20booking%20VG%20Tune%20Bensin%20(Plus)" target="_blank" class="btn btn-success w-100 py-2">Booking via WhatsApp</a>
+    </div>
+
+    <!-- STEP 3C: DETAIL PRO -->
+    <div id="tune-step-3c" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 700px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchTuneView('tune-step-2a')">⬅ Kembali</button>
+            <h4 class="m-0 text-white bg-danger px-3 py-1 rounded">3C. VG TUNE PRO</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <img src="img-tune-pro.jpg" class="w-100 rounded mb-3" style="height: 250px; object-fit: cover; border: 1px solid #444;" alt="Pro Tune Up">
+        <h5 class="text-white">VG TUNE PRO</h5>
+        <p class="text-muted">Diagnosa mendalam menggunakan scanner untuk memastikan mesin bekerja pada kondisi terbaik.</p>
+        
+        <h6 class="text-danger mt-3">MELIPUTI :</h6>
+        <div class="row text-sm mb-4">
+            <div class="col-md-6">
+                <ul class="list-unstyled text-muted">
+                    <li><span class="text-danger">✔</span> <strong>Semua di Paket Plus</strong></li>
+                    <li><span class="text-danger">✔</span> Scanner ECU & Analisa Fuel Trim</li>
+                    <li><span class="text-danger">✔</span> Pemeriksaan Sensor (MAF/MAP, O2, TPS, dll)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled text-muted">
+                    <li><span class="text-danger">✔</span> Misfire Counter & Ignition Timing</li>
+                    <li><span class="text-danger">✔</span> Injector Balance & Live Data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mb-4 border-top border-bottom border-secondary py-3">
+            <div class="col-6 border-end border-secondary">
+                <small class="text-muted d-block">⏱ ESTIMASI WAKTU</small>
+                <strong class="text-white fs-5">±120 Menit</strong>
+            </div>
+            <div class="col-6 ps-4">
+                <small class="text-muted d-block">💰 ESTIMASI HARGA</small>
+                <strong class="text-danger fs-5">Rp400K - Rp600K</strong>
+            </div>
+        </div>
+        <a href="https://wa.me/6285542240950?text=Halo%20VRRINS%20Garage,%20saya%20ingin%20booking%20VG%20Tune%20Bensin%20(Pro)" target="_blank" class="btn btn-success w-100 py-2">Booking via WhatsApp</a>
+    </div>
+
+    <!-- STEP 3D: DETAIL ADD-ON -->
+    <div id="tune-step-3d" class="modal-content bg-dark text-white p-4 rounded mx-auto mt-5 tune-view" style="max-width: 700px; border: 1px solid #ff3333; display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchTuneView('tune-step-2a')">⬅ Kembali</button>
+            <h4 class="m-0 text-white bg-warning text-dark px-3 py-1 rounded">3D. VG TUNE ADD-ON</h4>
+            <button class="btn btn-danger btn-sm" onclick="closeModal('modal-vgtune')">&times;</button>
+        </div>
+        <img src="img-tune-addon.jpg" class="w-100 rounded mb-3" style="height: 250px; object-fit: cover; border: 1px solid #444;" alt="Add-on Services">
+        <h5 class="text-white">VG TUNE ADD-ON</h5>
+        <p class="text-muted">Layanan tambahan untuk hasil lebih maksimal sesuai kebutuhan kendaraan Anda.</p>
+        
+        <h6 class="text-warning mt-3">MELIPUTI :</h6>
+        <ul class="list-unstyled text-muted mb-4">
+            <li><span class="text-warning">✔</span> Gurah Karbon Mesin</li>
+            <li><span class="text-warning">✔</span> Cleaning Intake Manifold & Cleaning EGR</li>
+            <li><span class="text-warning">✔</span> Cleaning MAF/MAP Sensor & Ganti PCV Valve</li>
+        </ul>
+
+        <div class="row mb-4 border-top border-bottom border-secondary py-3">
+            <div class="col-6 border-end border-secondary">
+                <small class="text-muted d-block">⏱ ESTIMASI WAKTU</small>
+                <strong class="text-white fs-5">±15 - 60 Menit</strong>
+            </div>
+            <div class="col-6 ps-4">
+                <small class="text-muted d-block">💰 ESTIMASI HARGA</small>
+                <strong class="text-warning fs-5">Menyesuaikan jenis</strong>
+            </div>
+        </div>
+        <a href="https://wa.me/6285542240950?text=Halo%20VRRINS%20Garage,%20saya%20ingin%20tanya%20Layanan%20Add-on%20Tune%20Up" target="_blank" class="btn btn-success w-100 py-2">Konsultasi via WhatsApp</a>
+    </div>
+
+</div>
 <!-- MODAL VG OIL SERVICE -->
 <div id="modal-oil-service" class="custom-modal">
     <div class="modal-dialog">
