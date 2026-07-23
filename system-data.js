@@ -2,7 +2,9 @@ const SYSTEM_DATA = {
     categories: {
         mesin: {
             title: "Mesin",
-            icon: "⚙",
+            name: "Mesin",
+            icon: "mesin.jpg",
+            image: "mesin.jpg",
             services: [
                 {
                     name: "Flushing Oli Mesin",
@@ -64,7 +66,9 @@ const SYSTEM_DATA = {
         },
         pelumasan: {
             title: "Pelumasan",
-            icon: "💧",
+            name: "Pelumasan",
+            icon: "pelumasan.jpg",
+            image: "pelumasan.jpg",
             services: [
                 {
                     name: "Ganti Oli Mesin",
@@ -126,7 +130,9 @@ const SYSTEM_DATA = {
         },
         bahan_bakar: {
             title: "Bahan Bakar",
-            icon: "⛽",
+            name: "Bahan Bakar",
+            icon: "bahan-bakar.jpg",
+            image: "bahan-bakar.jpg",
             services: [
                 {
                     name: "Pemeriksaan Sistem Bahan Bakar",
@@ -204,7 +210,9 @@ const SYSTEM_DATA = {
         },
         suspensi: {
             title: "Suspensi",
-            icon: "🚙",
+            name: "Suspensi",
+            icon: "suspensi.jpg",
+            image: "suspensi.jpg",
             services: [
                 {
                     name: "Ganti Shock Absorber Depan",
@@ -288,9 +296,11 @@ const SYSTEM_DATA = {
                 }
             ]
         },
-     kemudi: {
+        kemudi: {
             title: "Kemudi",
-            icon: "🎯",
+            name: "Kemudi",
+            icon: "kemudi.jpg",
+            image: "kemudi.jpg",
             services: [
                 {
                     name: "Ganti Steering Rack",
@@ -368,7 +378,9 @@ const SYSTEM_DATA = {
         },
         rem: {
             title: "Rem",
-            icon: "🛑",
+            name: "Rem",
+            icon: "rem.jpg",
+            image: "rem.jpg",
             services: [
                 {
                     name: "Servis Rem (Setel & Bersihkan 2 Roda)",
@@ -462,7 +474,9 @@ const SYSTEM_DATA = {
         },
         pendingin: {
             title: "Pendingin",
-            icon: "🌡",
+            name: "Pendingin",
+            icon: "pendingin.jpg",
+            image: "pendingin.jpg",
             services: [
                 {
                     name: "Kuras Radiator",
@@ -540,7 +554,9 @@ const SYSTEM_DATA = {
         },
         transmisi: {
             title: "Transmisi",
-            icon: "⚙",
+            name: "Transmisi",
+            icon: "transmisi.jpg",
+            image: "transmisi.jpg",
             services: [
                 {
                     name: "Ganti Kopling",
@@ -599,6 +615,54 @@ const SYSTEM_DATA = {
                     includes: ["Penggantian Boot Drive Shaft", "Penggantian Grease CV Joint", "Pemeriksaan CV Joint", "Pemeriksaan Klem Boot", "Uji Jalan Kendaraan"]
                 }
             ]
+        },
+        kelistrikan_mesin: {
+            title: "Kelistrikan Mesin",
+            name: "Kelistrikan Mesin",
+            icon: "kelistrikan-mesin.jpg",
+            image: "kelistrikan-mesin.jpg",
+            services: [
+                {
+                    name: "Ganti Aki",
+                    category_type: "Penggantian",
+                    price: "Rp100K – Rp200K",
+                    time: "15–30 Menit",
+                    note: "Tergantung jenis kendaraan",
+                    includes: ["Penggantian Aki", "Pemeriksaan Tegangan Aki Baru", "Pemeriksaan Terminal Aki", "Pemeriksaan Sistem Pengisian (Alternator)"]
+                },
+                {
+                    name: "Ganti Alternator (Dinamo Ampere)",
+                    category_type: "Penggantian",
+                    price: "Rp220K – Rp450K",
+                    time: "60–120 Menit",
+                    note: "Tergantung jenis kendaraan",
+                    includes: ["Penggantian Alternator", "Pemeriksaan Belt Alternator", "Pemeriksaan Kabel & Soket", "Uji Sistem Pengisian"]
+                },
+                {
+                    name: "Servis Alternator",
+                    category_type: "Servis",
+                    price: "Rp350K – Rp650K",
+                    time: "120–240 Menit",
+                    note: "Tergantung jenis kendaraan",
+                    includes: ["Pembongkaran Alternator", "Penggantian Carbon Brush/IC Regulator", "Pemeriksaan Bearing", "Perakitan & Uji Pengisian"]
+                },
+                {
+                    name: "Ganti Dinamo Starter",
+                    category_type: "Penggantian",
+                    price: "Rp220K – Rp450K",
+                    time: "60–120 Menit",
+                    note: "Tergantung jenis kendaraan",
+                    includes: ["Penggantian Dinamo Starter", "Pemeriksaan Kabel & Relay Starter", "Uji Fungsi Starter"]
+                },
+                {
+                    name: "Servis Dinamo Starter",
+                    category_type: "Servis",
+                    price: "Rp300K – Rp600K",
+                    time: "120–240 Menit",
+                    note: "Tergantung jenis kendaraan",
+                    includes: ["Pembongkaran Dinamo Starter", "Penggantian Carbon Brush/Solenoid", "Pembersihan & Pelumasan", "Perakitan & Uji Starter"]
+                }
+            ]
         }
     }
-}; 
+};
