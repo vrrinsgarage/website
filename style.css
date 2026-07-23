@@ -1054,7 +1054,307 @@ footer p {
     margin-bottom: 15px;
 }
 
-.sys-detail-disclaimer i {
-    color: #ff0000;
-    font-size: 1rem;
+/* ==========================================
+   SYSTEM DYNAMIC MODAL STYLING
+   ========================================== */
+.sys-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+.sys-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.sys-modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 12px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.sys-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Step Nav & Tabs */
+.sys-step-content {
+    display: none;
+}
+
+.sys-step-content.active {
+    display: block;
+}
+
+/* Banners */
+.sys-modal-banner {
+    position: relative;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.sys-banner-small {
+    height: 90px;
+}
+
+.sys-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(26,26,26,1));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.sys-banner-overlay i {
+    font-size: 24px;
+    color: #e50914;
+    margin-bottom: 5px;
+}
+
+.sys-banner-overlay h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sys-banner-overlay p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Modal Body */
+.sys-modal-body {
+    padding: 15px;
+}
+
+.sys-section-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+/* Step 1: Category Grid */
+.sys-cat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sys-cat-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #262626;
+    border: 1px solid #333;
+    padding: 14px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sys-cat-btn:hover {
+    background: #333;
+    border-color: #e50914;
+}
+
+.sys-cat-btn span {
+    font-size: 12px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Step 2: Items List */
+.sys-modal-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 15px 5px;
+}
+
+.sys-btn-back {
+    background: none;
+    border: none;
+    color: #e50914;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.sys-modal-header-nav h4 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.sys-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sys-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 12px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.sys-item-row:hover {
+    border-color: #444;
+    background: #2a2a2a;
+}
+
+.sys-item-info h5 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.sys-item-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #e50914;
+    font-weight: 600;
+}
+
+.sys-item-info small {
+    font-size: 11px;
+    color: #888;
+}
+
+/* Step 3: Detail Card */
+.sys-detail-card {
+    background: #222;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #333;
+}
+
+.sys-price-box {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sys-price-box .label {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.sys-price-box h2 {
+    margin: 5px 0;
+    font-size: 22px;
+    color: #2eb85c;
+}
+
+.sys-price-box small {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.sys-meta-info {
+    font-size: 13px;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+.sys-divider {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 15px 0;
+}
+
+.sys-includes-box h5 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+.sys-includes-box ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: #ddd;
+}
+
+.sys-includes-box li {
+    margin-bottom: 6px;
+}
+
+.sys-action-box {
+    margin-top: 20px;
+}
+
+.sys-btn-booking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: background 0.2s;
+}
+
+.sys-btn-booking:hover {
+    background: #1ebc57;
 }
