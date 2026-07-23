@@ -484,10 +484,10 @@ footer p {
 }
 
 /* ========================================== */
-/* CUSTOM MODAL SYSTEM (SELESAI & PRESISI)   */
+/* SYSTEM MODAL PRESISI DAN UNIVERSAL        */
 /* ========================================== */
 
-/* Backdrop overlay hitam transparan untuk SEMUA modal */
+/* Overlay Latar Belakang Hitam */
 .custom-modal, 
 #tune-modal, 
 #modal-vgtune, 
@@ -498,97 +498,134 @@ footer p {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background-color: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.88) !important;
+    backdrop-filter: blur(6px);
     z-index: 99999 !important;
     overflow-y: auto !important;
     padding: 20px 10px;
     box-sizing: border-box;
 }
 
-/* Kotak Konten Modal di Tengah Layar */
+/* Kotak Modal Utama */
 .modal-dialog,
 #tune-modal > div,
 #modal-vgtune > div {
-    background-color: #141414;
-    margin: 30px auto;
-    width: 95%;
-    max-width: 550px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-    position: relative;
-    color: #ffffff;
+    background-color: #141414 !important;
+    margin: 30px auto !important;
+    width: 95% !important;
+    max-width: 520px !important;
+    border-radius: 12px !important;
+    border: 1px solid #333 !important;
+    padding: 20px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9) !important;
+    position: relative !important;
+    color: #ffffff !important;
     animation: modalSlide 0.3s ease;
 }
 
 @keyframes modalSlide {
-    from { transform: translateY(-30px); opacity: 0; }
+    from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Header Modal */
-.modal-header {
-    background: #1a1a1a;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #262626;
-    position: relative;
+/* Fix Judul & Teks Penjelas di Modal VG Tune */
+#tune-modal h3, #modal-vgtune h3,
+#tune-modal h4, #modal-vgtune h4 {
+    color: #ffffff !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 10px !important;
+    font-weight: bold !important;
 }
 
-.modal-tag {
-    background: #ff0000;
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 3px;
-    position: absolute;
-    top: 6px;
-    left: 20px;
+#tune-modal p, #modal-vgtune p {
+    color: #aaa !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 15px !important;
 }
 
-.modal-header h3 {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-top: 8px;
+/* Fix Tombol Close / Silang di Pojok Atas */
+.modal-close,
+#tune-modal .close-btn,
+#modal-vgtune .close-btn,
+#tune-modal .modal-close,
+#modal-vgtune .modal-close {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    background: none !important;
+    border: none !important;
+    color: #888 !important;
+    font-size: 1.6rem !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    z-index: 10;
 }
 
-.modal-close {
-    background: none;
-    border: none;
-    color: #aaa;
-    font-size: 1.8rem;
-    cursor: pointer;
+.modal-close:hover,
+#tune-modal .close-btn:hover,
+#modal-vgtune .close-btn:hover {
+    color: #ff0000 !important;
 }
 
-.modal-close:hover {
-    color: #fff;
+/* Fix KARTU OPSI PILIHAN MESIN (Bensin & Diesel) */
+.tune-option-card,
+#tune-modal .option-card,
+#modal-vgtune .option-card,
+#tune-modal [class*="option"],
+#modal-vgtune [class*="option"] {
+    background: #1d1d1d !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    padding: 12px 15px !important;
+    margin-bottom: 12px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    transition: all 0.2s ease !important;
 }
 
-/* Body Modal */
-.modal-body {
-    padding: 20px;
+.tune-option-card:hover,
+#tune-modal .option-card:hover,
+#modal-vgtune .option-card:hover {
+    border-color: #ff0000 !important;
+    background: #252525 !important;
 }
 
-.modal-banner-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+/* Gambar di dalam Kartu Opsi Mesin */
+.tune-option-card img,
+#tune-modal img,
+#modal-vgtune img {
+    width: 55px !important;
+    height: 55px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    border: 1px solid #444 !important;
+    flex-shrink: 0 !important;
 }
 
-.modal-subtitle {
-    color: #ccc;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+/* Fix Teks Petunjuk di Bawah (Ikon Biru Pecah) */
+#tune-modal small, #modal-vgtune small,
+#tune-modal .note, #modal-vgtune .note {
+    display: block !important;
+    background: #1c1c1c !important;
+    border-left: 3px solid #ff0000 !important;
+    padding: 10px 12px !important;
+    color: #bbb !important;
+    font-size: 0.8rem !important;
+    margin-top: 15px !important;
+    border-radius: 0 6px 6px 0 !important;
 }
 
-/* Modal Tabs */
+/* Sembunyikan Ikon Pecah/Broken Image jika Ada */
+#tune-modal img[src=""], 
+#modal-vgtune img[src=""],
+#tune-modal img:not([src]), 
+#modal-vgtune img:not([src]) {
+    display: none !important;
+}
+
+/* Tabs & Button Styling Standard */
 .modal-tabs {
     display: flex;
     background: #1a1a1a;
@@ -613,137 +650,6 @@ footer p {
 .tab-btn.active {
     background: #ff0000;
     color: #fff;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.info-block {
-    background: #1a1a1a;
-    border: 1px solid #262626;
-    padding: 12px 15px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-}
-
-.info-block h4 {
-    color: #fff;
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.info-block h4 i {
-    color: #ff0000;
-}
-
-.info-block p {
-    color: #aaa;
-    font-size: 0.85rem;
-}
-
-/* Card Pilihan Opsi Tune (Mesin Bensin / Diesel & Paket) */
-.tune-option-card {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.tune-option-card:hover {
-    border-color: #ff0000;
-    background-color: #222;
-}
-
-.addon-box {
-    background: #1c1c1c;
-    border: 1px dashed #444;
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 15px;
-}
-
-.addon-box h4 {
-    color: #fff;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.addon-box ul {
-    list-style: none;
-}
-
-.addon-box li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 6px 0;
-    border-bottom: 1px solid #262626;
-    color: #ccc;
-}
-
-.addon-box li strong {
-    color: #ff0000;
-}
-
-.checklist-items, .crosslist-items {
-    list-style: none;
-}
-
-.checklist-items li {
-    color: #22c55e;
-    font-size: 0.9rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.crosslist-items li {
-    color: #ef4444;
-    font-size: 0.9rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.modal-pricing-box {
-    background: #181818;
-    border: 1px solid #333;
-    padding: 15px;
-    border-radius: 6px;
-    margin: 20px 0 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.m-dur {
-    display: block;
-    color: #888;
-    font-size: 0.8rem;
-}
-
-.m-prc {
-    color: #ff0000;
-    font-weight: bold;
-    font-size: 1.1rem;
 }
 
 .btn-modal-wa {
