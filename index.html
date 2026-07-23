@@ -117,7 +117,131 @@
             </div>
         </div>
     </section>
+<!-- LAYANAN BERDASARKAN KONDISI MOBIL -->
+    <section id="kondisi-mobil" class="condition-section">
+        <div class="container">
+            <div class="section-title-center">
+                <h2>LAYANAN BERDASARKAN<br><span style="color: #ff0000;">KONDISI MOBIL ANDA</span></h2>
+                <p style="color: #aaa; margin-top: -20px; margin-bottom: 30px; font-size: 0.95rem;">
+                    <i class="fas fa-cog text-red"></i> Pilih sistem kendaraan yang bermasalah untuk melihat layanan yang tersedia.
+                </p>
+            </div>
 
+            <div class="condition-grid">
+                <!-- Kategori 1: MESIN -->
+                <div class="cond-card" onclick="openModal('modal-sistem-mesin')">
+                    <div class="cond-card-bg" style="background-image: url('img-mesin.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-mesin"><i class="fas fa-cogs"></i> MESIN</span>
+                            <p>Perawatan & perbaikan sistem mesin agar performa tetap optimal.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 2: PELUMASAN -->
+                <div class="cond-card" onclick="openModal('modal-sistem-pelumasan')">
+                    <div class="cond-card-bg" style="background-image: url('img-pelumasan.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-pelumasan"><i class="fas fa-oil-can"></i> PELUMASAN</span>
+                            <p>Ganti oli & perawatan sistem pelumasan untuk melindungi komponen.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 3: BAHAN BAKAR -->
+                <div class="cond-card" onclick="openModal('modal-sistem-bbm')">
+                    <div class="cond-card-bg" style="background-image: url('img-bbm.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-bahanbakar"><i class="fas fa-gas-pump"></i> BAHAN BAKAR</span>
+                            <p>Perawatan sistem bahan bakar agar pembakaran lebih efisien & irit.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 4: SUSPENSI -->
+                <div class="cond-card" onclick="openModal('modal-sistem-suspensi')">
+                    <div class="cond-card-bg" style="background-image: url('img-suspensi.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-suspensi"><i class="fas fa-compress-arrows-alt"></i> SUSPENSI</span>
+                            <p>Menjaga kenyamanan & kestabilan kendaraan saat berkendara.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 5: KEMUDI -->
+                <div class="cond-card" onclick="openModal('modal-sistem-kemudi')">
+                    <div class="cond-card-bg" style="background-image: url('img-kemudi.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-kemudi"><i class="fas fa-steering-wheel"></i> KEMUDI</span>
+                            <p>Perawatan sistem kemudi agar tetap presisi, ringan dan aman.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 6: REM -->
+                <div class="cond-card" onclick="openModal('modal-sistem-rem')">
+                    <div class="cond-card-bg" style="background-image: url('img-brake.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-rem"><i class="fas fa-compact-disc"></i> REM</span>
+                            <p>Perawatan sistem rem agar pengereman selalu optimal & aman.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 7: PENDINGIN -->
+                <div class="cond-card" onclick="openModal('modal-sistem-pendingin')">
+                    <div class="cond-card-bg" style="background-image: url('img-pendingin.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-pendingin"><i class="fas fa-temperature-low"></i> PENDINGIN</span>
+                            <p>Menjaga suhu mesin tetap stabil dan mencegah overheat.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 8: TRANSMISI -->
+                <div class="cond-card" onclick="openModal('modal-sistem-transmisi')">
+                    <div class="cond-card-bg" style="background-image: url('img-transmisi.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-transmisi"><i class="fas fa-cog"></i> TRANSMISI</span>
+                            <p>Perawatan transmisi agar perpindahan gigi halus & responsif.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Kategori 9: KELISTRIKAN -->
+                <div class="cond-card" onclick="openModal('modal-sistem-kelistrikan')">
+                    <div class="cond-card-bg" style="background-image: url('img-battery.jpg');"></div>
+                    <div class="cond-content">
+                        <div>
+                            <span class="cond-tag bg-kelistrikan"><i class="fas fa-car-battery"></i> KELISTRIKAN MESIN</span>
+                            <p>Perawatan sistem kelistrikan mesin agar semua komponen bekerja sempurna.</p>
+                        </div>
+                        <span class="cond-link">Lihat Detail &rarr;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-footer-box">
+                <i class="fas fa-info-circle"></i> Klik salah satu sistem di atas untuk melihat layanan yang tersedia dan estimasi pengerjaan.
+            </div>
+        </div>
+    </section>
     <!-- ALUR PROSES KERJA -->
     <section id="cara-kerja" class="workflow-section">
         <div class="container">
