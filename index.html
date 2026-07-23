@@ -1076,7 +1076,19 @@ function closeModal(modalId) {
         document.body.style.overflow = 'auto';
     }
 }
+// Fungsi Navigasi VG Tune
+function openVgTune() {
+    document.getElementById('modal-vgtune').style.display = 'block';
+    switchTuneView('tune-step-1');
+}
 
+function switchTuneView(viewId) {
+    const views = document.querySelectorAll('.tune-view');
+    views.forEach(view => {
+        view.style.display = 'none';
+    });
+    document.getElementById(viewId).style.display = 'block';
+}
 // Fungsi Sistem Kendaraan (3x3 Grid Bawah)
 function openSystemPopup(modalId) {
     const modal = document.getElementById(modalId);
