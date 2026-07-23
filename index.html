@@ -117,7 +117,182 @@
             </div>
         </div>
     </section>
+<!-- SECTION LAYANAN BERDASARKAN KONDISI MOBIL ANDA -->
+<section id="kondisi-mobil" class="system-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>LAYANAN BERDASARKAN <br><span style="color: #ff0000;">KONDISI MOBIL ANDA</span></h2>
+            <p style="color: #aaa; font-size: 0.95rem; margin-top: 5px;">Pilih sistem kendaraan yang bermasalah untuk melihat layanan yang tersedia.</p>
+        </div>
 
+        <!-- GRID 3x3 SISTEM KENDARAAN -->
+        <div class="system-grid-3x3">
+            <!-- 1. MESIN -->
+            <div class="sys-card sys-mesin" onclick="openSystemModal('mesin')">
+                <div class="sys-header"><i class="fas fa-cog"></i> MESIN</div>
+                <div class="sys-body">
+                    <p>Perawatan & perbaikan sistem mesin agar performa tetap optimal.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-mesin.jpg');"></div>
+            </div>
+
+            <!-- 2. PELUMASAN -->
+            <div class="sys-card sys-pelumasan" onclick="openSystemModal('pelumasan')">
+                <div class="sys-header"><i class="fas fa-oil-can"></i> PELUMASAN</div>
+                <div class="sys-body">
+                    <p>Ganti oli & perawatan sistem pelumasan untuk melindungi komponen kendaraan.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-pelumasan.jpg');"></div>
+            </div>
+
+            <!-- 3. BAHAN BAKAR -->
+            <div class="sys-card sys-bensin" onclick="openSystemModal('bahan_bakar')">
+                <div class="sys-header"><i class="fas fa-gas-pump"></i> BAHAN BAKAR</div>
+                <div class="sys-body">
+                    <p>Perawatan sistem bahan bakar agar pembakaran lebih efisien & irit.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-bensin.jpg');"></div>
+            </div>
+
+            <!-- 4. SUSPENSI -->
+            <div class="sys-card sys-suspensi" onclick="openSystemModal('suspensi')">
+                <div class="sys-header"><i class="fas fa-car-side"></i> SUSPENSI</div>
+                <div class="sys-body">
+                    <p>Menjaga kenyamanan & kestabilan kendaraan saat berkendara.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-suspensi.jpg');"></div>
+            </div>
+
+            <!-- 5. KEMUDI -->
+            <div class="sys-card sys-kemudi" onclick="openSystemModal('kemudi')">
+                <div class="sys-header"><i class="fas fa-crosshairs"></i> KEMUDI</div>
+                <div class="sys-body">
+                    <p>Perawatan sistem kemudi agar tetap presisi, ringan dan aman.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-kemudi.jpg');"></div>
+            </div>
+
+            <!-- 6. REM -->
+            <div class="sys-card sys-rem" onclick="openSystemModal('rem')">
+                <div class="sys-header"><i class="fas fa-stop-circle"></i> REM</div>
+                <div class="sys-body">
+                    <p>Perawatan sistem rem agar pengereman selalu optimal & aman.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-rem.jpg');"></div>
+            </div>
+
+            <!-- 7. PENDINGIN -->
+            <div class="sys-card sys-pendingin" onclick="openSystemModal('pendingin')">
+                <div class="sys-header"><i class="fas fa-thermometer-half"></i> PENDINGIN</div>
+                <div class="sys-body">
+                    <p>Menjaga suhu mesin tetap stabil dan mencegah overheat.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-pendingin.jpg');"></div>
+            </div>
+
+            <!-- 8. TRANSMISI -->
+            <div class="sys-card sys-transmisi" onclick="openSystemModal('transmisi')">
+                <div class="sys-header"><i class="fas fa-cogs"></i> TRANSMISI</div>
+                <div class="sys-body">
+                    <p>Perawatan transmisi agar perpindahan gigi halus & responsif.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-transmisi.jpg');"></div>
+            </div>
+
+            <!-- 9. KELISTRIKAN MESIN -->
+            <div class="sys-card sys-kelistrikan" onclick="openSystemModal('kelistrikan')">
+                <div class="sys-header"><i class="fas fa-battery-full"></i> KELISTRIKAN MESIN</div>
+                <div class="sys-body">
+                    <p>Perawatan sistem kelistrikan mesin agar semua komponen bekerja sempurna.</p>
+                    <button class="btn-sys-detail">DETAIL</button>
+                </div>
+                <div class="sys-bg-img" style="background-image: url('img-sys-kelistrikan.jpg');"></div>
+            </div>
+        </div>
+
+        <div class="sys-info-note">
+            <i class="fas fa-info-circle"></i> Klik salah satu sistem di atas untuk melihat layanan yang tersedia dan estimasi pengerjaan.
+        </div>
+    </div>
+</section>
+
+<!-- MODAL POPUP SYSTEM (FLOW BERTINGKAT STEP 1 - 4) -->
+<div id="system-dynamic-modal" class="custom-modal">
+    <div class="modal-dialog sys-modal-dialog">
+        <button class="modal-close" onclick="closeSystemModal()">&times;</button>
+        
+        <!-- STEP 1: PILIH KATEGORI (Perawatan, Penggantian, Perbaikan) -->
+        <div id="sys-step-1" class="sys-step-content active">
+            <div class="sys-modal-header">
+                <div class="sys-title-icon"><i id="step1-icon" class="fas fa-cog"></i> <span id="step1-title">MESIN</span></div>
+                <p id="step1-desc">Perawatan & Perbaikan Sistem Mesin</p>
+            </div>
+            <div class="sys-banner-image" id="step1-banner"></div>
+            <p class="sys-label-choose">Pilih kategori layanan</p>
+            <div class="sys-cat-list" id="step1-cat-list">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- STEP 2: PILIH LAYANAN -->
+        <div id="sys-step-2" class="sys-step-content">
+            <button class="btn-sys-back" onclick="goToSysStep(1)"><i class="fas fa-arrow-left"></i> Kembali ke Sistem</button>
+            <div class="sys-sub-header">
+                <h4 id="step2-cat-title">PENGGANTIAN KOMPONEN MESIN</h4>
+            </div>
+            <div class="sys-items-list" id="step2-items-list">
+                <!-- Injected via JavaScript -->
+            </div>
+            <button class="btn-sys-back-bottom" onclick="goToSysStep(1)"><i class="fas fa-arrow-left"></i> Kembali ke Sistem</button>
+        </div>
+
+        <!-- STEP 3 & 4: DETAIL LAYANAN -->
+        <div id="sys-step-3" class="sys-step-content">
+            <button class="btn-sys-back" onclick="goToSysStep(2)"><i class="fas fa-arrow-left"></i> Kembali ke Kategori</button>
+            <h3 class="sys-item-detail-title" id="step3-title">GANTI TIMING BELT</h3>
+            
+            <div class="sys-detail-banner" id="step3-banner"></div>
+
+            <div class="sys-detail-meta">
+                <div class="meta-row">
+                    <span><i class="fas fa-wallet"></i> ESTIMASI BIAYA</span>
+                    <strong id="step3-price" style="color: #ff0000;">Rp275K - Rp460K</strong>
+                </div>
+                <div class="meta-row">
+                    <span><i class="fas fa-clock"></i> ESTIMASI WAKTU</span>
+                    <strong id="step3-time">180 - 300 Menit</strong>
+                </div>
+                <div class="meta-row">
+                    <span><i class="fas fa-car"></i> TERGANTUNG</span>
+                    <strong id="step3-note">Jenis Kendaraan</strong>
+                </div>
+            </div>
+
+            <div class="sys-detail-includes">
+                <h4>MELIPUTI:</h4>
+                <ul id="step3-includes-list">
+                    <!-- Injected via JavaScript -->
+                </ul>
+            </div>
+
+            <div class="sys-detail-disclaimer">
+                <i class="fas fa-info-circle"></i> <span><strong>Catatan:</strong> Estimasi biaya & waktu dapat berubah tergantung jenis kendaraan dan kondisi.</span>
+            </div>
+
+            <a id="step3-wa-btn" href="#" target="_blank" class="btn-modal-wa"><i class="fab fa-whatsapp"></i> BOOKING VIA WHATSAPP</a>
+            <button class="btn-modal-close-action" onclick="closeSystemModal()">TUTUP</button>
+        </div>
+
+    </div>
+</div>
     <!-- ALUR PROSES KERJA -->
     <section id="cara-kerja" class="workflow-section">
         <div class="container">
