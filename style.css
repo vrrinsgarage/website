@@ -943,3 +943,12 @@ footer p {
   .cta-banner h2 { font-size: 1.5rem; }
   .popup-body { padding: 18px; }
 }
+/* Sembunyikan detail layanan secara default */
+.detail-layanan {
+    display: none;
+}
+
+/* Tampilkan saat aktif */
+.detail-layanan.active {
+    display: block;
+}
