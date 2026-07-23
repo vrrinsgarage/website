@@ -664,5 +664,209 @@ const SYSTEM_DATA = {
                 }
             ]
         }
+        // State Modal Bertingkat
+let currentSysKey = '';
+let currentCategoryGroup = '';
+
+// Buka Modal Dynamic System
+function openSystemModal(sysKey) {
+    if (!SYSTEM_DATA.categories[sysKey]) return;
+    
+    currentSysKey = sysKey;
+    const sysData = SYSTEM_DATA.categories[sysKey];
+
+    // Reset Visual & Injeksi Step 1
+    document.getElementById('step1-icon').className = sysData.icon;
+    document.getElementById('step1-title').innerText = sysData.title;
+    document.getElementById('step1-desc').innerText = "Perawatan & Perbaikan Sistem " + sysData.name;
+    document.getElementById('step1-banner').style.backgroundImage = `url('${sysData.image}')`;
+
+    // Kelompokkan Layanan berdasarkan Jenis (Perawatan, Penggantian, Perbaikan, Servis, dll)
+    const catTypes = [...new Set(sysData.services.map(s => s.category_type))];
+    const catListContainer = document.getElementById('step1-cat-list');
+    catListContainer.innerHTML = '';
+
+    catTypes.forEach(type => {
+        const count = sysData.services.filter(s => s.category_type === type).length;
+        const btn = document.createElement('button');
+        btn.className = 'sys-cat-btn';
+        btn.innerHTML = `${type.toUpperCase()} <span>(${count} Layanan) <i class="fas fa-chevron-right"></i></span>`;
+        btn.onclick = () => selectCategoryGroup(type);
+        catListContainer.appendChild(btn);
+    });
+
+    goToSysStep(1);
+    document.getElementById('system-dynamic-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Navigasi Langkah Modal (Step 1, 2, 3)
+function goToSysStep(stepNumber) {
+    document.querySelectorAll('#system-dynamic-modal .sys-step-content').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.getElementById(`sys-step-${stepNumber}`).classList.add('active');
+}
+
+// Langkah 2: Pilih Jenis Kategori Layanan
+function selectCategoryGroup(type) {
+    currentCategoryGroup = type;
+    const sysData = SYSTEM_DATA.categories[currentSysKey];
+    document.getElementById('step2-cat-title').innerText = `${type.toUpperCase()} (${sysData.name.toUpperCase()})`;
+
+    const filteredServices = sysData.services.filter(s => s.category_type === type);
+    const itemsListContainer = document.getElementById('step2-items-list');
+    itemsListContainer.innerHTML = '';
+
+    filteredServices.forEach(service => {
+        const row = document.createElement('div');
+        row.className = 'sys-item-row';
+        row.innerHTML = `
+            <div class="sys-item-info">
+                <h5>${service.name}</h5>
+                <p>${service.price}</p>
+                <small><i class="fas fa-clock"></i> ${service.time}</small>
+            </div>
+            <i class="fas fa-chevron-right" style="color:#666;"></i>
+        `;
+        row.onclick = () => selectServiceDetail(service);
+        itemsListContainer.appendChild(row);
+    });
+
+    goToSysStep(2);
+}
+
+// Langkah 3: Tampil Detail Layanan
+function selectServiceDetail(service) {
+    const sysData = SYSTEM_DATA.categories[currentSysKey];
+    
+    document.getElementById('step3-title').innerText = service.name.toUpperCase();
+    document.getElementById('step3-banner').style.backgroundImage = `url('${sysData.image}')`;
+    document.getElementById('step3-price').innerText = service.price;
+    document.getElementById('step3-time').innerText = service.time;
+    document.getElementById('step3-note').innerText = service.note || 'Jenis Kendaraan';
+
+    const includesList = document.getElementById('step3-includes-list');
+    includesList.innerHTML = '';
+    (service.includes || []).forEach(inc => {
+        const li = document.createElement('li');
+        li.innerText = inc;
+        includesList.appendChild(li);
+    });
+
+    // Set Tombol WhatsApp Pesan Otomatis
+    const waText = encodeURIComponent(`Halo VRRins Garage, saya ingin booking layanan: ${service.name} (${sysData.name})`);
+    document.getElementById('step3-wa-btn').href = `https://wa.me/62895622499262?text=${waText}`;
+
+    goToSysStep(3);
+}
+
+// Tutup Modal System Dynamic
+function closeSystemModal() {
+    document.getElementById('system-dynamic-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
     }
 };
+// State Modal Bertingkat
+let currentSysKey = '';
+let currentCategoryGroup = '';
+
+// Buka Modal Dynamic System
+function openSystemModal(sysKey) {
+    if (!SYSTEM_DATA.categories[sysKey]) return;
+    
+    currentSysKey = sysKey;
+    const sysData = SYSTEM_DATA.categories[sysKey];
+
+    // Reset Visual & Injeksi Step 1
+    document.getElementById('step1-icon').className = sysData.icon;
+    document.getElementById('step1-title').innerText = sysData.title;
+    document.getElementById('step1-desc').innerText = "Perawatan & Perbaikan Sistem " + sysData.name;
+    document.getElementById('step1-banner').style.backgroundImage = `url('${sysData.image}')`;
+
+    // Kelompokkan Layanan berdasarkan Jenis (Perawatan, Penggantian, Perbaikan, Servis, dll)
+    const catTypes = [...new Set(sysData.services.map(s => s.category_type))];
+    const catListContainer = document.getElementById('step1-cat-list');
+    catListContainer.innerHTML = '';
+
+    catTypes.forEach(type => {
+        const count = sysData.services.filter(s => s.category_type === type).length;
+        const btn = document.createElement('button');
+        btn.className = 'sys-cat-btn';
+        btn.innerHTML = `${type.toUpperCase()} <span>(${count} Layanan) <i class="fas fa-chevron-right"></i></span>`;
+        btn.onclick = () => selectCategoryGroup(type);
+        catListContainer.appendChild(btn);
+    });
+
+    goToSysStep(1);
+    document.getElementById('system-dynamic-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Navigasi Langkah Modal (Step 1, 2, 3)
+function goToSysStep(stepNumber) {
+    document.querySelectorAll('#system-dynamic-modal .sys-step-content').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.getElementById(`sys-step-${stepNumber}`).classList.add('active');
+}
+
+// Langkah 2: Pilih Jenis Kategori Layanan
+function selectCategoryGroup(type) {
+    currentCategoryGroup = type;
+    const sysData = SYSTEM_DATA.categories[currentSysKey];
+    document.getElementById('step2-cat-title').innerText = `${type.toUpperCase()} (${sysData.name.toUpperCase()})`;
+
+    const filteredServices = sysData.services.filter(s => s.category_type === type);
+    const itemsListContainer = document.getElementById('step2-items-list');
+    itemsListContainer.innerHTML = '';
+
+    filteredServices.forEach(service => {
+        const row = document.createElement('div');
+        row.className = 'sys-item-row';
+        row.innerHTML = `
+            <div class="sys-item-info">
+                <h5>${service.name}</h5>
+                <p>${service.price}</p>
+                <small><i class="fas fa-clock"></i> ${service.time}</small>
+            </div>
+            <i class="fas fa-chevron-right" style="color:#666;"></i>
+        `;
+        row.onclick = () => selectServiceDetail(service);
+        itemsListContainer.appendChild(row);
+    });
+
+    goToSysStep(2);
+}
+
+// Langkah 3: Tampil Detail Layanan
+function selectServiceDetail(service) {
+    const sysData = SYSTEM_DATA.categories[currentSysKey];
+    
+    document.getElementById('step3-title').innerText = service.name.toUpperCase();
+    document.getElementById('step3-banner').style.backgroundImage = `url('${sysData.image}')`;
+    document.getElementById('step3-price').innerText = service.price;
+    document.getElementById('step3-time').innerText = service.time;
+    document.getElementById('step3-note').innerText = service.note || 'Jenis Kendaraan';
+
+    const includesList = document.getElementById('step3-includes-list');
+    includesList.innerHTML = '';
+    (service.includes || []).forEach(inc => {
+        const li = document.createElement('li');
+        li.innerText = inc;
+        includesList.appendChild(li);
+    });
+
+    // Set Tombol WhatsApp Pesan Otomatis
+    const waText = encodeURIComponent(`Halo VRRins Garage, saya ingin booking layanan: ${service.name} (${sysData.name})`);
+    document.getElementById('step3-wa-btn').href = `https://wa.me/62895622499262?text=${waText}`;
+
+    goToSysStep(3);
+}
+
+// Tutup Modal System Dynamic
+function closeSystemModal() {
+    document.getElementById('system-dynamic-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
