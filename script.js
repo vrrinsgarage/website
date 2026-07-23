@@ -391,7 +391,14 @@ function closeModal() {
   const modal = document.getElementById('service-modal');
   if(modal) modal.classList.remove('active');
   document.body.style.overflow = 'auto';
+  
+  // Menambahkan perintah kembali ke halaman utama (paling atas) secara halus
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
+
 /* ==========================================
    3. FITUR UTAMA & INTERAKTIF LAINNYA
    ========================================== */
