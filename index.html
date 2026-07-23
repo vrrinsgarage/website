@@ -731,6 +731,84 @@
                 document.body.style.overflow = 'auto';
             }
         }
-    </script>
+        <!-- SYSTEM DYNAMIC MODAL (BERTINGKAT) -->
+<div id="system-dynamic-modal" class="sys-modal">
+    <div class="sys-modal-overlay" onclick="closeSystemModal()"></div>
+    <div class="sys-modal-content">
+        <button class="sys-modal-close" onclick="closeSystemModal()">&times;</button>
+        
+        <!-- STEP 1: Pilih Jenis Kategori Layanan -->
+        <div id="sys-step-1" class="sys-step-content active">
+            <div id="step1-banner" class="sys-modal-banner">
+                <div class="sys-banner-overlay">
+                    <i id="step1-icon" class="fas fa-cog"></i>
+                    <h3 id="step1-title">MESIN</h3>
+                    <p id="step1-desc">Perawatan & Perbaikan Sistem Mesin</p>
+                </div>
+            </div>
+            <div class="sys-modal-body">
+                <h4 class="sys-section-label">PILIH KATEGORI LAYANAN:</h4>
+                <div id="step1-cat-list" class="sys-cat-grid">
+                    <!-- Injeksi Dinamis via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Daftar Item Layanan berdasarkan Kategori -->
+        <div id="sys-step-2" class="sys-step-content">
+            <div class="sys-modal-header-nav">
+                <button class="sys-btn-back" onclick="goToSysStep(1)">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <h4 id="step2-cat-title">PERAWATAN (MESIN)</h4>
+            </div>
+            <div class="sys-modal-body">
+                <div id="step2-items-list" class="sys-items-list">
+                    <!-- Injeksi Dinamis via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: Detail Layanan & Tombol Booking -->
+        <div id="sys-step-3" class="sys-step-content">
+            <div class="sys-modal-header-nav">
+                <button class="sys-btn-back" onclick="goToSysStep(2)">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+            </div>
+            <div id="step3-banner" class="sys-modal-banner sys-banner-small">
+                <div class="sys-banner-overlay">
+                    <h3 id="step3-title">FLUSHING OLI MESIN</h3>
+                </div>
+            </div>
+            <div class="sys-modal-body">
+                <div class="sys-detail-card">
+                    <div class="sys-price-box">
+                        <span class="label">ESTIMASI BIAYA</span>
+                        <h2 id="step3-price">Rp150K – Rp300K</h2>
+                        <small id="step3-note">*Tergantung jenis kendaraan</small>
+                    </div>
+                    <div class="sys-meta-info">
+                        <p><i class="fas fa-clock"></i> Estimasi Waktu: <strong id="step3-time">30–60 Menit</strong></p>
+                    </div>
+                    <hr class="sys-divider">
+                    <div class="sys-includes-box">
+                        <h5>LAYANAN TERMASUK:</h5>
+                        <ul id="step3-includes-list">
+                            <!-- Injeksi Dinamis via JS -->
+                        </ul>
+                    </div>
+                    <div class="sys-action-box">
+                        <a id="step3-wa-btn" href="#" target="_blank" class="sys-btn-booking">
+                            <i class="fab fa-whatsapp"></i> Booking via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <script src="system-data.js"></script>
 </body>
 </html>
