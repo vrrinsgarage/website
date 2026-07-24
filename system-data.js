@@ -870,3 +870,51 @@ function closeSystemModal() {
     document.getElementById('system-dynamic-modal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+// ==========================================
+// AUTOMATIC BUTTON LINKING (AUTO-FIX)
+// ==========================================
+document.addEventListener("DOMContentLoaded", function () {
+    // Mapping kata kunci ke ID Kategori
+    const categoryMap = {
+        'mesin': 'mesin',
+        'pelumasan': 'pelumasan',
+        'bahan bakar': 'bahanbakar',
+        'suspensi': 'suspensi',
+        'kemudi': 'kemudi',
+        'rem': 'rem',
+        'brake': 'rem',
+        'pendingin': 'pendingin',
+        'transmisi': 'transmisi',
+        'kelistrikan': 'kelistrikan',
+        'check': 'check'
+    };
+
+    // 1. Perbaiki semua tombol di dalam card/layanan
+    const cards = document.querySelectorAll('.card, .service-card, .system-card, [class*="-card"]');
+    cards.forEach(card => {
+        const titleText = (card.querySelector('h3, h4, h5')?.innerText || '').toLowerCase();
+        const btn = card.querySelector('button, a, .btn-card, .btn');
+
+        if (btn) {
+            let matchedCat = '';
+            for (let key in categoryMap) {
+                if (titleText.includes(key)) {
+                    matchedCat = categoryMap[key];
+                    break;
+                }
+            }
+
+            btn.setAttribute('onclick', matchedCat ? `openSysModal('items', '${matchedCat}')` : `openSysModal()`);
+            if (btn.tagName === 'A') btn.setAttribute('href', 'javascript:void(0)');
+        }
+    });
+
+    // 2. Perbaiki tombol LIHAT LAYANAN di Banner
+    const heroBtns = document.querySelectorAll('a[href*="layanan"], button');
+    heroBtns.forEach(btn => {
+        if (btn.innerText.toLowerCase().includes('lihat layanan')) {
+            btn.setAttribute('onclick', "openSysModal()");
+            if (btn.tagName === 'A') btn.setAttribute('href', 'javascript:void(0)');
+        }
+    });
+});
